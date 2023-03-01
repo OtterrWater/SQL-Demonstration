@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQL_Injection_Phase1_440", "SQL_Injection_Phase1_440.csproj", "{372E0F37-38A2-4345-8D72-C183A8B2F5FC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{372E0F37-38A2-4345-8D72-C183A8B2F5FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{372E0F37-38A2-4345-8D72-C183A8B2F5FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{372E0F37-38A2-4345-8D72-C183A8B2F5FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{372E0F37-38A2-4345-8D72-C183A8B2F5FC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7F8B4979-8C99-45CF-95D4-87613B3229ED}
+	EndGlobalSection
+EndGlobal
