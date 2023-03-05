@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SQL_Injection_Phase1_440
 {
-    public partial class Form1 : Form
+    public partial class SignUpOrLog : Form
     {
-        public Form1()
+        public SignUpOrLog()
         {
             InitializeComponent();
         }
@@ -73,6 +73,11 @@ namespace SQL_Injection_Phase1_440
         }
 
         private void label1_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }
