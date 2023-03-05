@@ -15,7 +15,7 @@ namespace SQL_Injection_Phase1_440.Data
         static string server = "127.0.0.1;";
         static string database = "project_phase_1_db;";
         static string Uid = "root;";
-        static string password = "doggyboy1;";
+        static string password = "123;";
         //this is where the info is taken to 
         public static MySqlConnection dataSource()
         {
