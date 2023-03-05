@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Windowss\IntaliizeDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windowss\IntaliizeDB.Designer.cs">
+      <DependentUpon>IntaliizeDB.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windowss\Database.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +79,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Windowss\IntaliizeDB.resx">
+      <DependentUpon>IntaliizeDB.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Windowss\Database.resx">
       <DependentUpon>Database.cs</DependentUpon>
     </EmbeddedResource>

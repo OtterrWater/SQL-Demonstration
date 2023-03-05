@@ -16,8 +16,8 @@ namespace SQL_Injection_Phase1_440
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            SignUpOrLog ls = new SignUpOrLog();
-            ls.Show();
+            IntaliizeDB db = new IntaliizeDB();
+            db.Show();
             Application.Run();
         }
     }

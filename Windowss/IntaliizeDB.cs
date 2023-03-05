@@ -10,29 +10,19 @@ using System.Windows.Forms;
 
 namespace SQL_Injection_Phase1_440
 {
-    public partial class Database : Form
+    public partial class IntaliizeDB : Form
     {
-        public Database()
+        public IntaliizeDB()
         {
             InitializeComponent();
         }
 
-        private void Database_Load(object sender, EventArgs e)
+        private void IntaliizeDB_Load(object sender, EventArgs e)
         {
 
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void Database_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            
-        }
-
-        private void button2_Click(object sender, EventArgs e)
         {
             SignUpOrLog sl = new SignUpOrLog();
             sl.Show();

@@ -88,5 +88,15 @@ namespace SQL_Injection_Phase1_440
             //before closing intialzie database
             this.Close();
         }
+
+        private void SignUpOrLog_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
