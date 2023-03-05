@@ -19,7 +19,7 @@ namespace SQL_Injection_Phase1_440
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("You have signed up!");
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -64,7 +64,7 @@ namespace SQL_Injection_Phase1_440
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)

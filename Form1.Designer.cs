@@ -39,7 +39,7 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.em_input = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.enter_UserInfo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -142,23 +142,24 @@
             this.textBox5.TabIndex = 2;
             this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
-            // label1
+            // enter_UserInfo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label1.Location = new System.Drawing.Point(32, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(171, 20);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Enter User Information";
-            this.label1.Click += new System.EventHandler(this.label1_Click_2);
+            this.enter_UserInfo.AutoSize = true;
+            this.enter_UserInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.enter_UserInfo.Location = new System.Drawing.Point(32, 16);
+            this.enter_UserInfo.Name = "enter_UserInfo";
+            this.enter_UserInfo.Size = new System.Drawing.Size(171, 20);
+            this.enter_UserInfo.TabIndex = 11;
+            this.enter_UserInfo.Tag = "EnterUserInfo";
+            this.enter_UserInfo.Text = "Enter User Information";
+            this.enter_UserInfo.Click += new System.EventHandler(this.label1_Click_2);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(241, 246);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.enter_UserInfo);
             this.Controls.Add(this.em_input);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.un_input);
@@ -173,7 +174,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.Text = "Input Information";
+            this.Text = "SignUp";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -193,7 +194,7 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label em_input;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label enter_UserInfo;
     }
 }
 
