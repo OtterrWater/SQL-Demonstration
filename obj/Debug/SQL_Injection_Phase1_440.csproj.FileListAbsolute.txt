@@ -22,3 +22,4 @@ C:\Users\Wakab\Desktop\Code\SQL\SQL_Injection_Phase1_440\obj\Debug\SQL_Injection
 C:\Users\Wakab\Desktop\Code\SQL\SQL_Injection_Phase1_440\obj\Debug\SQL_Injection_Phase1_440.SignUpOrLog.resources
 C:\Users\Wakab\Desktop\Code\SQL\SQL_Injection_Phase1_440\obj\Debug\SQL_Injection_Phase1_440.SignUp.resources
 C:\Users\Wakab\Desktop\Code\SQL\SQL_Injection_Phase1_440\obj\Debug\SQL_Injection_Phase1_440.Login.resources
+C:\Users\Wakab\Desktop\Code\SQL\SQL_Injection_Phase1_440\obj\Debug\SQL_Injection_Phase1_440.Database.resources

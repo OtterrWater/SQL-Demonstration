@@ -21,5 +21,12 @@ namespace SQL_Injection_Phase1_440
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Database d = new Database();
+            d.Show();
+            this.Close();
+        }
     }
 }

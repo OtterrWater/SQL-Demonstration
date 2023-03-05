@@ -19,7 +19,11 @@ namespace SQL_Injection_Phase1_440
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("You have signed up!");
+            SignUp s = new SignUp();
+            s.Show();
+            //before closing intialize database
+            this.Close();
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -79,7 +83,10 @@ namespace SQL_Injection_Phase1_440
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            Login l = new Login();
+            l.Show();
+            //before closing intialzie database
+            this.Close();
         }
     }
 }

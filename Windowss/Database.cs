@@ -10,19 +10,14 @@ using System.Windows.Forms;
 
 namespace SQL_Injection_Phase1_440
 {
-    public partial class SignUp : Form
+    public partial class Database : Form
     {
-        public SignUp()
+        public Database()
         {
             InitializeComponent();
         }
 
-        private void SignUp_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
+        private void Database_Load(object sender, EventArgs e)
         {
 
         }
