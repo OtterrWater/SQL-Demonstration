@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Data.Odbc;
 
 namespace SQL_Injection_Phase1_440
 {
@@ -33,13 +36,17 @@ namespace SQL_Injection_Phase1_440
             //once the button is clicked we try to connect
             try
             {
-                //
+                //provides info for the connection
                 Data.Connection.dataSource();
+
                 //this opens up the connection
                 con.connOpen();
+         
                 //if we have connected succesfully we display success
                 conSuccess.Visible = true;
                 conError.Visible = false;
+
+                
             }
             //if the connection was not succesful we come here
             catch (Exception)
@@ -70,5 +77,6 @@ namespace SQL_Injection_Phase1_440
         {
 
         }
+
     }
 }

@@ -28,21 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.InitalizeDB = new System.Windows.Forms.Button();
             this.conError = new System.Windows.Forms.Label();
             this.conSuccess = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // button1
+            // InitalizeDB
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(93, 75);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(160, 49);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Initalize Database";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.InitalizeDB.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InitalizeDB.Location = new System.Drawing.Point(93, 75);
+            this.InitalizeDB.Name = "InitalizeDB";
+            this.InitalizeDB.Size = new System.Drawing.Size(160, 49);
+            this.InitalizeDB.TabIndex = 0;
+            this.InitalizeDB.Text = "Initalize Database";
+            this.InitalizeDB.UseVisualStyleBackColor = true;
+            this.InitalizeDB.Click += new System.EventHandler(this.Button1_Click);
             // 
             // conError
             // 
@@ -68,14 +69,22 @@
             this.conSuccess.Text = "Succes!";
             this.conSuccess.Click += new System.EventHandler(this.conSuccess_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(130, 32);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 3;
+            // 
             // IntaliizeDB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(341, 193);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.conSuccess);
             this.Controls.Add(this.conError);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.InitalizeDB);
             this.Name = "IntaliizeDB";
             this.Text = "Connection to MySQL";
             this.Load += new System.EventHandler(this.IntaliizeDB_Load);
@@ -86,8 +95,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button InitalizeDB;
         private System.Windows.Forms.Label conError;
         private System.Windows.Forms.Label conSuccess;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
