@@ -29,10 +29,6 @@ namespace SQL_Injection_Phase1_440
         static MySqlConnection connection = new MySqlConnection(connectionString);
         MySqlCommand dropTableCommand = new MySqlCommand(dropTableQuery, connection);
         MySqlCommand createTableCommand = new MySqlCommand(createTableQuery, connection);
-
-
-        //we call the connection class and make con to call the functions
-        //Data.Connection con = new Data.Connection();
         public IntaliizeDB()
         {
             InitializeComponent();
@@ -101,9 +97,6 @@ namespace SQL_Injection_Phase1_440
                 SignUpOrLog sl = new SignUpOrLog();
                 sl.Show();
             }
-           
-            
-           
         }
 
         private void label1_Click(object sender, EventArgs e)

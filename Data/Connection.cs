@@ -22,7 +22,7 @@ namespace SQL_Injection_Phase1_440.Data
         //this is where the info is taken to 
         public static MySqlConnection dataSource()
         {
-            connMaster = new MySqlConnection($"server = {server} database = {database} Uid = {Uid} password = {password}");
+            connMaster = new MySqlConnection("Server=127.0.0.1;Database=project_phase_1_db;Uid=root;Pwd=123;");
             return connMaster;
         }
         //opens up the connection
@@ -37,5 +37,11 @@ namespace SQL_Injection_Phase1_440.Data
             dataSource();
             connMaster.Close(); 
         }
+        // declarations
+        private string _user = "Server=127.0.0.1;Database=project_phase_1_db;Uid=root;Pwd=123;";
+
+        // properties
+        public string User { get { return this._user; } set { this._user = value; } }
+
     }
 }
