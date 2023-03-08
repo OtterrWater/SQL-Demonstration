@@ -44,6 +44,7 @@
             this.textcheckPass = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.fnR = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -201,12 +202,26 @@
             this.button2.TabIndex = 15;
             this.button2.Text = "CANCEL";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // fnR
+            // 
+            this.fnR.AutoSize = true;
+            this.fnR.BackColor = System.Drawing.Color.BurlyWood;
+            this.fnR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fnR.ForeColor = System.Drawing.Color.Red;
+            this.fnR.Location = new System.Drawing.Point(24, 80);
+            this.fnR.Name = "fnR";
+            this.fnR.Size = new System.Drawing.Size(15, 20);
+            this.fnR.TabIndex = 16;
+            this.fnR.Text = "*";
             // 
             // SignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(396, 478);
+            this.Controls.Add(this.fnR);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textcheckPass);
             this.Controls.Add(this.label2);
@@ -251,5 +266,6 @@
         private System.Windows.Forms.TextBox textcheckPass;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label fnR;
     }
 }
