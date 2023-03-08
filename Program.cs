@@ -16,7 +16,9 @@ namespace SQL_Injection_Phase1_440
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            IntaliizeDB db = new IntaliizeDB();
+            db.Show();
+            Application.Run();
         }
     }
 }
