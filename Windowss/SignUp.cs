@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace SQL_Injection_Phase1_440
 {
@@ -38,6 +40,26 @@ namespace SQL_Injection_Phase1_440
             Login l = new Login();
             l.Show();
             this.Close();
+        }
+
+        private void textFN_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textPass_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textLN_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
