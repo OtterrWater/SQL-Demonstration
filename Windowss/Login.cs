@@ -50,6 +50,7 @@ namespace SQL_Injection_Phase1_440
             if (string.IsNullOrEmpty(txtUsername.Text) || string.IsNullOrEmpty(txtPassword.Text))
             {
                 MessageBox.Show("Please input Username and Password");
+                connection.Close();
             }
             //if user did put something then we come here
             else
