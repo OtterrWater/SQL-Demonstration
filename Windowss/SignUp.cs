@@ -40,62 +40,107 @@ namespace SQL_Injection_Phase1_440
             string inputType = "";
             if (string.IsNullOrEmpty(textFN.Text))
             {
+                fnR.Visible = true;
+                fnR.ForeColor = Color.Red;
+                fnR.Text = "*";
                 inputType = "Fname";
             }
-            else if (string.IsNullOrEmpty(textLN.Text))
+            else
             {
-                inputType = "Lname";
-            }
-            else if (string.IsNullOrEmpty(textEmail.Text))
-            {
-                inputType = "email";
-            }
-            else if (string.IsNullOrEmpty(textUsername.Text))
-            {
-                inputType = "username";
-            }
-            else if (string.IsNullOrEmpty(textPass.Text))
-            {
-                inputType = "password";
-            }
-            else if (string.IsNullOrEmpty(textcheckPass.Text))
-            {
-                inputType = "checkpassword";
+                fnR.Visible = false;
             }
 
-            switch (inputType)
+            if (string.IsNullOrEmpty(textLN.Text))
             {
-                case "Fname":
-                    MessageBox.Show("Please enter first name");
-                    break;
-                case "Lname":
-                    MessageBox.Show("Please enter last name");
-                    break;
-                case "email":
-                    MessageBox.Show("Please enter email address");
-                    break;
-                case "username":
-                    MessageBox.Show("Please enter username");
-                    break;
-                case "password":
-                    MessageBox.Show("Please enter password");
-                    break;
-                case "checkpassword":
-                    MessageBox.Show("Please enter password");
-                    break;
-                default:
-                    if (inputType != "")
-                    {
-                        MessageBox.Show("Unknown input type: " + inputType);
-                    }
-                    else
-                    {
-                        MessageBox.Show("sign up completed!");
-                        Login l = new Login();
-                        l.Show();
-                        this.Close();
-                    }
-                    break;
+                lnR.Visible = true;
+                lnR.ForeColor = Color.Red;
+                lnR.Text = "*";
+                inputType = "Lname";
+            }
+            else
+            {
+                lnR.Visible = false;
+            }
+
+            if (string.IsNullOrEmpty(textEmail.Text))
+            {
+                emR.Visible = true;
+                emR.ForeColor = Color.Red;
+                emR.Text = "*";
+                inputType = "email";
+            }
+            else if (!textEmail.Text.Contains("@") || !textEmail.Text.Contains(".com"))
+            {
+                emR.Visible = true;
+                emR.ForeColor = Color.Red;
+                emR.Text = "*";
+                U_error.Visible = true;
+                U_error.ForeColor = Color.Red;
+                U_error.Text = "Please enter a valid email address";
+                inputType = "email";
+            }
+            else
+            {
+                emR.Visible = false;
+                U_error.Visible = false;
+            }
+
+            if (string.IsNullOrEmpty(textUsername.Text))
+            {
+                usR.Visible = true;
+                usR.ForeColor = Color.Red;
+                usR.Text = "*";
+                inputType = "username";
+            }
+            else
+            {
+                usR.Visible = false;
+            }
+            
+            if (string.IsNullOrEmpty(textPass.Text) || textcheckPass.Text != textPass.Text)
+            {
+                pwR.Visible = true;
+                pwR.ForeColor = Color.Red;
+                pwR.Text = "*";
+                inputType = "password";
+            }
+            else
+            {
+                pwR.Visible = false;
+            }
+            
+            if (string.IsNullOrEmpty(textcheckPass.Text))
+            {
+                r_pwR.Visible = true;
+                r_pwR.ForeColor = Color.Red;
+                r_pwR.Text = "*";
+                inputType = "checkpassword";
+            }else if (textcheckPass.Text != textPass.Text)
+            {
+                r_pwR.Visible = true;
+                r_pwR.ForeColor = Color.Red;
+                r_pwR.Text = "*";
+                p_error.Visible = true;
+                p_error.ForeColor = Color.Red;
+                p_error.Text = "Password does not match";
+                inputType = "checkpassword";
+            }
+            else
+            {
+                p_error.Visible = false;
+                r_pwR.Visible = false;
+            }
+
+            if (inputType != "")
+            {
+                MessageBox.Show("Please fill in missing credentials");
+            }
+            else
+            {
+                MessageBox.Show("sign up completed!");
+                Login l = new Login();
+                l.Show();
+                this.Close();
             }
         }
 
@@ -125,6 +170,11 @@ namespace SQL_Injection_Phase1_440
             Login l = new Login();
             l.Show();
             this.Close();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
