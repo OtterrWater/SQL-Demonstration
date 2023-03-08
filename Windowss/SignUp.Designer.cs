@@ -45,6 +45,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.fnR = new System.Windows.Forms.Label();
+            this.lnR = new System.Windows.Forms.Label();
+            this.emR = new System.Windows.Forms.Label();
+            this.usR = new System.Windows.Forms.Label();
+            this.pwR = new System.Windows.Forms.Label();
+            this.r_pwR = new System.Windows.Forms.Label();
+            this.U_error = new System.Windows.Forms.Label();
+            this.p_error = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,7 +73,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(168, 48);
             this.button1.TabIndex = 2;
-            this.button1.Text = "Enter";
+            this.button1.Text = "ENTER";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -75,7 +82,6 @@
             this.textFN.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textFN.Location = new System.Drawing.Point(40, 80);
             this.textFN.Name = "textFN";
-            this.textFN.PasswordChar = '*';
             this.textFN.Size = new System.Drawing.Size(320, 29);
             this.textFN.TabIndex = 3;
             this.textFN.TextChanged += new System.EventHandler(this.textFN_TextChanged);
@@ -121,6 +127,7 @@
             this.textPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textPass.Location = new System.Drawing.Point(40, 304);
             this.textPass.Name = "textPass";
+            this.textPass.PasswordChar = '*';
             this.textPass.Size = new System.Drawing.Size(320, 29);
             this.textPass.TabIndex = 11;
             this.textPass.TextChanged += new System.EventHandler(this.textPass_TextChanged);
@@ -174,12 +181,14 @@
             this.pictureBox1.Size = new System.Drawing.Size(360, 360);
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // textcheckPass
             // 
             this.textcheckPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textcheckPass.Location = new System.Drawing.Point(40, 360);
             this.textcheckPass.Name = "textcheckPass";
+            this.textcheckPass.PasswordChar = '*';
             this.textcheckPass.Size = new System.Drawing.Size(320, 29);
             this.textcheckPass.TabIndex = 14;
             // 
@@ -212,15 +221,94 @@
             this.fnR.ForeColor = System.Drawing.Color.Red;
             this.fnR.Location = new System.Drawing.Point(24, 80);
             this.fnR.Name = "fnR";
-            this.fnR.Size = new System.Drawing.Size(15, 20);
+            this.fnR.Size = new System.Drawing.Size(0, 20);
             this.fnR.TabIndex = 16;
-            this.fnR.Text = "*";
+            // 
+            // lnR
+            // 
+            this.lnR.AutoSize = true;
+            this.lnR.BackColor = System.Drawing.Color.BurlyWood;
+            this.lnR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnR.ForeColor = System.Drawing.Color.Red;
+            this.lnR.Location = new System.Drawing.Point(24, 136);
+            this.lnR.Name = "lnR";
+            this.lnR.Size = new System.Drawing.Size(0, 20);
+            this.lnR.TabIndex = 17;
+            // 
+            // emR
+            // 
+            this.emR.AutoSize = true;
+            this.emR.BackColor = System.Drawing.Color.BurlyWood;
+            this.emR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emR.ForeColor = System.Drawing.Color.Red;
+            this.emR.Location = new System.Drawing.Point(24, 192);
+            this.emR.Name = "emR";
+            this.emR.Size = new System.Drawing.Size(0, 20);
+            this.emR.TabIndex = 18;
+            // 
+            // usR
+            // 
+            this.usR.AutoSize = true;
+            this.usR.BackColor = System.Drawing.Color.BurlyWood;
+            this.usR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usR.ForeColor = System.Drawing.Color.Red;
+            this.usR.Location = new System.Drawing.Point(24, 248);
+            this.usR.Name = "usR";
+            this.usR.Size = new System.Drawing.Size(0, 20);
+            this.usR.TabIndex = 19;
+            // 
+            // pwR
+            // 
+            this.pwR.AutoSize = true;
+            this.pwR.BackColor = System.Drawing.Color.BurlyWood;
+            this.pwR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwR.ForeColor = System.Drawing.Color.Red;
+            this.pwR.Location = new System.Drawing.Point(24, 304);
+            this.pwR.Name = "pwR";
+            this.pwR.Size = new System.Drawing.Size(0, 20);
+            this.pwR.TabIndex = 20;
+            // 
+            // r_pwR
+            // 
+            this.r_pwR.AutoSize = true;
+            this.r_pwR.BackColor = System.Drawing.Color.BurlyWood;
+            this.r_pwR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.r_pwR.ForeColor = System.Drawing.Color.Red;
+            this.r_pwR.Location = new System.Drawing.Point(24, 360);
+            this.r_pwR.Name = "r_pwR";
+            this.r_pwR.Size = new System.Drawing.Size(0, 20);
+            this.r_pwR.TabIndex = 21;
+            // 
+            // U_error
+            // 
+            this.U_error.AutoSize = true;
+            this.U_error.BackColor = System.Drawing.Color.BurlyWood;
+            this.U_error.Location = new System.Drawing.Point(80, 176);
+            this.U_error.Name = "U_error";
+            this.U_error.Size = new System.Drawing.Size(0, 13);
+            this.U_error.TabIndex = 22;
+            // 
+            // p_error
+            // 
+            this.p_error.AutoSize = true;
+            this.p_error.BackColor = System.Drawing.Color.BurlyWood;
+            this.p_error.Location = new System.Drawing.Point(144, 344);
+            this.p_error.Name = "p_error";
+            this.p_error.Size = new System.Drawing.Size(0, 13);
+            this.p_error.TabIndex = 23;
             // 
             // SignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(396, 478);
+            this.Controls.Add(this.p_error);
+            this.Controls.Add(this.U_error);
+            this.Controls.Add(this.r_pwR);
+            this.Controls.Add(this.pwR);
+            this.Controls.Add(this.usR);
+            this.Controls.Add(this.emR);
+            this.Controls.Add(this.lnR);
             this.Controls.Add(this.fnR);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textcheckPass);
@@ -267,5 +355,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label fnR;
+        private System.Windows.Forms.Label lnR;
+        private System.Windows.Forms.Label emR;
+        private System.Windows.Forms.Label usR;
+        private System.Windows.Forms.Label pwR;
+        private System.Windows.Forms.Label r_pwR;
+        private System.Windows.Forms.Label U_error;
+        private System.Windows.Forms.Label p_error;
     }
 }

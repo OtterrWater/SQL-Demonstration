@@ -87,7 +87,7 @@ namespace SQL_Injection_Phase1_440
                 //sl.Show();
                 Login l = new Login();
                 l.Show();
-                this.Close();
+                //this.Close();
             }
         }
 
