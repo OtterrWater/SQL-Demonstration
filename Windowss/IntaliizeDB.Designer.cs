@@ -70,9 +70,9 @@
             this.conSuccess.ForeColor = System.Drawing.Color.SeaGreen;
             this.conSuccess.Location = new System.Drawing.Point(152, 408);
             this.conSuccess.Name = "conSuccess";
-            this.conSuccess.Size = new System.Drawing.Size(89, 25);
+            this.conSuccess.Size = new System.Drawing.Size(100, 25);
             this.conSuccess.TabIndex = 2;
-            this.conSuccess.Text = "Succes!";
+            this.conSuccess.Text = "Success!";
             this.conSuccess.Click += new System.EventHandler(this.ConSuccess_Click);
             // 
             // pictureBox1
