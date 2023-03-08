@@ -47,3 +47,4 @@ C:\Users\Wakab\Desktop\Code\SQL\SQL_Injection_Phase1_440\bin\Debug\System.Memory
 C:\Users\Wakab\Desktop\Code\SQL\SQL_Injection_Phase1_440\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\Wakab\Desktop\Code\SQL\SQL_Injection_Phase1_440\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Wakab\Desktop\Code\SQL\SQL_Injection_Phase1_440\obj\Debug\SQL_Injection_Phase1_440.csproj.CopyComplete
+C:\Users\Wakab\Desktop\Code\SQL\SQL_Injection_Phase1_440\obj\Debug\SQL_Injection_Phase1_440.UserDatabase.resources

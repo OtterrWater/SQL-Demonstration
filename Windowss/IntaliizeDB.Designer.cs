@@ -55,7 +55,7 @@
             this.conError.Size = new System.Drawing.Size(171, 25);
             this.conError.TabIndex = 1;
             this.conError.Text = "Error to connect!";
-            this.conError.Click += new System.EventHandler(this.label1_Click);
+            this.conError.Click += new System.EventHandler(this.Label1_Click);
             // 
             // conSuccess
             // 
@@ -67,7 +67,7 @@
             this.conSuccess.Size = new System.Drawing.Size(89, 25);
             this.conSuccess.TabIndex = 2;
             this.conSuccess.Text = "Succes!";
-            this.conSuccess.Click += new System.EventHandler(this.conSuccess_Click);
+            this.conSuccess.Click += new System.EventHandler(this.ConSuccess_Click);
             // 
             // textBox1
             // 

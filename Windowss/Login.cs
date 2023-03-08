@@ -16,6 +16,7 @@ namespace SQL_Injection_Phase1_440
 {
     public partial class Login : Form
     {
+        //varibales that we will need to connect to the mysql database
         static string connectionString = "Server=127.0.0.1;Database=project_phase_1_db;Uid=root;Pwd=123;";
         MySqlConnection connection = new MySqlConnection(connectionString);
         public Login()
@@ -28,7 +29,7 @@ namespace SQL_Injection_Phase1_440
 
         }
         //this is the enter button for the login page
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             //we create our variabels that we will be using
             string username = txtUsername.Text;
@@ -52,7 +53,7 @@ namespace SQL_Injection_Phase1_440
                 {
                     MessageBox.Show("Login successful!");
                     //this will open up the database page
-                    Database d = new Database();
+                    UserDatabase d = new UserDatabase();
                     d.Show();
                     // Close the connection and the reader and the login page
                     connection.Close();
@@ -73,12 +74,12 @@ namespace SQL_Injection_Phase1_440
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void TextBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void txtPassword_TextChanged(object sender, EventArgs e)
+        private void TxtPassword_TextChanged(object sender, EventArgs e)
         {
 
         }

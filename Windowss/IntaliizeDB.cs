@@ -1,17 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using System.Data.SqlClient;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using System.Data.Odbc;
-using SQL_Injection_Phase1_440.Data;
 
 namespace SQL_Injection_Phase1_440
 {
@@ -99,12 +88,12 @@ namespace SQL_Injection_Phase1_440
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Label1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void conSuccess_Click(object sender, EventArgs e)
+        private void ConSuccess_Click(object sender, EventArgs e)
         {
 
         }
