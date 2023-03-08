@@ -36,9 +36,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(49, 116);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(160, 144);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(144, 40);
+            this.button1.Size = new System.Drawing.Size(192, 49);
             this.button1.TabIndex = 5;
             this.button1.Text = "Sign Up";
             this.button1.UseVisualStyleBackColor = true;
@@ -48,9 +50,10 @@
             // 
             this.enter_UserInfo.AutoSize = true;
             this.enter_UserInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.enter_UserInfo.Location = new System.Drawing.Point(119, 73);
+            this.enter_UserInfo.Location = new System.Drawing.Point(160, 32);
+            this.enter_UserInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.enter_UserInfo.Name = "enter_UserInfo";
-            this.enter_UserInfo.Size = new System.Drawing.Size(169, 20);
+            this.enter_UserInfo.Size = new System.Drawing.Size(208, 25);
             this.enter_UserInfo.TabIndex = 11;
             this.enter_UserInfo.Tag = "";
             this.enter_UserInfo.Text = "New or returning user?";
@@ -59,9 +62,11 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(215, 116);
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(160, 80);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(144, 40);
+            this.button2.Size = new System.Drawing.Size(192, 49);
             this.button2.TabIndex = 12;
             this.button2.Text = "Log in";
             this.button2.UseVisualStyleBackColor = true;
@@ -69,9 +74,11 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(156, 176);
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(192, 216);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(96, 40);
+            this.button3.Size = new System.Drawing.Size(128, 49);
             this.button3.TabIndex = 13;
             this.button3.Text = "Exit";
             this.button3.UseVisualStyleBackColor = true;
@@ -79,14 +86,15 @@
             // 
             // SignUpOrLog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(401, 246);
+            this.ClientSize = new System.Drawing.Size(506, 328);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.enter_UserInfo);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SignUpOrLog";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Welcome";
