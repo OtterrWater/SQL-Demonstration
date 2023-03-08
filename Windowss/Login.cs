@@ -89,5 +89,13 @@ namespace SQL_Injection_Phase1_440
         {
 
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            SignUp s = new SignUp();
+            s.Show();
+            //before closing intialize database
+            this.Close();
+        }
     }
 }
