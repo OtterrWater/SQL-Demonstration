@@ -3,7 +3,6 @@ E:\Spring2023\Comp 440(database design)\comp440_Phase1\SQL_Injection_Phase1_440\
 E:\Spring2023\Comp 440(database design)\comp440_Phase1\SQL_Injection_Phase1_440\bin\Debug\SQL_Injection_Phase1_440.pdb
 E:\Spring2023\Comp 440(database design)\comp440_Phase1\SQL_Injection_Phase1_440\obj\Debug\SQL_Injection_Phase1_440.csproj.AssemblyReference.cache
 E:\Spring2023\Comp 440(database design)\comp440_Phase1\SQL_Injection_Phase1_440\obj\Debug\SQL_Injection_Phase1_440.csproj.SuggestedBindingRedirects.cache
-E:\Spring2023\Comp 440(database design)\comp440_Phase1\SQL_Injection_Phase1_440\obj\Debug\SQL_Injection_Phase1_440.Form1.resources
 E:\Spring2023\Comp 440(database design)\comp440_Phase1\SQL_Injection_Phase1_440\obj\Debug\SQL_Injection_Phase1_440.Properties.Resources.resources
 E:\Spring2023\Comp 440(database design)\comp440_Phase1\SQL_Injection_Phase1_440\obj\Debug\SQL_Injection_Phase1_440.csproj.GenerateResource.cache
 E:\Spring2023\Comp 440(database design)\comp440_Phase1\SQL_Injection_Phase1_440\obj\Debug\SQL_Injection_Phase1_440.csproj.CoreCompileInputs.cache
@@ -47,3 +46,31 @@ C:\Users\Wakab\Desktop\Code\SQL\SQL_Injection_Phase1_440\bin\Debug\System.Numeri
 C:\Users\Wakab\Desktop\Code\SQL\SQL_Injection_Phase1_440\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Wakab\Desktop\Code\SQL\SQL_Injection_Phase1_440\obj\Debug\SQL_Injection_Phase1_440.csproj.CopyComplete
 C:\Users\Wakab\Desktop\Code\SQL\SQL_Injection_Phase1_440\obj\Debug\SQL_Injection_Phase1_440.UserDatabase.resources
+E:\Spring2023\Comp 440(database design)\comp440_Phase1\SQL_Injection_Phase1_440\bin\Debug\BouncyCastle.Crypto.dll
+E:\Spring2023\Comp 440(database design)\comp440_Phase1\SQL_Injection_Phase1_440\bin\Debug\Google.Protobuf.dll
+E:\Spring2023\Comp 440(database design)\comp440_Phase1\SQL_Injection_Phase1_440\bin\Debug\K4os.Compression.LZ4.dll
+E:\Spring2023\Comp 440(database design)\comp440_Phase1\SQL_Injection_Phase1_440\bin\Debug\K4os.Compression.LZ4.Streams.dll
+E:\Spring2023\Comp 440(database design)\comp440_Phase1\SQL_Injection_Phase1_440\bin\Debug\K4os.Hash.xxHash.dll
+E:\Spring2023\Comp 440(database design)\comp440_Phase1\SQL_Injection_Phase1_440\bin\Debug\MySql.Data.dll
+E:\Spring2023\Comp 440(database design)\comp440_Phase1\SQL_Injection_Phase1_440\bin\Debug\System.Buffers.dll
+E:\Spring2023\Comp 440(database design)\comp440_Phase1\SQL_Injection_Phase1_440\bin\Debug\System.Memory.dll
+E:\Spring2023\Comp 440(database design)\comp440_Phase1\SQL_Injection_Phase1_440\bin\Debug\System.Numerics.Vectors.dll
+E:\Spring2023\Comp 440(database design)\comp440_Phase1\SQL_Injection_Phase1_440\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+E:\Spring2023\Comp 440(database design)\comp440_Phase1\SQL_Injection_Phase1_440\bin\Debug\ZstdNet.dll
+E:\Spring2023\Comp 440(database design)\comp440_Phase1\SQL_Injection_Phase1_440\bin\Debug\BouncyCastle.Crypto.xml
+E:\Spring2023\Comp 440(database design)\comp440_Phase1\SQL_Injection_Phase1_440\bin\Debug\Google.Protobuf.pdb
+E:\Spring2023\Comp 440(database design)\comp440_Phase1\SQL_Injection_Phase1_440\bin\Debug\Google.Protobuf.xml
+E:\Spring2023\Comp 440(database design)\comp440_Phase1\SQL_Injection_Phase1_440\bin\Debug\K4os.Compression.LZ4.xml
+E:\Spring2023\Comp 440(database design)\comp440_Phase1\SQL_Injection_Phase1_440\bin\Debug\K4os.Compression.LZ4.Streams.xml
+E:\Spring2023\Comp 440(database design)\comp440_Phase1\SQL_Injection_Phase1_440\bin\Debug\K4os.Hash.xxHash.xml
+E:\Spring2023\Comp 440(database design)\comp440_Phase1\SQL_Injection_Phase1_440\bin\Debug\MySql.Data.xml
+E:\Spring2023\Comp 440(database design)\comp440_Phase1\SQL_Injection_Phase1_440\bin\Debug\System.Buffers.xml
+E:\Spring2023\Comp 440(database design)\comp440_Phase1\SQL_Injection_Phase1_440\bin\Debug\System.Memory.xml
+E:\Spring2023\Comp 440(database design)\comp440_Phase1\SQL_Injection_Phase1_440\bin\Debug\System.Numerics.Vectors.xml
+E:\Spring2023\Comp 440(database design)\comp440_Phase1\SQL_Injection_Phase1_440\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+E:\Spring2023\Comp 440(database design)\comp440_Phase1\SQL_Injection_Phase1_440\obj\Debug\SQL_Injection_Phase1_440.IntaliizeDB.resources
+E:\Spring2023\Comp 440(database design)\comp440_Phase1\SQL_Injection_Phase1_440\obj\Debug\SQL_Injection_Phase1_440.UserDatabase.resources
+E:\Spring2023\Comp 440(database design)\comp440_Phase1\SQL_Injection_Phase1_440\obj\Debug\SQL_Injection_Phase1_440.Login.resources
+E:\Spring2023\Comp 440(database design)\comp440_Phase1\SQL_Injection_Phase1_440\obj\Debug\SQL_Injection_Phase1_440.SignUpOrLog.resources
+E:\Spring2023\Comp 440(database design)\comp440_Phase1\SQL_Injection_Phase1_440\obj\Debug\SQL_Injection_Phase1_440.SignUp.resources
+E:\Spring2023\Comp 440(database design)\comp440_Phase1\SQL_Injection_Phase1_440\obj\Debug\SQL_Injection_Phase1_440.csproj.CopyComplete
