@@ -81,10 +81,13 @@ namespace SQL_Injection_Phase1_440
             }
             //we come here once were done with the rest 
             finally
-            {   
+            {
                 //we open the sign up or login page
-                SignUpOrLog sl = new SignUpOrLog();
-                sl.Show();
+                //SignUpOrLog sl = new SignUpOrLog();
+                //sl.Show();
+                Login l = new Login();
+                l.Show();
+                this.Close();
             }
         }
 
