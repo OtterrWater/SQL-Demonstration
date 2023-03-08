@@ -119,5 +119,12 @@ namespace SQL_Injection_Phase1_440
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Login l = new Login();
+            l.Show();
+            this.Close();
+        }
     }
 }
