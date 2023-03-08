@@ -16,6 +16,7 @@ namespace SQL_Injection_Phase1_440
 {
     public partial class Login : Form
     {
+        //varibales that we will need to connect to the mysql database
         static string connectionString = "Server=127.0.0.1;Database=project_phase_1_db;Uid=root;Pwd=123;";
         MySqlConnection connection = new MySqlConnection(connectionString);
         public Login()
@@ -28,14 +29,20 @@ namespace SQL_Injection_Phase1_440
 
         }
         //this is the enter button for the login page
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             //we create our variabels that we will be using
             string username = txtUsername.Text;
             string password = txtPassword.Text;
-            string query = $"SELECT * FROM user WHERE username = '{username}' AND password = '{password}';";
+            //adding the @ in the sql query code will stop from user accesing the actual sql code, so whatever they put
+            //will have to be passed through another area. This will make it alot harder for user to try to do a sql injection attack
+            string query = $"SELECT * FROM user WHERE username = @username AND password = @password";
             // Create the command that will run the command
             MySqlCommand command = new MySqlCommand(query, connection);
+            //the input for the login page will be passed through here which will make it more secure since user can no longer pass sql code directly
+            //into sql
+            command.Parameters.AddWithValue("@username", username);
+            command.Parameters.AddWithValue("@Password", password);
             connection.Open();
             //we then call reader and have it ready to exectue
             MySqlDataReader reader = command.ExecuteReader();
@@ -52,7 +59,7 @@ namespace SQL_Injection_Phase1_440
                 {
                     MessageBox.Show("Login successful!");
                     //this will open up the database page
-                    Database d = new Database();
+                    UserDatabase d = new UserDatabase();
                     d.Show();
                     // Close the connection and the reader and the login page
                     connection.Close();
@@ -73,12 +80,12 @@ namespace SQL_Injection_Phase1_440
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void TextBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void txtPassword_TextChanged(object sender, EventArgs e)
+        private void TxtPassword_TextChanged(object sender, EventArgs e)
         {
 
         }

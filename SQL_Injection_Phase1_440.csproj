@@ -85,7 +85,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\Connection.cs" />
     <Compile Include="Windowss\IntaliizeDB.cs">
       <SubType>Form</SubType>
     </Compile>

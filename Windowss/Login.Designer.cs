@@ -69,7 +69,7 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(100, 20);
             this.txtUsername.TabIndex = 3;
-            this.txtUsername.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtUsername.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // txtPassword
             // 
@@ -77,7 +77,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(100, 20);
             this.txtPassword.TabIndex = 4;
-            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
+            this.txtPassword.TextChanged += new System.EventHandler(this.TxtPassword_TextChanged);
             // 
             // EnterBT
             // 
@@ -87,7 +87,7 @@
             this.EnterBT.TabIndex = 5;
             this.EnterBT.Text = "Enter";
             this.EnterBT.UseVisualStyleBackColor = true;
-            this.EnterBT.Click += new System.EventHandler(this.button1_Click);
+            this.EnterBT.Click += new System.EventHandler(this.Button1_Click);
             // 
             // Login
             // 
