@@ -34,9 +34,15 @@ namespace SQL_Injection_Phase1_440
             //we create our variabels that we will be using
             string username = txtUsername.Text;
             string password = txtPassword.Text;
-            string query = $"SELECT * FROM user WHERE username = '{username}' AND password = '{password}';";
+            //adding the @ in the sql query code will stop from user accesing the actual sql code, so whatever they put
+            //will have to be passed through another area. This will make it alot harder for user to try to do a sql injection attack
+            string query = $"SELECT * FROM user WHERE username = @username AND password = @password";
             // Create the command that will run the command
             MySqlCommand command = new MySqlCommand(query, connection);
+            //the input for the login page will be passed through here which will make it more secure since user can no longer pass sql code directly
+            //into sql
+            command.Parameters.AddWithValue("@username", username);
+            command.Parameters.AddWithValue("@Password", password);
             connection.Open();
             //we then call reader and have it ready to exectue
             MySqlDataReader reader = command.ExecuteReader();
