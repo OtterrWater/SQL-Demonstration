@@ -52,8 +52,8 @@ namespace SQL_Injection_Phase1_440
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            SignUpOrLog sl = new SignUpOrLog();
-            sl.Show();
+            Login l = new Login();
+            l.Show();
             this.Close();
         }
 
