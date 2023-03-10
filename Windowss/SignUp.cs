@@ -39,11 +39,13 @@ namespace SQL_Injection_Phase1_440
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //checking dupe username
+            //starting checking dupe username? doesnt work as of now
             MySqlCommand checkUsernameCmd = new MySqlCommand("SELECT COUNT(*) FROM user WHERE username = @username", connection);
 
+            //takes all inputs in signup
             string inputType = "";
 
+            //query stuff, grabbing values and insert into user(SQL)
             string query = "INSERT INTO user (username, password, firstName, lastName, email) VALUES (@username, @password, @firstName, @lastName, @email)";
             MySqlCommand command = new MySqlCommand(query, connection);
             command.Parameters.AddWithValue("@username", textUsername.Text);
@@ -55,6 +57,7 @@ namespace SQL_Injection_Phase1_440
             command.ExecuteNonQuery();
             connection.Close();
 
+            //check for first name
             if (string.IsNullOrEmpty(textFN.Text))
             {
                 fnR.Visible = true;
@@ -67,6 +70,7 @@ namespace SQL_Injection_Phase1_440
                 fnR.Visible = false;
             }
 
+            //check for last name
             if (string.IsNullOrEmpty(textLN.Text))
             {
                 lnR.Visible = true;
@@ -79,6 +83,7 @@ namespace SQL_Injection_Phase1_440
                 lnR.Visible = false;
             }
 
+            //check for email
             if (string.IsNullOrEmpty(textEmail.Text))
             {
                 emR.Visible = true;
@@ -102,6 +107,7 @@ namespace SQL_Injection_Phase1_440
                 U_error.Visible = false;
             }
 
+            //check for username
             if (string.IsNullOrEmpty(textUsername.Text))
             {
                 usR.Visible = true;
@@ -114,6 +120,7 @@ namespace SQL_Injection_Phase1_440
                 usR.Visible = false;
             }
 
+            //check for password
             if (string.IsNullOrEmpty(textPass.Text) || textcheckPass.Text != textPass.Text)
             {
                 pwR.Visible = true;
@@ -126,6 +133,7 @@ namespace SQL_Injection_Phase1_440
                 pwR.Visible = false;
             }
 
+            //check if pw is same as re-entered pw
             if (string.IsNullOrEmpty(textcheckPass.Text))
             {
                 r_pwR.Visible = true;
@@ -149,11 +157,13 @@ namespace SQL_Injection_Phase1_440
                 r_pwR.Visible = false;
             }
 
+            //error box appears when any inputType is missing
             if (inputType != "")
             {
                 MessageBox.Show("Please fill in missing credentials");
                 connection.Close();
             }
+            //login and allow data to be processed
             else
             {
                 MessageBox.Show("sign up completed!");
