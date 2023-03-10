@@ -41,16 +41,17 @@ namespace SQL_Injection_Phase1_440
             MySqlCommand command = new MySqlCommand(query, connection);
             //the input for the login page will be passed through here which will make it more secure since user can no longer pass sql code directly
             //into sql
+
             command.Parameters.AddWithValue("@username", username);
-            command.Parameters.AddWithValue("@Password", password);
+            command.Parameters.AddWithValue("@password", password);
             connection.Open();
+            command.ExecuteNonQuery();
             //we then call reader and have it ready to exectue
             MySqlDataReader reader = command.ExecuteReader();
             //we first check the input is null if it is then we send the user a message letting them know that they didnt put anything
             if (string.IsNullOrEmpty(txtUsername.Text) || string.IsNullOrEmpty(txtPassword.Text))
             {
                 MessageBox.Show("Please input Username and Password");
-                connection.Close();
             }
             //if user did put something then we come here
             else
@@ -63,10 +64,9 @@ namespace SQL_Injection_Phase1_440
                     UserDatabase d = new UserDatabase();
                     d.Show();
                     // Close the connection and the reader and the login page
-                    connection.Close();
                     reader.Close();
+                    connection.Close();
                     this.Close();
-
                 }
                 //else if the login info was wrong we come here
                 else
@@ -74,8 +74,8 @@ namespace SQL_Injection_Phase1_440
                     //we let the user know that the login info was wrong and to try again
                     MessageBox.Show("Login failed. Please try again.");
                     //we then close the connection and reader to retry 
-                    connection.Close();
                     reader.Close();
+                    connection.Close();
                 }
             }
 

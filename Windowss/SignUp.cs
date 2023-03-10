@@ -9,11 +9,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace SQL_Injection_Phase1_440
 {
     public partial class SignUp : Form
     {
+        static string connectionString = "Server=127.0.0.1;Database=project_phase_1_db;Uid=root;Pwd=123;";
+        MySqlConnection connection = new MySqlConnection(connectionString);
         public SignUp()
         {
             InitializeComponent();
@@ -36,8 +39,22 @@ namespace SQL_Injection_Phase1_440
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //checking dupe username
+            MySqlCommand checkUsernameCmd = new MySqlCommand("SELECT COUNT(*) FROM user WHERE username = @username", connection);
 
             string inputType = "";
+
+            string query = "INSERT INTO user (username, password, firstName, lastName, email) VALUES (@username, @password, @firstName, @lastName, @email)";
+            MySqlCommand command = new MySqlCommand(query, connection);
+            command.Parameters.AddWithValue("@username", textUsername.Text);
+            command.Parameters.AddWithValue("@password", textcheckPass.Text);
+            command.Parameters.AddWithValue("@firstName", textFN.Text);
+            command.Parameters.AddWithValue("@lastName", textLN.Text);
+            command.Parameters.AddWithValue("@email", textEmail.Text);
+            connection.Open();
+            command.ExecuteNonQuery();
+            connection.Close();
+
             if (string.IsNullOrEmpty(textFN.Text))
             {
                 fnR.Visible = true;
@@ -96,7 +113,7 @@ namespace SQL_Injection_Phase1_440
             {
                 usR.Visible = false;
             }
-            
+
             if (string.IsNullOrEmpty(textPass.Text) || textcheckPass.Text != textPass.Text)
             {
                 pwR.Visible = true;
@@ -108,14 +125,15 @@ namespace SQL_Injection_Phase1_440
             {
                 pwR.Visible = false;
             }
-            
+
             if (string.IsNullOrEmpty(textcheckPass.Text))
             {
                 r_pwR.Visible = true;
                 r_pwR.ForeColor = Color.Red;
                 r_pwR.Text = "*";
                 inputType = "checkpassword";
-            }else if (textcheckPass.Text != textPass.Text)
+            }
+            else if (textcheckPass.Text != textPass.Text)
             {
                 r_pwR.Visible = true;
                 r_pwR.ForeColor = Color.Red;
@@ -134,15 +152,18 @@ namespace SQL_Injection_Phase1_440
             if (inputType != "")
             {
                 MessageBox.Show("Please fill in missing credentials");
+                connection.Close();
             }
             else
             {
                 MessageBox.Show("sign up completed!");
                 Login l = new Login();
                 l.Show();
+                connection.Close();
                 this.Close();
             }
         }
+    }
 
 
         private void textFN_TextChanged(object sender, EventArgs e)
