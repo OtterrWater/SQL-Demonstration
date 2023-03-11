@@ -173,39 +173,12 @@ namespace SQL_Injection_Phase1_440
                 this.Close();
             }
         }
-    }
-
-
-        private void textFN_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textPass_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textEmail_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textLN_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Login l = new Login();
             l.Show();
             this.Close();
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
