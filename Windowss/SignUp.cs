@@ -39,23 +39,7 @@ namespace SQL_Injection_Phase1_440
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //starting checking dupe username? doesnt work as of now
-            MySqlCommand checkUsernameCmd = new MySqlCommand("SELECT COUNT(*) FROM user WHERE username = @username", connection);
-
-            //takes all inputs in signup
             string inputType = "";
-
-            //query stuff, grabbing values and insert into user(SQL)
-            string query = "INSERT INTO user (username, password, firstName, lastName, email) VALUES (@username, @password, @firstName, @lastName, @email)";
-            MySqlCommand command = new MySqlCommand(query, connection);
-            command.Parameters.AddWithValue("@username", textUsername.Text);
-            command.Parameters.AddWithValue("@password", textcheckPass.Text);
-            command.Parameters.AddWithValue("@firstName", textFN.Text);
-            command.Parameters.AddWithValue("@lastName", textLN.Text);
-            command.Parameters.AddWithValue("@email", textEmail.Text);
-            connection.Open();
-            command.ExecuteNonQuery();
-            connection.Close();
 
             //check for first name
             if (string.IsNullOrEmpty(textFN.Text))
@@ -83,6 +67,15 @@ namespace SQL_Injection_Phase1_440
                 lnR.Visible = false;
             }
 
+            // Check if email already exists
+            MySqlCommand checkEmailCmd = new MySqlCommand("SELECT COUNT(*) FROM user WHERE email = @email", connection);
+            checkEmailCmd.Parameters.AddWithValue("@email", textEmail.Text);
+
+            connection.Open();
+            //grabbing count of pws
+            long countE = (long)checkEmailCmd.ExecuteScalar();
+            connection.Close();
+
             //check for email
             if (string.IsNullOrEmpty(textEmail.Text))
             {
@@ -100,6 +93,17 @@ namespace SQL_Injection_Phase1_440
                 U_error.ForeColor = Color.Red;
                 U_error.Text = "Please enter a valid email address";
                 inputType = "email";
+
+            }
+            else if (countE > 0)
+            {
+                emR.Visible = true;
+                emR.ForeColor = Color.Red;
+                emR.Text = "*";
+                U_error.Visible = true;
+                U_error.ForeColor = Color.Red;
+                U_error.Text = "Email already exist";
+                inputType = "email";
             }
             else
             {
@@ -107,13 +111,26 @@ namespace SQL_Injection_Phase1_440
                 U_error.Visible = false;
             }
 
-            //check for username
+            // Check if username already exists
+            MySqlCommand checkUsernameCmd = new MySqlCommand("SELECT COUNT(*) FROM user WHERE username = @username", connection);
+            checkUsernameCmd.Parameters.AddWithValue("@username", textUsername.Text);
+
+            connection.Open();
+            //grabbing count of usernames
+            long countU = (long)checkUsernameCmd.ExecuteScalar();
+            connection.Close();
+
             if (string.IsNullOrEmpty(textUsername.Text))
             {
                 usR.Visible = true;
                 usR.ForeColor = Color.Red;
                 usR.Text = "*";
                 inputType = "username";
+            }else if (countU > 0)
+            {
+                usR.Visible = true;
+                usR.ForeColor = Color.Red;
+                usR.Text = "*";
             }
             else
             {
@@ -162,10 +179,24 @@ namespace SQL_Injection_Phase1_440
             {
                 MessageBox.Show("Please fill in missing credentials");
                 connection.Close();
+                return;
             }
             //login and allow data to be processed
             else
             {
+
+                //query stuff, grabbing values and insert into user(SQL)
+                string query = "INSERT INTO user (username, password, firstName, lastName, email) VALUES (@username, @password, @firstName, @lastName, @email)";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@username", textUsername.Text);
+                command.Parameters.AddWithValue("@password", textcheckPass.Text);
+                command.Parameters.AddWithValue("@firstName", textFN.Text);
+                command.Parameters.AddWithValue("@lastName", textLN.Text);
+                command.Parameters.AddWithValue("@email", textEmail.Text);
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+
                 MessageBox.Show("sign up completed!");
                 Login l = new Login();
                 l.Show();
