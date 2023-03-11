@@ -52,6 +52,7 @@
             this.r_pwR = new System.Windows.Forms.Label();
             this.U_error = new System.Windows.Forms.Label();
             this.p_error = new System.Windows.Forms.Label();
+            this.usr_error = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -291,11 +292,21 @@
             this.p_error.Size = new System.Drawing.Size(0, 13);
             this.p_error.TabIndex = 23;
             // 
+            // usr_error
+            // 
+            this.usr_error.AutoSize = true;
+            this.usr_error.BackColor = System.Drawing.Color.BurlyWood;
+            this.usr_error.Location = new System.Drawing.Point(104, 232);
+            this.usr_error.Name = "usr_error";
+            this.usr_error.Size = new System.Drawing.Size(0, 13);
+            this.usr_error.TabIndex = 24;
+            // 
             // SignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(396, 478);
+            this.Controls.Add(this.usr_error);
             this.Controls.Add(this.p_error);
             this.Controls.Add(this.U_error);
             this.Controls.Add(this.r_pwR);
@@ -356,5 +367,6 @@
         private System.Windows.Forms.Label r_pwR;
         private System.Windows.Forms.Label U_error;
         private System.Windows.Forms.Label p_error;
+        private System.Windows.Forms.Label usr_error;
     }
 }

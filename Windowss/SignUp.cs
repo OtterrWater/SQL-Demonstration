@@ -131,9 +131,14 @@ namespace SQL_Injection_Phase1_440
                 usR.Visible = true;
                 usR.ForeColor = Color.Red;
                 usR.Text = "*";
+                usr_error.Visible = true;
+                usr_error.ForeColor = Color.Red;
+                usr_error.Text = "Username already exist";
+                inputType = "username";
             }
             else
             {
+                usr_error.Visible = false;
                 usR.Visible = false;
             }
 
