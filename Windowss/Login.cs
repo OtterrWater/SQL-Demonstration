@@ -51,7 +51,9 @@ namespace SQL_Injection_Phase1_440
             //we first check the input is null if it is then we send the user a message letting them know that they didnt put anything
             if (string.IsNullOrEmpty(txtUsername.Text) || string.IsNullOrEmpty(txtPassword.Text))
             {
+                connection.Close();
                 MessageBox.Show("Please input Username and Password");
+
             }
             //if user did put something then we come here
             else
