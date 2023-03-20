@@ -100,5 +100,10 @@ namespace SQL_Injection_Phase1_440
             //before closing intialize database
             this.Close();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
