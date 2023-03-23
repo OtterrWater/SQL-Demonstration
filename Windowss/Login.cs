@@ -11,6 +11,7 @@ using MySql.Data.MySqlClient;
 using System.Security.Cryptography;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Collections;
+using SQL_Injection_Phase1_440.Windowss;
 
 namespace SQL_Injection_Phase1_440
 {
@@ -62,9 +63,9 @@ namespace SQL_Injection_Phase1_440
                 if (reader.HasRows)
                 {
                     MessageBox.Show("Login successful!");
-                    //this will open up the database page
-                    UserDatabase d = new UserDatabase();
-                    d.Show();
+                    //this will open up the product page
+                    ProductPage pdP = new ProductPage();
+                    pdP.Show();
                     // Close the connection and the reader and the login page
                     reader.Close();
                     connection.Close();
