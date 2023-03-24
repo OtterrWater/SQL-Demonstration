@@ -67,7 +67,7 @@
             this.Done.TabIndex = 3;
             this.Done.Text = "Done";
             this.Done.UseVisualStyleBackColor = true;
-            this.Done.Click += new System.EventHandler(this.button1_Click);
+            this.Done.Click += new System.EventHandler(this.Button1_Click);
             // 
             // Search_Item
             // 

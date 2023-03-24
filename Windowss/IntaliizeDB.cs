@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using SQL_Injection_Phase1_440.Windowss;
 
 namespace SQL_Injection_Phase1_440
 {
@@ -23,15 +24,25 @@ namespace SQL_Injection_Phase1_440
             //this will keep our connection info
             string connectionString = "Server=127.0.0.1;Database=project_phase_1_db;Uid=root;Pwd=123;";
             string tableName = "user";
+            string tableName2 = "items";
             //these strings will hold our queries
             string dropTableQuery = $"DROP TABLE IF EXISTS {tableName};";
             string createTableQuery = $"CREATE TABLE IF NOT EXISTS {tableName}" +
                 $"(username VARCHAR(50) PRIMARY KEY, password VARCHAR(50) NOT NULL, " +
                 $"firstName VARCHAR(50) NOT NULL,lastName VARCHAR(50) NOT NULL," +
                 $"email VARCHAR(50) UNIQUE NOT NULL);";
+            string dropTableQuery2 = $"DROP TABLE IF EXISTS {tableName2};";
+            string createTableQuery2 = $"CREATE TABLE IF NOT EXISTS {tableName2}" +
+                $"(id INT AUTO_INCREMENT PRIMARY KEY," +
+                $"title VARCHAR(255)," +
+                $"description TEXT," +
+                $"category VARCHAR(255)," +
+                $"price DECIMAL(10,2));";
             MySqlConnection connection = new MySqlConnection(connectionString);
             MySqlCommand dropTableCommand = new MySqlCommand(dropTableQuery, connection);
             MySqlCommand createTableCommand = new MySqlCommand(createTableQuery, connection);
+            MySqlCommand dropTableCommand2 = new MySqlCommand(dropTableQuery2, connection);
+            MySqlCommand createTableCommand2 = new MySqlCommand(createTableQuery2, connection);
             //once the button is clicked we try to connect to the mySQL server
             try 
             { 
@@ -58,12 +69,15 @@ namespace SQL_Injection_Phase1_440
                 //we call the drop table command 
                 dropTableCommand.ExecuteNonQuery();
                 Console.WriteLine($"Table {tableName} dropped successfully!");
-                
+                //we call the drop table command 
+                dropTableCommand2.ExecuteNonQuery();
+                Console.WriteLine($"Table {tableName2} dropped successfully!");
+
             }
             //if the table was not able to succesfully be dropped then we come here
             catch (Exception ex)
             {
-                Console.WriteLine($"Error dropping table {tableName}: {ex.Message}");
+                Console.WriteLine($"Error dropping table {tableName} and {tableName2}: {ex.Message}");
                 connection.Close(); 
             }
             //recreate the table
@@ -71,23 +85,21 @@ namespace SQL_Injection_Phase1_440
             {
                 //we call the create table command
                 createTableCommand.ExecuteNonQuery();
-                Console.WriteLine($"Table {tableName} recreated successfully!");
+                //we call the create table command
+                createTableCommand2.ExecuteNonQuery();
+                Console.WriteLine($"Table {tableName} and {tableName2} recreated successfully!");
             }
             //if the table was not succesfully recreated then we come here
             catch (Exception ex)
             {
-                Console.WriteLine($"Error recreating table {tableName}: {ex.Message}");
+                Console.WriteLine($"Error recreating table {tableName} and {tableName2}: {ex.Message}");
                 connection.Close();
             }
             //we come here once were done with the rest 
             finally
             {
-                //we open the sign up or login page
-                //SignUpOrLog sl = new SignUpOrLog();
-                //sl.Show();
                 Login l = new Login();
                 l.Show();
-                //this.Close();
             }
         }
 

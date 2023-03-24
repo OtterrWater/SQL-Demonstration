@@ -17,7 +17,7 @@ namespace SQL_Injection_Phase1_440.Windowss
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             ProductPage pG = new ProductPage();
             pG.Show();
