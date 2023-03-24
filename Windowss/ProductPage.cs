@@ -17,7 +17,7 @@ namespace SQL_Injection_Phase1_440.Windowss
             InitializeComponent();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Button3_Click(object sender, EventArgs e)
         {
 
             Login l = new Login();
@@ -25,12 +25,21 @@ namespace SQL_Injection_Phase1_440.Windowss
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
-
+            Insert_Item i = new Insert_Item();
+            i.Show();
+            this.Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            Search_Item s = new Search_Item();
+            s.Show();
+            this.Close();
+        }
+
+        private void ProductPage_Load(object sender, EventArgs e)
         {
 
         }

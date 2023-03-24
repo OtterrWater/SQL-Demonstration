@@ -10,16 +10,18 @@ using System.Windows.Forms;
 
 namespace SQL_Injection_Phase1_440.Windowss
 {
-    public partial class Form1 : Form
+    public partial class Search_Item : Form
     {
-        public Form1()
+        public Search_Item()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
+            ProductPage pG = new ProductPage();
+            pG.Show();
+            this.Close();
         }
     }
 }

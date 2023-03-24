@@ -85,11 +85,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Windowss\Form1.cs">
+    <Compile Include="Windowss\Search_Item.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Windowss\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Windowss\Search_Item.Designer.cs">
+      <DependentUpon>Search_Item.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windowss\Insert_Item.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windowss\Insert_Item.Designer.cs">
+      <DependentUpon>Insert_Item.cs</DependentUpon>
     </Compile>
     <Compile Include="Windowss\ProductPage.cs">
       <SubType>Form</SubType>
@@ -129,8 +135,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Windowss\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Windowss\Search_Item.resx">
+      <DependentUpon>Search_Item.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windowss\Insert_Item.resx">
+      <DependentUpon>Insert_Item.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windowss\IntaliizeDB.resx">
       <DependentUpon>IntaliizeDB.cs</DependentUpon>
