@@ -68,5 +68,10 @@ namespace SQL_Injection_Phase1_440.Windowss
         {
 
         }
+
+        private void Insert_Item_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
