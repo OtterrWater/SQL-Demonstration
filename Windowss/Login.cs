@@ -20,7 +20,7 @@ namespace SQL_Injection_Phase1_440
         //varibales that we will need to connect to the mysql database
         static string connectionString = "Server=127.0.0.1;Database=project_phase_1_db;Uid=root;Pwd=123;";
         MySqlConnection connection = new MySqlConnection(connectionString);
-        private string _userName = "";
+       
         public Login()
         {
             InitializeComponent();
@@ -38,7 +38,6 @@ namespace SQL_Injection_Phase1_440
             //adding the @ in the sql query code will stop from user accesing the actual sql code, so whatever they put
             //will have to be passed through another area. This will make it alot harder for user to try to do a sql injection attack
             string query = $"SELECT * FROM user WHERE username = @username AND password = @password";
-            string selectQuery = $"SELECT uid FROM user WHERE username = @username AND password = @password";
             connection.Open();
             //_userName = username;
          
@@ -73,8 +72,6 @@ namespace SQL_Injection_Phase1_440
                     MessageBox.Show("Login successful!");
                     //this will open up the product page
                     ProductPage pdP = new ProductPage();
-                    Insert_Item i = new Insert_Item(username);
-            
                     pdP.Show();
                     // Close the connection and the reader and the login page
                     reader.Close();

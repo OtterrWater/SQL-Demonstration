@@ -15,16 +15,8 @@ namespace SQL_Injection_Phase1_440.Windowss
     {
         static string connectionString = "Server=127.0.0.1;Database=project_phase_1_db;Uid=root;Pwd=123;";
         MySqlConnection connection = new MySqlConnection(connectionString);
-        
-       public string UserName
+        public Insert_Item()
         {
-            get;
-            set;
-        }
-
-        public Insert_Item(string userName)
-        {
-            UserName = userName;
             InitializeComponent();
         }
 
@@ -58,15 +50,12 @@ namespace SQL_Injection_Phase1_440.Windowss
                 MessageBox.Show("Please make sure to fill in all fields");
             }else{
                 MySqlCommand cmd = new MySqlCommand(que, connection);
-                MySqlCommand cmd2 = new MySqlCommand(que2, connection);
                 cmd.Parameters.AddWithValue("@title", title);
                 cmd.Parameters.AddWithValue("@description", description);
                 cmd.Parameters.AddWithValue("@category", category);
                 cmd.Parameters.AddWithValue("@price", price);
-                cmd2.Parameters.AddWithValue("@user_name", UserName);
                 connection.Open(); 
                 cmd.ExecuteNonQuery();
-                cmd2.ExecuteNonQuery();
                 connection.Close();
                 MessageBox.Show("product inserted!");
                 ProductPage productPage = new ProductPage();
