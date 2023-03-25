@@ -28,24 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textTitle = new System.Windows.Forms.TextBox();
             this.Enter = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textDescription = new System.Windows.Forms.TextBox();
+            this.textCategory = new System.Windows.Forms.TextBox();
+            this.textPrice = new System.Windows.Forms.TextBox();
             this.Title = new System.Windows.Forms.Label();
             this.Category = new System.Windows.Forms.Label();
             this.Price = new System.Windows.Forms.Label();
             this.Description = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // textBox1
+            // textTitle
             // 
-            this.textBox1.Location = new System.Drawing.Point(117, 70);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textTitle.Location = new System.Drawing.Point(117, 70);
+            this.textTitle.Name = "textTitle";
+            this.textTitle.Size = new System.Drawing.Size(100, 20);
+            this.textTitle.TabIndex = 0;
+            this.textTitle.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // Enter
             // 
@@ -58,27 +58,28 @@
             this.Enter.UseVisualStyleBackColor = true;
             this.Enter.Click += new System.EventHandler(this.Enter_Click);
             // 
-            // textBox2
+            // textDescription
             // 
-            this.textBox2.Location = new System.Drawing.Point(83, 129);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(177, 61);
-            this.textBox2.TabIndex = 2;
+            this.textDescription.Location = new System.Drawing.Point(83, 129);
+            this.textDescription.Multiline = true;
+            this.textDescription.Name = "textDescription";
+            this.textDescription.Size = new System.Drawing.Size(177, 61);
+            this.textDescription.TabIndex = 2;
+            this.textDescription.TextChanged += new System.EventHandler(this.TextBox2_TextChanged);
             // 
-            // textBox3
+            // textCategory
             // 
-            this.textBox3.Location = new System.Drawing.Point(117, 251);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 3;
+            this.textCategory.Location = new System.Drawing.Point(117, 251);
+            this.textCategory.Name = "textCategory";
+            this.textCategory.Size = new System.Drawing.Size(100, 20);
+            this.textCategory.TabIndex = 3;
             // 
-            // textBox4
+            // textPrice
             // 
-            this.textBox4.Location = new System.Drawing.Point(117, 321);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 4;
+            this.textPrice.Location = new System.Drawing.Point(117, 321);
+            this.textPrice.Name = "textPrice";
+            this.textPrice.Size = new System.Drawing.Size(100, 20);
+            this.textPrice.TabIndex = 4;
             // 
             // Title
             // 
@@ -89,7 +90,7 @@
             this.Title.Size = new System.Drawing.Size(45, 24);
             this.Title.TabIndex = 5;
             this.Title.Text = "Title";
-            this.Title.Click += new System.EventHandler(this.label1_Click);
+            this.Title.Click += new System.EventHandler(this.Label1_Click);
             // 
             // Category
             // 
@@ -130,11 +131,11 @@
             this.Controls.Add(this.Price);
             this.Controls.Add(this.Category);
             this.Controls.Add(this.Title);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textPrice);
+            this.Controls.Add(this.textCategory);
+            this.Controls.Add(this.textDescription);
             this.Controls.Add(this.Enter);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textTitle);
             this.Name = "Insert_Item";
             this.Text = "Insert_item";
             this.ResumeLayout(false);
@@ -144,11 +145,11 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textTitle;
         private System.Windows.Forms.Button Enter;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textDescription;
+        private System.Windows.Forms.TextBox textCategory;
+        private System.Windows.Forms.TextBox textPrice;
         private System.Windows.Forms.Label Title;
         private System.Windows.Forms.Label Category;
         private System.Windows.Forms.Label Price;

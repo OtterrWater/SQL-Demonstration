@@ -25,24 +25,39 @@ namespace SQL_Injection_Phase1_440
             string connectionString = "Server=127.0.0.1;Database=project_phase_1_db;Uid=root;Pwd=123;";
             string tableName = "user";
             string tableName2 = "items";
+            string tableName3 = "user_posts";
             //these strings will hold our queries
             string dropTableQuery = $"DROP TABLE IF EXISTS {tableName};";
             string createTableQuery = $"CREATE TABLE IF NOT EXISTS {tableName}" +
-                $"(username VARCHAR(50) PRIMARY KEY, password VARCHAR(50) NOT NULL, " +
-                $"firstName VARCHAR(50) NOT NULL,lastName VARCHAR(50) NOT NULL," +
-                $"email VARCHAR(50) UNIQUE NOT NULL);";
+                $"(uid INT AUTO_INCREMENT," +
+                $"username VARCHAR(50), " +
+                $"password VARCHAR(50) NOT NULL, " +
+                $"firstName VARCHAR(50) NOT NULL," +
+                $"lastName VARCHAR(50) NOT NULL," +
+                $"email VARCHAR(50) UNIQUE NOT NULL," +
+                $"PRIMARY KEY (uid, username));";
             string dropTableQuery2 = $"DROP TABLE IF EXISTS {tableName2};";
             string createTableQuery2 = $"CREATE TABLE IF NOT EXISTS {tableName2}" +
                 $"(id INT AUTO_INCREMENT PRIMARY KEY," +
-                $"title VARCHAR(255)," +
+                $"title VARCHAR(255) NOT NULL," +
                 $"description TEXT," +
                 $"category VARCHAR(255)," +
-                $"price DECIMAL(10,2));";
+                $"price DECIMAL(10,2)," +
+                $"post_date DATE);";
+            string dropTableQuery3 = $"DROP TABLE IF EXISTS {tableName3};";
+            string createTableQuery3 = $"CREATE TABLE IF NOT EXISTS {tableName3}" +
+                $"(user_name INT NOT NULL," +
+                $"post_date DATE NOT NULL," +
+                $"num_posts INT NOT NULL DEFAULT 0," +
+                $"PRIMARY KEY (user_name, post_date));";
+            //so for the code above i dont think we need post_date tbh.. ill see tho
             MySqlConnection connection = new MySqlConnection(connectionString);
             MySqlCommand dropTableCommand = new MySqlCommand(dropTableQuery, connection);
             MySqlCommand createTableCommand = new MySqlCommand(createTableQuery, connection);
             MySqlCommand dropTableCommand2 = new MySqlCommand(dropTableQuery2, connection);
             MySqlCommand createTableCommand2 = new MySqlCommand(createTableQuery2, connection);
+            MySqlCommand dropTableCommand3 = new MySqlCommand(dropTableQuery3, connection);
+            MySqlCommand createTableCommand3 = new MySqlCommand(createTableQuery3, connection);
             //once the button is clicked we try to connect to the mySQL server
             try 
             { 
@@ -72,12 +87,15 @@ namespace SQL_Injection_Phase1_440
                 //we call the drop table command 
                 dropTableCommand2.ExecuteNonQuery();
                 Console.WriteLine($"Table {tableName2} dropped successfully!");
+                //we call the drop table command 
+                dropTableCommand3.ExecuteNonQuery();
+                Console.WriteLine($"Table {tableName3} dropped successfully!");
 
             }
             //if the table was not able to succesfully be dropped then we come here
             catch (Exception ex)
             {
-                Console.WriteLine($"Error dropping table {tableName} and {tableName2}: {ex.Message}");
+                Console.WriteLine($"Error dropping table {tableName} and {tableName2} and {tableName3}: {ex.Message}");
                 connection.Close(); 
             }
             //recreate the table
@@ -87,12 +105,14 @@ namespace SQL_Injection_Phase1_440
                 createTableCommand.ExecuteNonQuery();
                 //we call the create table command
                 createTableCommand2.ExecuteNonQuery();
-                Console.WriteLine($"Table {tableName} and {tableName2} recreated successfully!");
+                //we call the create table command
+                createTableCommand3.ExecuteNonQuery();
+                Console.WriteLine($"Table {tableName} and {tableName2} and {tableName3} recreated successfully!");
             }
             //if the table was not succesfully recreated then we come here
             catch (Exception ex)
             {
-                Console.WriteLine($"Error recreating table {tableName} and {tableName2}: {ex.Message}");
+                Console.WriteLine($"Error recreating table {tableName} and {tableName2} and {tableName3}: {ex.Message}");
                 connection.Close();
             }
             //we come here once were done with the rest 
