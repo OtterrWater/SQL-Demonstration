@@ -187,6 +187,7 @@
             this.textcheckPass.PasswordChar = '*';
             this.textcheckPass.Size = new System.Drawing.Size(320, 29);
             this.textcheckPass.TabIndex = 6;
+            this.textcheckPass.TextChanged += new System.EventHandler(this.textcheckPass_TextChanged);
             // 
             // label2
             // 
@@ -207,6 +208,7 @@
             this.button2.TabIndex = 8;
             this.button2.Text = "CANCEL";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // fnR
             // 
