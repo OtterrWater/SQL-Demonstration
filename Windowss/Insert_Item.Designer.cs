@@ -138,6 +138,7 @@
             this.Controls.Add(this.textTitle);
             this.Name = "Insert_Item";
             this.Text = "Insert_item";
+            this.Load += new System.EventHandler(this.Insert_Item_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
