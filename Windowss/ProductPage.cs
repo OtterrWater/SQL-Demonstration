@@ -74,5 +74,10 @@ namespace SQL_Injection_Phase1_440.Windowss
         {
 
         }
+
+        private void ProductsPage_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

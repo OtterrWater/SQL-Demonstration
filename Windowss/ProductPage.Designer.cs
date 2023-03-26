@@ -99,11 +99,12 @@
             // 
             this.ProductsPage.AutoSize = true;
             this.ProductsPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProductsPage.Location = new System.Drawing.Point(511, 14);
+            this.ProductsPage.Location = new System.Drawing.Point(389, 14);
             this.ProductsPage.Name = "ProductsPage";
             this.ProductsPage.Size = new System.Drawing.Size(134, 32);
             this.ProductsPage.TabIndex = 6;
             this.ProductsPage.Text = "Products";
+            this.ProductsPage.Click += new System.EventHandler(this.ProductsPage_Click);
             // 
             // ProductPage
             // 
