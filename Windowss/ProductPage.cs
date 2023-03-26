@@ -20,7 +20,7 @@ namespace SQL_Injection_Phase1_440.Windowss
 
         private void Button3_Click(object sender, EventArgs e)
         {
-
+            //takes us back to the login/sign up page when user clicks the logout button
             Login l = new Login();
             l.Show();
             this.Close();
@@ -28,6 +28,7 @@ namespace SQL_Injection_Phase1_440.Windowss
 
         private void Button1_Click(object sender, EventArgs e)
         {
+            //takes us to the insertion window when user clicks the insert button
             Insert_Item i = new Insert_Item();
             i.Show();
             this.Close();
@@ -35,6 +36,7 @@ namespace SQL_Injection_Phase1_440.Windowss
 
         private void Button2_Click(object sender, EventArgs e)
         {
+            //takes us to the search window when user clicks search
             Search_Item s = new Search_Item();
             s.Show();
             this.Close();
@@ -61,6 +63,7 @@ namespace SQL_Injection_Phase1_440.Windowss
                 connection.Close();
 
             }
+            //if the data table was not loaded correctly then we will come here
             catch (Exception ex)
             { 
                 Console.WriteLine("failed to load products database", ex.Message);

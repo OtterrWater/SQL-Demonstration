@@ -39,20 +39,13 @@ namespace SQL_Injection_Phase1_440
             //will have to be passed through another area. This will make it alot harder for user to try to do a sql injection attack
             string query = $"SELECT * FROM user WHERE username = @username AND password = @password";
             connection.Open();
-            //_userName = username;
-         
-            
             // Create the command that will run the command
             MySqlCommand command = new MySqlCommand(query, connection);
             //the input for the login page will be passed through here which will make it more secure since user can no longer pass sql code directly
             //into sql
             command.Parameters.AddWithValue("@username", username);
             command.Parameters.AddWithValue("@password", password);
-
-          
             //command.ExecuteNonQuery();
-
-
             //we then call reader and have it ready to exectue
             MySqlDataReader reader = command.ExecuteReader();
             //we first check the input is null if it is then we send the user a message letting them know that they didnt put anything
@@ -60,7 +53,6 @@ namespace SQL_Injection_Phase1_440
             {
                 connection.Close();
                 MessageBox.Show("Please input Username and Password");
-
             }
             //if user did put something then we come here
             else
@@ -68,7 +60,6 @@ namespace SQL_Injection_Phase1_440
                 // Check if the login was successful
                 if (reader.HasRows)
                 {
-                  
                     MessageBox.Show("Login successful!");
                     //this will open up the product page
                     ProductPage pdP = new ProductPage();
@@ -103,14 +94,15 @@ namespace SQL_Injection_Phase1_440
 
         private void Button1_Click_1(object sender, EventArgs e)
         {
+            //opens up the sign up page 
             SignUp s = new SignUp();
             s.Show();
-            //before closing intialize database
             this.Close();
         }
 
         private void Button2_Click(object sender, EventArgs e)
         {
+            //is called when the user clicks the exit button
             Application.Exit();
         }
     }
