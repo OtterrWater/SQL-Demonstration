@@ -115,7 +115,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBox2);
             this.Name = "IntaliizeDB";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Connection to MySQL";
             this.Load += new System.EventHandler(this.IntaliizeDB_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -74,6 +74,7 @@
             this.Controls.Add(this.LogOutBT);
             this.Controls.Add(this.Welcome);
             this.Name = "UserDatabase";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UserDatabase";
             this.Load += new System.EventHandler(this.Database_Load);
             ((System.ComponentModel.ISupportInitialize)(this.UserDB)).EndInit();
