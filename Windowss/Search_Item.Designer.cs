@@ -106,6 +106,7 @@
             this.Controls.Add(this.InputText);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Search_Item";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Search_Item";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResults)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

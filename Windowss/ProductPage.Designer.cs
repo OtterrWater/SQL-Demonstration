@@ -119,6 +119,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ProductPage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProductPage";
             this.Load += new System.EventHandler(this.ProductPage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.product_db)).EndInit();

@@ -121,12 +121,6 @@
     <Compile Include="Windowss\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Windowss\SignUpOrLog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Windowss\SignUpOrLog.Designer.cs">
-      <DependentUpon>SignUpOrLog.cs</DependentUpon>
-    </Compile>
     <Compile Include="Windowss\SignUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,9 +146,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Windowss\ProductPage.resx">
       <DependentUpon>ProductPage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Windowss\SignUpOrLog.resx">
-      <DependentUpon>SignUpOrLog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windowss\SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
