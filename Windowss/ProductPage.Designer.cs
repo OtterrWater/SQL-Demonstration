@@ -1,4 +1,4 @@
-﻿namespace SQL_Injection_Phase1_440.Windowss
+﻿namespace SQL_Injection.Windowss
 {
     partial class ProductPage
     {

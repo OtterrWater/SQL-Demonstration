@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SQL_Injection_Phase1_440
+namespace SQL_Injection
 {
     internal static class Program
     {

@@ -3,7 +3,7 @@ using System.Data;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
-namespace SQL_Injection_Phase1_440
+namespace SQL_Injection
 {
     public partial class UserDatabase : Form
     {

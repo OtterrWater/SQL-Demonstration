@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
-namespace SQL_Injection_Phase1_440.Windowss
+namespace SQL_Injection.Windowss
 {
     public partial class Search_Item : Form
     {

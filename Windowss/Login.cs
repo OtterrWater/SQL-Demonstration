@@ -11,9 +11,9 @@ using MySql.Data.MySqlClient;
 using System.Security.Cryptography;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Collections;
-using SQL_Injection_Phase1_440.Windowss;
+using SQL_Injection.Windowss;
 
-namespace SQL_Injection_Phase1_440
+namespace SQL_Injection
 {
     public partial class Login : Form
     {
