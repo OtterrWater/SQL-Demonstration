@@ -38,9 +38,10 @@
             // 
             this.Welcome.AutoSize = true;
             this.Welcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Welcome.Location = new System.Drawing.Point(328, 7);
+            this.Welcome.Location = new System.Drawing.Point(875, 17);
+            this.Welcome.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.Welcome.Name = "Welcome";
-            this.Welcome.Size = new System.Drawing.Size(126, 31);
+            this.Welcome.Size = new System.Drawing.Size(310, 76);
             this.Welcome.TabIndex = 0;
             this.Welcome.Text = "Welcome";
             this.Welcome.Click += new System.EventHandler(this.Label1_Click);
@@ -48,9 +49,10 @@
             // LogOutBT
             // 
             this.LogOutBT.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LogOutBT.Location = new System.Drawing.Point(323, 390);
+            this.LogOutBT.Location = new System.Drawing.Point(861, 930);
+            this.LogOutBT.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.LogOutBT.Name = "LogOutBT";
-            this.LogOutBT.Size = new System.Drawing.Size(131, 48);
+            this.LogOutBT.Size = new System.Drawing.Size(349, 114);
             this.LogOutBT.TabIndex = 2;
             this.LogOutBT.Text = "Log out";
             this.LogOutBT.UseVisualStyleBackColor = true;
@@ -59,23 +61,27 @@
             // UserDB
             // 
             this.UserDB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.UserDB.Location = new System.Drawing.Point(54, 41);
+            this.UserDB.Location = new System.Drawing.Point(144, 98);
+            this.UserDB.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.UserDB.Name = "UserDB";
-            this.UserDB.Size = new System.Drawing.Size(671, 333);
+            this.UserDB.RowHeadersWidth = 102;
+            this.UserDB.Size = new System.Drawing.Size(1789, 794);
             this.UserDB.TabIndex = 3;
             this.UserDB.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.UserDB_CellContentClick);
             // 
             // UserDatabase
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(2133, 1073);
             this.Controls.Add(this.UserDB);
             this.Controls.Add(this.LogOutBT);
             this.Controls.Add(this.Welcome);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "UserDatabase";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "UserDatabase";
+            this.Text = "Database";
             this.Load += new System.EventHandler(this.Database_Load);
             ((System.ComponentModel.ISupportInitialize)(this.UserDB)).EndInit();
             this.ResumeLayout(false);
