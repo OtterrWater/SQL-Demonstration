@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SQL_Injection_Phase1_440.Properties
+namespace SQL_Injection.Properties
 {
 
 

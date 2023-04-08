@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using SQL_Injection_Phase1_440.Windowss;
+using SQL_Injection.Windowss;
 
-namespace SQL_Injection_Phase1_440
+namespace SQL_Injection
 {
     public partial class IntaliizeDB : Form
     {

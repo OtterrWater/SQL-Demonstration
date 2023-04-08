@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQL_Injection_Phase1_440", "SQL_Injection_Phase1_440.csproj", "{372E0F37-38A2-4345-8D72-C183A8B2F5FC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQL_Injection", "SQL_Injection.csproj", "{372E0F37-38A2-4345-8D72-C183A8B2F5FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

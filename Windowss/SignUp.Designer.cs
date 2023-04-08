@@ -1,4 +1,4 @@
-﻿namespace SQL_Injection_Phase1_440
+﻿namespace SQL_Injection
 {
     partial class SignUp
     {
