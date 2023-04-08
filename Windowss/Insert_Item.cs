@@ -76,5 +76,12 @@ namespace SQL_Injection.Windowss
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ProductPage l = new ProductPage();
+            l.Show();
+            this.Close();
+        }
     }
 }

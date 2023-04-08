@@ -210,21 +210,16 @@ namespace SQL_Injection
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Login l = new Login();
-            l.Show();
-            this.Close();
-        }
-
         private void textcheckPass_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void button2_Click_1(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-
+            Login l = new Login();
+            l.Show();
+            this.Close();
         }
     }
 }
