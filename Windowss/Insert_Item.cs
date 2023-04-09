@@ -21,30 +21,104 @@ namespace SQL_Injection.Windowss
             InitializeComponent();
         }
 
-        private void Label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void Enter_Click(object sender, EventArgs e)
         {
-           //calling variabels that will be used
+            //calling variabels that will be used
+            string inputType = "";
             string title = textTitle.Text;
             string description = textDescription.Text;
             string category = textCategory.Text;
             string price = textPrice.Text;
-            //query that will call the mysql code/query to be ran
-            string que = "INSERT INTO items (title, description, category, price, post_date) VALUES (@title, @description, @category, @price, CURDATE())";
             //we first check if the input boxes are empty if they are then we jump here and let the user know
-            if (string.IsNullOrEmpty(textTitle.Text) || string.IsNullOrEmpty(textDescription.Text) || string.IsNullOrEmpty(textCategory.Text) || string.IsNullOrEmpty(textPrice.Text)){
+
+            MySqlCommand countItemsCmd = new MySqlCommand("SELECT COUNT(*) FROM items", connection);
+
+            connection.Open();
+            long countAll = (long)countItemsCmd.ExecuteScalar();
+            connection.Close();
+
+            //title
+            if (string.IsNullOrEmpty(textTitle.Text))
+            {
+                t_R.Visible = true;
+                t_R.ForeColor = Color.Red;
+                t_R.Text = "*";
+                inputType = "textTitle";
+            }else if (countAll >= 4){
+                t_R.Visible = true;
+                t_R.ForeColor = Color.Red;
+                t_R.Text = "*";
+                t_error.Visible = true;
+                t_error.ForeColor = Color.Red;
+                t_error.Text = "Username has reached the maximum three inputs";
+                inputType = "textTitle";
+            }
+            else
+            {
+                t_R.Visible = false;
+                t_error.Visible = false;
+            }
+            
+            //descript
+            if (string.IsNullOrEmpty(textDescription.Text))
+            {
+                d_R.Visible = true;
+                d_R.ForeColor = Color.Red;
+                d_R.Text = "*";
+                inputType = "textDescription";
+            }
+            else
+            {
+                d_R.Visible = false;
+            }
+
+            //category
+            if (string.IsNullOrEmpty(textCategory.Text))
+            {
+                c_R.Visible = true;
+                c_R.ForeColor = Color.Red;
+                c_R.Text = "*";
+                inputType = "textCategory";
+            }
+            else
+            {
+                c_R.Visible = false;
+            }
+
+            //price
+            int intValue;
+            if (string.IsNullOrEmpty(textPrice.Text))
+            {
+                p_R.Visible = true;
+                p_R.ForeColor = Color.Red;
+                p_R.Text = "*";
+                inputType = "textPrice";
+            }
+            else if(!int.TryParse(textPrice.Text, out int priceValue))
+            {
+                p_R.Visible = true;
+                p_R.ForeColor = Color.Red;
+                p_R.Text = "*";
+                inputType = "textPrice";
+                p_error.Visible = true;
+                p_error.ForeColor = Color.Red;
+                p_error.Text = "Input a valid price";
+            } 
+            else
+            {
+                p_R.Visible = false;
+                p_error.Visible = false;
+            }
+
+            if (inputType != ""){
                 MessageBox.Show("Please make sure to fill in all fields");
-            //if the input boxes are not empty then we come here
-            }else{
+                connection.Close();
+                return;
+                //if the input boxes are not empty then we come here
+            }
+            else{
+                //query that will call the mysql code/query to be ran
+                string que = "INSERT INTO items (title, description, category, price, post_date) VALUES (@title, @description, @category, @price, CURDATE())";
                 //we call variables that will be used like cmd
                 MySqlCommand cmd = new MySqlCommand(que, connection);
                 //these will be used to help combat against sql injection attacks
@@ -53,29 +127,19 @@ namespace SQL_Injection.Windowss
                 cmd.Parameters.AddWithValue("@category", category);
                 cmd.Parameters.AddWithValue("@price", price);
                 //used to establish connection with the mysql schema
-                connection.Open(); 
+                connection.Open();
                 //used to execute the query
                 cmd.ExecuteNonQuery();
                 //closes connection
                 connection.Close();
                 //lets user know that it was succesfully inserted
-                MessageBox.Show("product inserted!");
+                MessageBox.Show("product inserted!               ");
                 //then user is sent back to the product page
                 ProductPage productPage = new ProductPage();
                 productPage.Show();
                 this.Close();
             }
-        }
-
-        private void TextBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Insert_Item_Load(object sender, EventArgs e)
-        {
-
-        }
+            }
 
         private void button1_Click(object sender, EventArgs e)
         {

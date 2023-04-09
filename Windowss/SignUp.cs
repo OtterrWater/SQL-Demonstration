@@ -22,21 +22,6 @@ namespace SQL_Injection
             InitializeComponent();
         }
 
-        private void SignUp_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             string inputType = "";
@@ -208,11 +193,6 @@ namespace SQL_Injection
                 connection.Close();
                 this.Close();
             }
-        }
-
-        private void textcheckPass_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void button2_Click(object sender, EventArgs e)

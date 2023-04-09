@@ -65,7 +65,6 @@
             this.label1.Size = new System.Drawing.Size(308, 33);
             this.label1.TabIndex = 0;
             this.label1.Text = "Enter User Information";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button1
             // 
@@ -148,7 +147,6 @@
             this.label7.Size = new System.Drawing.Size(57, 13);
             this.label7.TabIndex = 1;
             this.label7.Text = "First Name";
-            this.label7.Click += new System.EventHandler(this.label2_Click);
             // 
             // label8
             // 
@@ -187,7 +185,6 @@
             this.textcheckPass.PasswordChar = '*';
             this.textcheckPass.Size = new System.Drawing.Size(320, 29);
             this.textcheckPass.TabIndex = 6;
-            this.textcheckPass.TextChanged += new System.EventHandler(this.textcheckPass_TextChanged);
             // 
             // label2
             // 
@@ -337,7 +334,6 @@
             this.Name = "SignUp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sign Up";
-            this.Load += new System.EventHandler(this.SignUp_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

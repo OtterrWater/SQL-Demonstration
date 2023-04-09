@@ -40,6 +40,12 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Product = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.t_R = new System.Windows.Forms.Label();
+            this.t_error = new System.Windows.Forms.Label();
+            this.d_R = new System.Windows.Forms.Label();
+            this.c_R = new System.Windows.Forms.Label();
+            this.p_R = new System.Windows.Forms.Label();
+            this.p_error = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,7 +56,6 @@
             this.textTitle.Name = "textTitle";
             this.textTitle.Size = new System.Drawing.Size(256, 29);
             this.textTitle.TabIndex = 0;
-            this.textTitle.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // Enter
             // 
@@ -71,7 +76,6 @@
             this.textDescription.Name = "textDescription";
             this.textDescription.Size = new System.Drawing.Size(256, 170);
             this.textDescription.TabIndex = 1;
-            this.textDescription.TextChanged += new System.EventHandler(this.TextBox2_TextChanged);
             // 
             // textCategory
             // 
@@ -99,7 +103,6 @@
             this.Title.Size = new System.Drawing.Size(38, 20);
             this.Title.TabIndex = 5;
             this.Title.Text = "Title";
-            this.Title.Click += new System.EventHandler(this.Label1_Click);
             // 
             // Category
             // 
@@ -164,11 +167,77 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // t_R
+            // 
+            this.t_R.AutoSize = true;
+            this.t_R.BackColor = System.Drawing.Color.BurlyWood;
+            this.t_R.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.t_R.Location = new System.Drawing.Point(107, 59);
+            this.t_R.Name = "t_R";
+            this.t_R.Size = new System.Drawing.Size(0, 13);
+            this.t_R.TabIndex = 11;
+            // 
+            // t_error
+            // 
+            this.t_error.AutoSize = true;
+            this.t_error.BackColor = System.Drawing.Color.BurlyWood;
+            this.t_error.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.t_error.Location = new System.Drawing.Point(124, 59);
+            this.t_error.Name = "t_error";
+            this.t_error.Size = new System.Drawing.Size(0, 13);
+            this.t_error.TabIndex = 12;
+            // 
+            // d_R
+            // 
+            this.d_R.AutoSize = true;
+            this.d_R.BackColor = System.Drawing.Color.BurlyWood;
+            this.d_R.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.d_R.Location = new System.Drawing.Point(107, 107);
+            this.d_R.Name = "d_R";
+            this.d_R.Size = new System.Drawing.Size(0, 13);
+            this.d_R.TabIndex = 13;
+            // 
+            // c_R
+            // 
+            this.c_R.AutoSize = true;
+            this.c_R.BackColor = System.Drawing.Color.BurlyWood;
+            this.c_R.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.c_R.Location = new System.Drawing.Point(107, 297);
+            this.c_R.Name = "c_R";
+            this.c_R.Size = new System.Drawing.Size(0, 13);
+            this.c_R.TabIndex = 14;
+            // 
+            // p_R
+            // 
+            this.p_R.AutoSize = true;
+            this.p_R.BackColor = System.Drawing.Color.BurlyWood;
+            this.p_R.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.p_R.Location = new System.Drawing.Point(107, 345);
+            this.p_R.Name = "p_R";
+            this.p_R.Size = new System.Drawing.Size(0, 13);
+            this.p_R.TabIndex = 15;
+            // 
+            // p_error
+            // 
+            this.p_error.AutoSize = true;
+            this.p_error.BackColor = System.Drawing.Color.BurlyWood;
+            this.p_error.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.p_error.Location = new System.Drawing.Point(124, 345);
+            this.p_error.Name = "p_error";
+            this.p_error.Size = new System.Drawing.Size(0, 13);
+            this.p_error.TabIndex = 16;
+            // 
             // Insert_Item
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(396, 470);
+            this.Controls.Add(this.p_error);
+            this.Controls.Add(this.p_R);
+            this.Controls.Add(this.c_R);
+            this.Controls.Add(this.d_R);
+            this.Controls.Add(this.t_error);
+            this.Controls.Add(this.t_R);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Product);
             this.Controls.Add(this.Description);
@@ -185,7 +254,6 @@
             this.Name = "Insert_Item";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Insert Item";
-            this.Load += new System.EventHandler(this.Insert_Item_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -206,5 +274,11 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label Product;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label t_R;
+        private System.Windows.Forms.Label t_error;
+        private System.Windows.Forms.Label d_R;
+        private System.Windows.Forms.Label c_R;
+        private System.Windows.Forms.Label p_R;
+        private System.Windows.Forms.Label p_error;
     }
 }
