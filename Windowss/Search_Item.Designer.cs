@@ -41,29 +41,26 @@
             // InputText
             // 
             this.InputText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InputText.Location = new System.Drawing.Point(760, 168);
-            this.InputText.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.InputText.Location = new System.Drawing.Point(285, 70);
             this.InputText.Name = "InputText";
-            this.InputText.Size = new System.Drawing.Size(428, 61);
+            this.InputText.Size = new System.Drawing.Size(163, 29);
             this.InputText.TabIndex = 0;
             // 
             // dataGridViewResults
             // 
             this.dataGridViewResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewResults.Location = new System.Drawing.Point(245, 267);
-            this.dataGridViewResults.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.dataGridViewResults.Location = new System.Drawing.Point(92, 112);
             this.dataGridViewResults.Name = "dataGridViewResults";
             this.dataGridViewResults.RowHeadersWidth = 102;
-            this.dataGridViewResults.Size = new System.Drawing.Size(1667, 603);
+            this.dataGridViewResults.Size = new System.Drawing.Size(625, 253);
             this.dataGridViewResults.TabIndex = 2;
             // 
             // Done
             // 
             this.Done.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Done.Location = new System.Drawing.Point(883, 906);
-            this.Done.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.Done.Location = new System.Drawing.Point(331, 380);
             this.Done.Name = "Done";
-            this.Done.Size = new System.Drawing.Size(309, 67);
+            this.Done.Size = new System.Drawing.Size(116, 28);
             this.Done.TabIndex = 2;
             this.Done.Text = "Done";
             this.Done.UseVisualStyleBackColor = true;
@@ -72,10 +69,9 @@
             // SearchButton
             // 
             this.SearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchButton.Location = new System.Drawing.Point(1208, 169);
-            this.SearchButton.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.SearchButton.Location = new System.Drawing.Point(453, 71);
             this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Size = new System.Drawing.Size(264, 67);
+            this.SearchButton.Size = new System.Drawing.Size(99, 28);
             this.SearchButton.TabIndex = 1;
             this.SearchButton.Text = "Search";
             this.SearchButton.UseVisualStyleBackColor = true;
@@ -84,10 +80,9 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.BurlyWood;
-            this.pictureBox1.Location = new System.Drawing.Point(152, 136);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.pictureBox1.Location = new System.Drawing.Point(57, 57);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1848, 882);
+            this.pictureBox1.Size = new System.Drawing.Size(693, 370);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
@@ -95,18 +90,17 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(792, 21);
-            this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label1.Location = new System.Drawing.Point(297, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(439, 79);
+            this.label1.Size = new System.Drawing.Size(178, 32);
             this.label1.TabIndex = 6;
             this.label1.Text = "Search Page";
             // 
             // Search_Item
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2133, 1073);
+            this.ClientSize = new System.Drawing.Size(814, 440);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.Done);
@@ -114,7 +108,6 @@
             this.Controls.Add(this.InputText);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "Search_Item";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Search Item";
