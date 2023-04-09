@@ -31,10 +31,15 @@ namespace SQL_Injection.Windowss
             string price = textPrice.Text;
             //we first check if the input boxes are empty if they are then we jump here and let the user know
 
-            MySqlCommand countItemsCmd = new MySqlCommand("SELECT COUNT(*) FROM items", connection);
+            //query to count the number of existing entries
+            string countQuery = "SELECT COUNT(*) FROM items";
+
+            //create MySqlCommand objects for both queries
+            MySqlCommand countCmd = new MySqlCommand(countQuery, connection);
 
             connection.Open();
-            long countAll = (long)countItemsCmd.ExecuteScalar();
+            //execute the count query and retrieve the result
+            int countAll = Convert.ToInt32(countCmd.ExecuteScalar());
             connection.Close();
 
             //title
@@ -44,7 +49,7 @@ namespace SQL_Injection.Windowss
                 t_R.ForeColor = Color.Red;
                 t_R.Text = "*";
                 inputType = "textTitle";
-            }else if (countAll >= 4){
+            }else if (countAll >= 3){
                 t_R.Visible = true;
                 t_R.ForeColor = Color.Red;
                 t_R.Text = "*";
@@ -139,7 +144,7 @@ namespace SQL_Injection.Windowss
                 productPage.Show();
                 this.Close();
             }
-            }
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
