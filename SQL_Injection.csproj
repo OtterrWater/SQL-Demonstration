@@ -85,6 +85,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Windowss\RatePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windowss\RatePage.Designer.cs">
+      <DependentUpon>RatePage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windowss\Search_Item.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Windowss\RatePage.resx">
+      <DependentUpon>RatePage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Windowss\Search_Item.resx">
       <DependentUpon>Search_Item.cs</DependentUpon>
     </EmbeddedResource>

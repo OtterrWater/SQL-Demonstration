@@ -78,3 +78,44 @@ H:\Spring2023\Comp 440(database design)\SQL-Injection\bin\Debug\System.Memory.xm
 H:\Spring2023\Comp 440(database design)\SQL-Injection\bin\Debug\System.Numerics.Vectors.xml
 H:\Spring2023\Comp 440(database design)\SQL-Injection\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 H:\Spring2023\Comp 440(database design)\SQL-Injection\obj\Debug\SQL_Injection.csproj.CopyComplete
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\bin\Debug\SQL_Injection_Phase1_440.exe.config
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\bin\Debug\SQL_Injection_Phase1_440.exe
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\bin\Debug\SQL_Injection_Phase1_440.pdb
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\bin\Debug\Google.Protobuf.dll
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\bin\Debug\MySql.Data.dll
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\bin\Debug\System.Buffers.dll
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\bin\Debug\System.Memory.dll
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\bin\Debug\ZstdNet.dll
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\bin\Debug\BouncyCastle.Crypto.xml
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\bin\Debug\Google.Protobuf.pdb
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\bin\Debug\Google.Protobuf.xml
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\bin\Debug\K4os.Compression.LZ4.xml
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\bin\Debug\K4os.Hash.xxHash.xml
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\bin\Debug\MySql.Data.xml
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\bin\Debug\System.Buffers.xml
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\bin\Debug\System.Memory.xml
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\obj\Debug\SQL_Injection.csproj.AssemblyReference.cache
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\obj\Debug\SQL_Injection.csproj.SuggestedBindingRedirects.cache
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\obj\Debug\SQL_Injection.Windowss.Search_Item.resources
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\obj\Debug\SQL_Injection.Windowss.Insert_Item.resources
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\obj\Debug\SQL_Injection.IntaliizeDB.resources
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\obj\Debug\SQL_Injection.UserDatabase.resources
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\obj\Debug\SQL_Injection.Login.resources
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\obj\Debug\SQL_Injection.Windowss.ProductPage.resources
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\obj\Debug\SQL_Injection.SignUp.resources
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\obj\Debug\SQL_Injection_Phase1_440.Properties.Resources.resources
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\obj\Debug\SQL_Injection.csproj.GenerateResource.cache
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\obj\Debug\SQL_Injection.csproj.CoreCompileInputs.cache
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\obj\Debug\SQL_Injection.csproj.CopyComplete
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\obj\Debug\SQL_Injection_Phase1_440.exe
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\obj\Debug\SQL_Injection_Phase1_440.pdb
+C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\obj\Debug\SQL_Injection_Phase1_440.Windowss.Rate_Page.resources

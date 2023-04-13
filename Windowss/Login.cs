@@ -32,6 +32,9 @@ namespace SQL_Injection
         //this is the enter button for the login page
         private void Button1_Click(object sender, EventArgs e)
         {
+            //this is where we will take the UID from the user table and pass it to the ratePage for future use
+            //find the UID that is in play by comparing both the username and password  in the query 
+
             //we create our variabels that we will be using
             string username = txtUsername.Text;
             string password = txtPassword.Text;
