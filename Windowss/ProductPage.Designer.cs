@@ -34,27 +34,32 @@
             this.button3 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ProductsPage = new System.Windows.Forms.Label();
+            this.Rated_Items = new System.Windows.Forms.DataGridView();
+            this.InsertedProducts = new System.Windows.Forms.Label();
+            this.RatedProducts = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.product_db)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Rated_Items)).BeginInit();
             this.SuspendLayout();
             // 
             // product_db
             // 
             this.product_db.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.product_db.Location = new System.Drawing.Point(267, 81);
-            this.product_db.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.product_db.Location = new System.Drawing.Point(379, 81);
+            this.product_db.Margin = new System.Windows.Forms.Padding(2);
             this.product_db.Name = "product_db";
             this.product_db.RowHeadersWidth = 82;
             this.product_db.RowTemplate.Height = 33;
-            this.product_db.Size = new System.Drawing.Size(667, 371);
+            this.product_db.Size = new System.Drawing.Size(680, 229);
             this.product_db.TabIndex = 1;
             this.product_db.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Products);
+            this.product_db.SelectionChanged += new System.EventHandler(this.product_db_SelectionChanged);
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(35, 102);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Location = new System.Drawing.Point(35, 152);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(195, 43);
             this.button1.TabIndex = 0;
@@ -65,8 +70,8 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(35, 232);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Location = new System.Drawing.Point(35, 300);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(195, 45);
             this.button2.TabIndex = 1;
@@ -77,8 +82,8 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(35, 373);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Location = new System.Drawing.Point(35, 448);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(195, 49);
             this.button3.TabIndex = 2;
@@ -91,9 +96,10 @@
             this.pictureBox1.BackColor = System.Drawing.Color.BurlyWood;
             this.pictureBox1.Location = new System.Drawing.Point(12, 49);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(959, 442);
+            this.pictureBox1.Size = new System.Drawing.Size(1165, 536);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // ProductsPage
             // 
@@ -106,11 +112,41 @@
             this.ProductsPage.Text = "Products";
             this.ProductsPage.Click += new System.EventHandler(this.ProductsPage_Click);
             // 
+            // Rated_Items
+            // 
+            this.Rated_Items.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Rated_Items.Location = new System.Drawing.Point(311, 326);
+            this.Rated_Items.Name = "Rated_Items";
+            this.Rated_Items.Size = new System.Drawing.Size(824, 246);
+            this.Rated_Items.TabIndex = 7;
+            this.Rated_Items.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Rated_Items_CellContentClick);
+            // 
+            // InsertedProducts
+            // 
+            this.InsertedProducts.AutoSize = true;
+            this.InsertedProducts.Location = new System.Drawing.Point(655, 66);
+            this.InsertedProducts.Name = "InsertedProducts";
+            this.InsertedProducts.Size = new System.Drawing.Size(90, 13);
+            this.InsertedProducts.TabIndex = 8;
+            this.InsertedProducts.Text = "Inserted Products";
+            // 
+            // RatedProducts
+            // 
+            this.RatedProducts.AutoSize = true;
+            this.RatedProducts.Location = new System.Drawing.Point(655, 312);
+            this.RatedProducts.Name = "RatedProducts";
+            this.RatedProducts.Size = new System.Drawing.Size(81, 13);
+            this.RatedProducts.TabIndex = 9;
+            this.RatedProducts.Text = "Rated Products";
+            // 
             // ProductPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(983, 505);
+            this.ClientSize = new System.Drawing.Size(1189, 597);
+            this.Controls.Add(this.RatedProducts);
+            this.Controls.Add(this.InsertedProducts);
+            this.Controls.Add(this.Rated_Items);
             this.Controls.Add(this.ProductsPage);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -118,13 +154,14 @@
             this.Controls.Add(this.product_db);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ProductPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Product Page";
             this.Load += new System.EventHandler(this.ProductPage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.product_db)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Rated_Items)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,5 +174,8 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label ProductsPage;
+        private System.Windows.Forms.DataGridView Rated_Items;
+        private System.Windows.Forms.Label InsertedProducts;
+        private System.Windows.Forms.Label RatedProducts;
     }
 }

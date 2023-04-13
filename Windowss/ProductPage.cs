@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using MySql.Data.MySqlClient;
+using SQL_Injection_Phase1_440.Windowss;
 
 namespace SQL_Injection.Windowss
 {
@@ -52,6 +54,7 @@ namespace SQL_Injection.Windowss
                 //we call fourth our connection and adapter
                 MySqlConnection connection = new MySqlConnection(connectionString);
                 MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM project_phase_1_db.items;", connection);
+                MySqlDataAdapter adapter2 = new MySqlDataAdapter("SELECT * FROM project_phase_1_db.rated_items;", connection);
                 connection.Open();
                 //we also call our dataset
                 DataSet pdP = new DataSet();
@@ -60,13 +63,22 @@ namespace SQL_Injection.Windowss
                 product_db.DataSource = pdP.Tables["items"];
                 //if we succed then we come here and let the user know
                 Console.WriteLine("Database succesfully loaded");
+
+
+                ////////////////////////////////////loading in rated items now
+                //we also call our dataset
+                DataSet RI = new DataSet();
+                //we use the adapter to fill our page with our data
+                adapter2.Fill(RI, "rated_items");
+                Rated_Items.DataSource = RI.Tables["rated_items"];
+                Console.WriteLine("rated items succesfully loaded");
                 connection.Close();
 
             }
             //if the data table was not loaded correctly then we will come here
             catch (Exception ex)
-            { 
-                Console.WriteLine("failed to load products database", ex.Message);
+            {
+                Console.WriteLine("failed to load products database or rate items", ex.Message);
             }
         }
 
@@ -78,6 +90,34 @@ namespace SQL_Injection.Windowss
         private void ProductsPage_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Rated_Items_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void product_db_SelectionChanged(object sender, EventArgs e)
+        {
+            if (product_db.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = product_db.SelectedRows[0];
+                string selectedItemName = selectedRow.Cells["title"].Value.ToString();
+                int selectedItemID = (int)selectedRow.Cells["id"].Value;
+
+
+                // Show the rating window form
+                Rate_Page ratePage = new Rate_Page();
+                ratePage.itemNameLabel.Text = selectedItemName; // Pass the selected item name to the Rate_Page form
+                ratePage.SelectedItemId = selectedItemID;//pass the ID of the item to the rate page to mkae it alot more easier for us to find it 
+                ratePage.ShowDialog();
+                this.Close();
+            }
         }
     }
 }

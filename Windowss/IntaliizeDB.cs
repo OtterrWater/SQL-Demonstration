@@ -26,6 +26,8 @@ namespace SQL_Injection
             string tableName = "user";
             string tableName2 = "items";
             string tableName3 = "user_posts";
+            string tableName4 = "rates";
+            string tableName5 = "rated_items";
             //these strings will hold our queries
             string dropTableQuery = $"DROP TABLE IF EXISTS {tableName};";
             string createTableQuery = $"CREATE TABLE IF NOT EXISTS {tableName}" +
@@ -50,6 +52,20 @@ namespace SQL_Injection
                 $"post_date DATE NOT NULL," +
                 $"num_posts INT NOT NULL DEFAULT 0," +
                 $"PRIMARY KEY (user_name, post_date));";
+            string dropTableQuery4 = $"DROP TABLE IF EXISTS {tableName4};";
+            string createTableQuery4 = $"CREATE TABLE IF NOT EXISTS {tableName4}" +
+                $"(rate INT NOT NULL)";
+            string ratesQuery = $"INSERT INTO rates (rate)\r\nVALUES (1), (2), (3), (4), (5);";
+            string dropTableQuery5 = $"DROP TABLE IF EXISTS {tableName5};";
+            string createTableQuery5 = $"CREATE TABLE IF NOT EXISTS {tableName5}" +
+                $"(id INT AUTO_INCREMENT PRIMARY KEY," +
+                $"title VARCHAR(255) NOT NULL," +
+                $"description TEXT," +
+                $"category VARCHAR(255)," +
+                $"price DECIMAL(10,2)," +
+                $"post_date DATE," +
+                $"rate INT," +
+                $"rate_description TEXT);";
             //so for the code above i dont think we need post_date tbh.. ill see tho
             MySqlConnection connection = new MySqlConnection(connectionString);
             MySqlCommand dropTableCommand = new MySqlCommand(dropTableQuery, connection);
@@ -58,6 +74,14 @@ namespace SQL_Injection
             MySqlCommand createTableCommand2 = new MySqlCommand(createTableQuery2, connection);
             MySqlCommand dropTableCommand3 = new MySqlCommand(dropTableQuery3, connection);
             MySqlCommand createTableCommand3 = new MySqlCommand(createTableQuery3, connection);
+            MySqlCommand dropTableCommand4 = new MySqlCommand(dropTableQuery4, connection);
+            MySqlCommand createTableCommand4 = new MySqlCommand(createTableQuery4, connection);
+            MySqlCommand dropTableCommand5 = new MySqlCommand(dropTableQuery5, connection);
+            MySqlCommand createTableCommand5 = new MySqlCommand(createTableQuery5, connection);
+
+
+
+            MySqlCommand insertRates = new MySqlCommand(ratesQuery, connection);
             //once the button is clicked we try to connect to the mySQL server
             try 
             { 
@@ -90,12 +114,17 @@ namespace SQL_Injection
                 //we call the drop table command 
                 dropTableCommand3.ExecuteNonQuery();
                 Console.WriteLine($"Table {tableName3} dropped successfully!");
+                //we call the drop table command 
+                dropTableCommand4.ExecuteNonQuery();
+                Console.WriteLine($"Table {tableName4} dropped successfully!");
+                dropTableCommand5.ExecuteNonQuery();
+                Console.WriteLine($"Table {tableName5} dropped succesfully!");
 
             }
             //if the table was not able to succesfully be dropped then we come here
             catch (Exception ex)
             {
-                Console.WriteLine($"Error dropping table {tableName} and {tableName2} and {tableName3}: {ex.Message}");
+                Console.WriteLine($"Error dropping table {tableName} and {tableName2} and {tableName3} and {tableName4}: {ex.Message}");
                 connection.Close(); 
             }
             //recreate the table
@@ -107,12 +136,17 @@ namespace SQL_Injection
                 createTableCommand2.ExecuteNonQuery();
                 //we call the create table command
                 createTableCommand3.ExecuteNonQuery();
-                Console.WriteLine($"Table {tableName} and {tableName2} and {tableName3} recreated successfully!");
+                //we call the create table command
+                createTableCommand4.ExecuteNonQuery();
+                insertRates.ExecuteNonQuery();
+                //we call the create table command
+                createTableCommand5.ExecuteNonQuery();
+                Console.WriteLine($"Table {tableName} and {tableName2} and {tableName3} and {tableName4} and {tableName5} recreated successfully!");
             }
             //if the table was not succesfully recreated then we come here
             catch (Exception ex)
             {
-                Console.WriteLine($"Error recreating table {tableName} and {tableName2} and {tableName3}: {ex.Message}");
+                Console.WriteLine($"Error recreating table {tableName} and {tableName2} and {tableName3} and {tableName4} and {tableName5}: {ex.Message}");
                 connection.Close();
             }
             //we come here once were done with the rest 
@@ -133,5 +167,9 @@ namespace SQL_Injection
 
         }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
