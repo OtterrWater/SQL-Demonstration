@@ -33,7 +33,7 @@ namespace SQL_Injection_Phase1_440.Windowss
         {
             try
             {
-                //tommoorw try to get this to work with the title and the id that way it will work alot more better when you do search in the future
+             //this is where we will increment the rating    
 
                 //get the item id that was selected
                 int itemID = _selectedItemId;

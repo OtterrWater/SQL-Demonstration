@@ -109,6 +109,8 @@ namespace SQL_Injection.Windowss
 
         private void product_db_SelectionChanged(object sender, EventArgs e)
         {
+            ///this is where we will check if they are trying to rate their own thing
+            ///we will also check to see if they havent rated more than 3 things
             try
             {
             if (product_db.SelectedRows.Count > 0)
@@ -119,12 +121,6 @@ namespace SQL_Injection.Windowss
 
                     // Show the rating window form
                     Rate_Page ratePage = new Rate_Page(selectedItemName, selectedItemID);
-                    /*
-                    ratePage.itemNameLabel.Text = selectedItemName; // Pass the selected item name to the Rate_Page form
-                    
-                    ratePage.selectedItemName = selectedItemName;
-                    ratePage.SelectedItemId = selectedItemID;//pass the ID of the item to the rate page to mkae it alot more easier for us to find it 
-                    */
                     ratePage.ShowDialog();
                     this.Close();
                 }
