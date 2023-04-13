@@ -61,6 +61,9 @@ namespace SQL_Injection.Windowss
                 //we use the adapter to fill our page with our data
                 adapter.Fill(pdP, "items");
                 product_db.DataSource = pdP.Tables["items"];
+                //prevents an empty row from being generated
+                product_db.AllowUserToAddRows = false;
+
                 //if we succed then we come here and let the user know
                 Console.WriteLine("Database succesfully loaded");
 
@@ -71,6 +74,8 @@ namespace SQL_Injection.Windowss
                 //we use the adapter to fill our page with our data
                 adapter2.Fill(RI, "rated_items");
                 Rated_Items.DataSource = RI.Tables["rated_items"];
+                //prevents an empty row from being generated
+                Rated_Items.AllowUserToAddRows = false;
                 Console.WriteLine("rated items succesfully loaded");
                 connection.Close();
 
@@ -104,20 +109,30 @@ namespace SQL_Injection.Windowss
 
         private void product_db_SelectionChanged(object sender, EventArgs e)
         {
-            if (product_db.SelectedRows.Count > 0)
+            try
             {
-                DataGridViewRow selectedRow = product_db.SelectedRows[0];
-                string selectedItemName = selectedRow.Cells["title"].Value.ToString();
-                int selectedItemID = (int)selectedRow.Cells["id"].Value;
+            if (product_db.SelectedRows.Count > 0)
+                {
+                    DataGridViewRow selectedRow = product_db.SelectedRows[0];
+                    string selectedItemName = selectedRow.Cells["title"].Value.ToString();
+                    int selectedItemID = (int)selectedRow.Cells["id"].Value;
 
-
-                // Show the rating window form
-                Rate_Page ratePage = new Rate_Page();
-                ratePage.itemNameLabel.Text = selectedItemName; // Pass the selected item name to the Rate_Page form
-                ratePage.SelectedItemId = selectedItemID;//pass the ID of the item to the rate page to mkae it alot more easier for us to find it 
-                ratePage.ShowDialog();
-                this.Close();
+                    // Show the rating window form
+                    Rate_Page ratePage = new Rate_Page(selectedItemName, selectedItemID);
+                    /*
+                    ratePage.itemNameLabel.Text = selectedItemName; // Pass the selected item name to the Rate_Page form
+                    
+                    ratePage.selectedItemName = selectedItemName;
+                    ratePage.SelectedItemId = selectedItemID;//pass the ID of the item to the rate page to mkae it alot more easier for us to find it 
+                    */
+                    ratePage.ShowDialog();
+                    this.Close();
+                }
+            }catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
+            
         }
     }
 }

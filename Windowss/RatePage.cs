@@ -15,10 +15,17 @@ namespace SQL_Injection_Phase1_440.Windowss
 {
     public partial class Rate_Page : Form
     {
+        /*
         public int SelectedItemId { get; set; }
+        public int SelectedItemName { get; set; }
+        */
+        private string _selectedItemName;
+        private int _selectedItemId;
 
-        public Rate_Page()
+        public Rate_Page(string selectedItemName, int selectedItemId)
         {
+            _selectedItemName = selectedItemName;
+            _selectedItemId = selectedItemId;
             InitializeComponent();
         }
 
@@ -29,13 +36,15 @@ namespace SQL_Injection_Phase1_440.Windowss
                 //tommoorw try to get this to work with the title and the id that way it will work alot more better when you do search in the future
 
                 //get the item id that was selected
-                int itemID = SelectedItemId;
+                int itemID = _selectedItemId;
+                string titleName = _selectedItemName;
                 //fetch the data of the item that weve selected
                 string connectionString = "Server=127.0.0.1;Database=project_phase_1_db;Uid=root;Pwd=123;";
                 MySqlConnection connection = new MySqlConnection(connectionString);
-                string query = "SELECT * FROM items WHERE id = @itemId";
+                string query = "SELECT * FROM items WHERE id = @itemId AND title = @title";
                 MySqlCommand command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@itemId", itemID);
+                command.Parameters.AddWithValue("@title", titleName);
                 connection.Open();
                 MySqlDataReader reader = command.ExecuteReader();
                 string selectedItemName = "";
