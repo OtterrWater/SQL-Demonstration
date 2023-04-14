@@ -52,7 +52,6 @@
             this.product_db.RowTemplate.Height = 33;
             this.product_db.Size = new System.Drawing.Size(680, 229);
             this.product_db.TabIndex = 1;
-            this.product_db.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Products);
             this.product_db.SelectionChanged += new System.EventHandler(this.product_db_SelectionChanged);
             // 
             // button1
@@ -99,7 +98,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(1165, 536);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // ProductsPage
             // 
@@ -110,7 +108,6 @@
             this.ProductsPage.Size = new System.Drawing.Size(134, 32);
             this.ProductsPage.TabIndex = 6;
             this.ProductsPage.Text = "Products";
-            this.ProductsPage.Click += new System.EventHandler(this.ProductsPage_Click);
             // 
             // Rated_Items
             // 
@@ -119,7 +116,6 @@
             this.Rated_Items.Name = "Rated_Items";
             this.Rated_Items.Size = new System.Drawing.Size(824, 246);
             this.Rated_Items.TabIndex = 7;
-            this.Rated_Items.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Rated_Items_CellContentClick);
             // 
             // InsertedProducts
             // 

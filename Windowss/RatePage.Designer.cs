@@ -35,75 +35,118 @@
             this.Rate_description = new System.Windows.Forms.Label();
             this.Enter = new System.Windows.Forms.Button();
             this.itemNameLabel = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(159, 236);
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(168, 168);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(173, 90);
+            this.textBox1.Size = new System.Drawing.Size(312, 304);
             this.textBox1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(220, 47);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(168, 16);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 13);
+            this.label1.Size = new System.Drawing.Size(177, 42);
             this.label1.TabIndex = 1;
             this.label1.Text = "Rate Item";
             // 
             // comboBox1
             // 
+            this.comboBox1.Font = new System.Drawing.Font("Forte", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(188, 125);
+            this.comboBox1.Location = new System.Drawing.Point(168, 112);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.Size = new System.Drawing.Size(312, 30);
             this.comboBox1.TabIndex = 2;
             // 
             // Rating
             // 
             this.Rating.AutoSize = true;
-            this.Rating.Location = new System.Drawing.Point(234, 106);
+            this.Rating.BackColor = System.Drawing.Color.BurlyWood;
+            this.Rating.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Rating.Location = new System.Drawing.Point(96, 112);
+            this.Rating.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Rating.Name = "Rating";
-            this.Rating.Size = new System.Drawing.Size(38, 13);
+            this.Rating.Size = new System.Drawing.Size(67, 25);
             this.Rating.TabIndex = 3;
             this.Rating.Text = "Rating";
             // 
             // Rate_description
             // 
             this.Rate_description.AutoSize = true;
-            this.Rate_description.Location = new System.Drawing.Point(203, 220);
+            this.Rate_description.BackColor = System.Drawing.Color.BurlyWood;
+            this.Rate_description.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Rate_description.Location = new System.Drawing.Point(24, 168);
+            this.Rate_description.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Rate_description.Name = "Rate_description";
-            this.Rate_description.Size = new System.Drawing.Size(87, 13);
+            this.Rate_description.Size = new System.Drawing.Size(142, 25);
             this.Rate_description.TabIndex = 4;
-            this.Rate_description.Text = "Rate_description";
+            this.Rate_description.Text = "Written Review";
             // 
             // Enter
             // 
-            this.Enter.Location = new System.Drawing.Point(213, 375);
+            this.Enter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Enter.Location = new System.Drawing.Point(24, 512);
+            this.Enter.Margin = new System.Windows.Forms.Padding(4);
             this.Enter.Name = "Enter";
-            this.Enter.Size = new System.Drawing.Size(75, 23);
+            this.Enter.Size = new System.Drawing.Size(224, 59);
             this.Enter.TabIndex = 6;
-            this.Enter.Text = "Enter";
+            this.Enter.Text = "ENTER";
             this.Enter.UseVisualStyleBackColor = true;
             this.Enter.Click += new System.EventHandler(this.button2_Click);
             // 
             // itemNameLabel
             // 
             this.itemNameLabel.AutoSize = true;
-            this.itemNameLabel.Location = new System.Drawing.Point(210, 80);
+            this.itemNameLabel.BackColor = System.Drawing.Color.BurlyWood;
+            this.itemNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.itemNameLabel.Location = new System.Drawing.Point(168, 88);
+            this.itemNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.itemNameLabel.Name = "itemNameLabel";
-            this.itemNameLabel.Size = new System.Drawing.Size(80, 13);
+            this.itemNameLabel.Size = new System.Drawing.Size(126, 20);
             this.itemNameLabel.TabIndex = 7;
             this.itemNameLabel.Text = "itemNameLabel";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.BurlyWood;
+            this.pictureBox1.Location = new System.Drawing.Point(16, 64);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(488, 440);
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(264, 512);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(224, 59);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "CANCEL";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Rate_Page
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(517, 450);
+            this.ClientSize = new System.Drawing.Size(528, 578);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.itemNameLabel);
             this.Controls.Add(this.Enter);
             this.Controls.Add(this.Rate_description);
@@ -111,9 +154,12 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.pictureBox1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Rate_Page";
             this.Text = "RatePage";
             this.Load += new System.EventHandler(this.Rate_Page_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -128,5 +174,7 @@
         private System.Windows.Forms.Label Rate_description;
         private System.Windows.Forms.Button Enter;
         public System.Windows.Forms.Label itemNameLabel;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button1;
     }
 }
