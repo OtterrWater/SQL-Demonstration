@@ -16,8 +16,21 @@ namespace SQL_Injection.Windowss
         //calling variables that will be used
         static string connectionString = "Server=127.0.0.1;Database=project_phase_1_db;Uid=root;Pwd=123;";
         MySqlConnection connection = new MySqlConnection(connectionString);
+        private int _uid;
+
+        public void SetUid(int uid)
+        {
+            _uid = uid;
+        }
+        public int GetUid()
+        {
+            Console.WriteLine("The current value of uid is: " + _uid);
+            return _uid;
+        }
+
         public Insert_Item()
         {
+            
             InitializeComponent();
         }
 
@@ -127,8 +140,12 @@ namespace SQL_Injection.Windowss
                 //if the input boxes are not empty then we come here
             }
             else{
+                //geting the UID to insert to the table
+                int UID = _uid;
+                Console.WriteLine(UID);
+
                 //query that will call the mysql code/query to be ran
-                string que = "INSERT INTO items (title, description, category, price, post_date) VALUES (@title, @description, @category, @price, CURDATE())";
+                string que = "INSERT INTO items (title, description, category, price, post_date, UID) VALUES (@title, @description, @category, @price, CURDATE(), @UID)";
                 //we call variables that will be used like cmd
                 MySqlCommand cmd = new MySqlCommand(que, connection);
                 //these will be used to help combat against sql injection attacks
@@ -136,6 +153,7 @@ namespace SQL_Injection.Windowss
                 cmd.Parameters.AddWithValue("@description", description);
                 cmd.Parameters.AddWithValue("@category", category);
                 cmd.Parameters.AddWithValue("@price", price);
+                cmd.Parameters.AddWithValue("@UID", UID);
                 //used to establish connection with the mysql schema
                 connection.Open();
                 //used to execute the query
@@ -161,6 +179,11 @@ namespace SQL_Injection.Windowss
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Insert_Item_Load(object sender, EventArgs e)
+        {
+          
         }
     }
 }

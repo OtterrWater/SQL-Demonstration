@@ -111,5 +111,10 @@ namespace SQL_Injection.Windowss
             }
             
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -255,6 +255,7 @@
             this.Name = "Insert_Item";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Insert Item";
+            this.Load += new System.EventHandler(this.Insert_Item_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

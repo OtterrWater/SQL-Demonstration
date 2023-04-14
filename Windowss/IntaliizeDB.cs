@@ -46,7 +46,8 @@ namespace SQL_Injection
                 $"description TEXT," +
                 $"category VARCHAR(255)," +
                 $"price DECIMAL(10,2)," +
-                $"post_date DATE);";
+                $"post_date DATE," +
+                $"UID INT);";
             string dropTableQuery3 = $"DROP TABLE IF EXISTS {tableName3};";
             string createTableQuery3 = $"CREATE TABLE IF NOT EXISTS {tableName3}" +
                 $"(user_name INT NOT NULL," +

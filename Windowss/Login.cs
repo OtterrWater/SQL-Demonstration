@@ -78,6 +78,10 @@ namespace SQL_Injection
                     {
                         // UID found, pass it to Rate_Page constructor
                         int uid = Convert.ToInt32(result);
+                        Insert_Item insert = new Insert_Item(uid);
+                        insert.SetUid(uid);
+                        int tetsing = insert.GetUid();
+                        Console.WriteLine(uid);
                         Rate_Page ratePage = new Rate_Page();
                         ratePage.SetUid(uid);
                         Console.WriteLine("found the UID and PASSED to the RatePage");
