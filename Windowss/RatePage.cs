@@ -15,17 +15,25 @@ namespace SQL_Injection_Phase1_440.Windowss
 {
     public partial class Rate_Page : Form
     {
-        /*
-        public int SelectedItemId { get; set; }
-        public int SelectedItemName { get; set; }
-        */
+       
         private string _selectedItemName;
         private int _selectedItemId;
+        private int _uid;
 
-        public Rate_Page(string selectedItemName, int selectedItemId)
+        public void SetSelectedItem(string selectedItemName, int selectedItemId)
         {
             _selectedItemName = selectedItemName;
             _selectedItemId = selectedItemId;
+        }
+
+        public void SetUid(int uid)
+        {
+            _uid = uid;
+        }
+
+
+        public Rate_Page()
+        {
             InitializeComponent();
         }
 
@@ -69,7 +77,7 @@ namespace SQL_Injection_Phase1_440.Windowss
                     command.Parameters.AddWithValue("@post_date", postDate);
 
                     // ADDING THE INTS INTO DROPDOWN BOX    
-                    command.Parameters.AddWithValue("@rating", Convert.ToInt32(comboBox1.SelectedItem));
+                    command.Parameters.AddWithValue("@rating", comboBox1.SelectedItem);
 
                     command.Parameters.AddWithValue("@rating_description", textBox1.Text);
                     reader.Close();
@@ -98,6 +106,12 @@ namespace SQL_Injection_Phase1_440.Windowss
         {
             try
             {
+                string newLabelText = _selectedItemName;
+                itemNameLabel.Text = newLabelText;
+
+                //stops the user from inputting anything in the combo box
+                comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+
                 string connectionString = "Server=127.0.0.1;Database=project_phase_1_db;Uid=root;Pwd=123;";
                 string query = "SELECT rate FROM project_phase_1_db.rates;";
                 MySqlConnection connection = new MySqlConnection(connectionString);

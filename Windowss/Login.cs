@@ -12,6 +12,7 @@ using System.Security.Cryptography;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Collections;
 using SQL_Injection.Windowss;
+using SQL_Injection_Phase1_440.Windowss;
 
 namespace SQL_Injection
 {
@@ -41,14 +42,23 @@ namespace SQL_Injection
             //adding the @ in the sql query code will stop from user accesing the actual sql code, so whatever they put
             //will have to be passed through another area. This will make it alot harder for user to try to do a sql injection attack
             string query = $"SELECT * FROM user WHERE username = @username AND password = @password";
+
+            string getUID = $"SELECT UID FROM user WHERE username = @username AND password = @password";
+
             connection.Open();
             // Create the command that will run the command
             MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlCommand cmd = new MySqlCommand(getUID, connection);
+
             //the input for the login page will be passed through here which will make it more secure since user can no longer pass sql code directly
             //into sql
             command.Parameters.AddWithValue("@username", username);
             command.Parameters.AddWithValue("@password", password);
+
+            cmd.Parameters.AddWithValue("@username", username);
+            cmd.Parameters.AddWithValue("@password", password);
             //command.ExecuteNonQuery();
+            object result = cmd.ExecuteScalar();
             //we then call reader and have it ready to exectue
             MySqlDataReader reader = command.ExecuteReader();
             //we first check the input is null if it is then we send the user a message letting them know that they didnt put anything
@@ -63,6 +73,22 @@ namespace SQL_Injection
                 // Check if the login was successful
                 if (reader.HasRows)
                 {
+                    //this is how we pass the id or user ID to ratePage which we will use to keep track of who rates, how many times they have rated, and if they have ratede 3 times in the same day
+                    if (result != null)
+                    {
+                        // UID found, pass it to Rate_Page constructor
+                        int uid = Convert.ToInt32(result);
+                        Rate_Page ratePage = new Rate_Page();
+                        ratePage.SetUid(uid);
+                        Console.WriteLine("found the UID and PASSED to the RatePage");
+                    }
+                    else
+                    {
+                        // UID not found, display error message to user
+                        MessageBox.Show("Invalid username or password.");
+                    }
+
+
                     MessageBox.Show("Login successful!");
                     //this will open up the product page
                     ProductPage pdP = new ProductPage();

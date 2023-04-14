@@ -55,8 +55,8 @@ namespace SQL_Injection
                 $"PRIMARY KEY (user_name, post_date));";
             string dropTableQuery4 = $"DROP TABLE IF EXISTS {tableName4};";
             string createTableQuery4 = $"CREATE TABLE IF NOT EXISTS {tableName4}" +
-                $"(rate INT NOT NULL)";
-            string ratesQuery = $"INSERT INTO rates (rate)\r\nVALUES (1), (2), (3), (4), (5);";
+                $"(rate VARCHAR(255) NOT NULL)";
+            string ratesQuery = $"INSERT INTO rates (rate) VALUES ('excellent'), ('good'), ('fair'), ('poor');";
             string dropTableQuery5 = $"DROP TABLE IF EXISTS {tableName5};";
             string createTableQuery5 = $"CREATE TABLE IF NOT EXISTS {tableName5}" +
                 $"(id INT AUTO_INCREMENT PRIMARY KEY," +
@@ -65,7 +65,7 @@ namespace SQL_Injection
                 $"category VARCHAR(255)," +
                 $"price DECIMAL(10,2)," +
                 $"post_date DATE," +
-                $"rate INT," +
+                $"rate VARCHAR(255)," +
                 $"rate_description TEXT);";
             string dropTableQuery6 = $"DROP TABLE IF EXISTS {tableName6};";
             string createTableQuery6 = $"CREATE TABLE IF NOT EXISTS {tableName6}" +

@@ -107,7 +107,6 @@ C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\obj\Debug\SQL_Injection.csproj.Sug
 C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\obj\Debug\SQL_Injection.Windowss.Search_Item.resources
 C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\obj\Debug\SQL_Injection.Windowss.Insert_Item.resources
 C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\obj\Debug\SQL_Injection.IntaliizeDB.resources
-C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\obj\Debug\SQL_Injection.UserDatabase.resources
 C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\obj\Debug\SQL_Injection.Login.resources
 C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\obj\Debug\SQL_Injection.Windowss.ProductPage.resources
 C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\obj\Debug\SQL_Injection.SignUp.resources
