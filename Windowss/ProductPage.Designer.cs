@@ -52,6 +52,7 @@
             this.product_db.RowTemplate.Height = 33;
             this.product_db.Size = new System.Drawing.Size(680, 229);
             this.product_db.TabIndex = 1;
+            this.product_db.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.product_db_CellContentClick);
             this.product_db.SelectionChanged += new System.EventHandler(this.product_db_SelectionChanged);
             // 
             // button1

@@ -33,32 +33,54 @@ namespace SQL_Injection
         //this is the enter button for the login page
         private void Button1_Click(object sender, EventArgs e)
         {
-            //this is where we will take the UID from the user table and pass it to the ratePage for future use
-            //find the UID that is in play by comparing both the username and password  in the query 
-
             //we create our variabels that we will be using
             string username = txtUsername.Text;
             string password = txtPassword.Text;
+            //geting the UID 
+
+            string getUID = $"SELECT UID FROM user WHERE username = @username AND password = @password";
+            string insertUID = "INSERT INTO uidstorage (UID) VALUES (@UID)";
+            MySqlCommand cmd = new MySqlCommand(getUID, connection);
+            MySqlCommand cmd2 = new MySqlCommand(insertUID, connection);
+            cmd.Parameters.AddWithValue("@username", username);
+            cmd.Parameters.AddWithValue("@password", password);
+            
+            connection.Open();
+            object result = cmd.ExecuteScalar();
+            
+
+            //this is how we pass the id or user ID to ratePage which we will use to keep track of who rates, how many times they have rated, and if they have ratede 3 times in the same day
+            if (result != null)
+            {
+                int uid = Convert.ToInt32(result);
+                cmd2.Parameters.AddWithValue("@UID", uid);
+                //used to execute the query
+                cmd2.ExecuteNonQuery();
+                //closes connection
+                connection.Close();
+            }
+            else
+            {
+               connection.Close();
+            }
+            connection.Close();
+
+            ////end of getting UID
             //adding the @ in the sql query code will stop from user accesing the actual sql code, so whatever they put
             //will have to be passed through another area. This will make it alot harder for user to try to do a sql injection attack
             string query = $"SELECT * FROM user WHERE username = @username AND password = @password";
 
-            string getUID = $"SELECT UID FROM user WHERE username = @username AND password = @password";
-
             connection.Open();
             // Create the command that will run the command
             MySqlCommand command = new MySqlCommand(query, connection);
-            MySqlCommand cmd = new MySqlCommand(getUID, connection);
+          
 
             //the input for the login page will be passed through here which will make it more secure since user can no longer pass sql code directly
             //into sql
             command.Parameters.AddWithValue("@username", username);
             command.Parameters.AddWithValue("@password", password);
 
-            cmd.Parameters.AddWithValue("@username", username);
-            cmd.Parameters.AddWithValue("@password", password);
             //command.ExecuteNonQuery();
-            object result = cmd.ExecuteScalar();
             //we then call reader and have it ready to exectue
             MySqlDataReader reader = command.ExecuteReader();
             //we first check the input is null if it is then we send the user a message letting them know that they didnt put anything
@@ -73,26 +95,6 @@ namespace SQL_Injection
                 // Check if the login was successful
                 if (reader.HasRows)
                 {
-                    //this is how we pass the id or user ID to ratePage which we will use to keep track of who rates, how many times they have rated, and if they have ratede 3 times in the same day
-                    if (result != null)
-                    {
-                        // UID found, pass it to Rate_Page constructor
-                        int uid = Convert.ToInt32(result);
-                        Insert_Item insert = new Insert_Item(uid);
-                        insert.SetUid(uid);
-                        int tetsing = insert.GetUid();
-                        Console.WriteLine(uid);
-                        Rate_Page ratePage = new Rate_Page();
-                        ratePage.SetUid(uid);
-                        Console.WriteLine("found the UID and PASSED to the RatePage");
-                    }
-                    else
-                    {
-                        // UID not found, display error message to user
-                        MessageBox.Show("Invalid username or password.");
-                    }
-
-
                     MessageBox.Show("Login successful!");
                     //this will open up the product page
                     ProductPage pdP = new ProductPage();

@@ -22,6 +22,15 @@ namespace SQL_Injection.Windowss
 
         private void Button3_Click(object sender, EventArgs e)
         {
+            string connectionString = "Server=127.0.0.1;Database=project_phase_1_db;Uid=root;Pwd=123;";
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            string restart = "TRUNCATE TABLE uidstorage;";
+            MySqlCommand cmd = new MySqlCommand(restart, connection);
+            connection.Open();
+            cmd.ExecuteNonQuery();
+
+            connection.Close();
+
             //takes us back to the login/sign up page when user clicks the logout button
             Login l = new Login();
             l.Show();
@@ -87,32 +96,72 @@ namespace SQL_Injection.Windowss
             }
         }
 
+        // Declare a variable to remember the previously selected item ID
+        int prevSelectedItemID = -1;
         private void product_db_SelectionChanged(object sender, EventArgs e)
         {
-            ///this is where we will check if they are trying to rate their own thing
-            ///we will also check to see if they havent rated more than 3 things
             try
             {
-            if (product_db.SelectedRows.Count > 0)
+                if (product_db.SelectedRows.Count > 0)
                 {
                     DataGridViewRow selectedRow = product_db.SelectedRows[0];
                     string selectedItemName = selectedRow.Cells["title"].Value.ToString();
                     int selectedItemID = (int)selectedRow.Cells["id"].Value;
+                    //getting the UID from the item
+                    int createUID = (int)selectedRow.Cells["UID"].Value;
+
+                    //getting the UID
+                    int uid = 0;
+                    //we call some variables that we will use
+                    string connectionString = "Server=127.0.0.1;Database=project_phase_1_db;Uid=root;Pwd=123;";
+                    string getUID = "SELECT UID FROM uidstorage LIMIT 1;";
+                    MySqlConnection connection = new MySqlConnection(connectionString);
+                    MySqlCommand getuid = new MySqlCommand(getUID, connection);
+                    connection.Open();
+                    object result = getuid.ExecuteScalar();
+                    if (result != null && result != DBNull.Value)
+                    {
+                        uid = Convert.ToInt32(result);
+                    }
+                    connection.Close();
+
+                    // Check if the user is trying to rate their own item
+                    if (uid == createUID)
+                    {
+                        MessageBox.Show("You cannot rate your own item.");
+                        // if this is the same item as before, show the message box again
+                        if (selectedItemID == prevSelectedItemID)
+                        {
+                            product_db.ClearSelection();
+                            prevSelectedItemID = -1;
+                        }
+                        return; // stop executing the method
+                    }
+
 
                     // Show the rating window form
                     Rate_Page ratePage = new Rate_Page();
                     ratePage.SetSelectedItem(selectedItemName, selectedItemID);
                     ratePage.ShowDialog();
+                    //resets the product page to updates the databases
                     this.Close();
+
+                    // Remember the selected item ID
+                    prevSelectedItemID = selectedItemID;
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-            
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void product_db_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
