@@ -31,15 +31,20 @@ namespace SQL_Injection.Windowss
             string price = textPrice.Text;
             //we first check if the input boxes are empty if they are then we jump here and let the user know
 
-            //query to count the number of existing entries
-            string countQuery = "SELECT COUNT(*) FROM items";
-
-            //create MySqlCommand objects for both queries
-            MySqlCommand countCmd = new MySqlCommand(countQuery, connection);
+            //Item amount
+            string countQuery_items = "SELECT COUNT(*) FROM items";
+            MySqlCommand countCmd_items = new MySqlCommand(countQuery_items, connection);
 
             connection.Open();
-            //execute the count query and retrieve the result
-            int countAll = Convert.ToInt32(countCmd.ExecuteScalar());
+            int countItems = Convert.ToInt32(countCmd_items.ExecuteScalar());
+            connection.Close();
+
+            //rated item amount
+            string countQuery_rates = "SELECT COUNT(*) FROM rated_items";
+            MySqlCommand countCmd_rates = new MySqlCommand(countQuery_rates, connection);
+
+            connection.Open();
+            int countRateItems = Convert.ToInt32(countCmd_rates.ExecuteScalar());
             connection.Close();
 
             //title
@@ -49,7 +54,7 @@ namespace SQL_Injection.Windowss
                 t_R.ForeColor = Color.Red;
                 t_R.Text = "*";
                 inputType = "textTitle";
-            }else if (countAll >= 3){
+            }else if ((countItems + countRateItems) >= 3){
                 t_R.Visible = true;
                 t_R.ForeColor = Color.Red;
                 t_R.Text = "*";

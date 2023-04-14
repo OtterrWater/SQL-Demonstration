@@ -128,8 +128,6 @@ namespace SQL_Injection_Phase1_440.Windowss
             {
                 Console.WriteLine("failed to load", ex.Message);
             }
-            
-                
         }
 
         private void button1_Click(object sender, EventArgs e)
