@@ -67,7 +67,10 @@ namespace SQL_Injection_Phase1_440.Windowss
                     command.Parameters.AddWithValue("@category", category);
                     command.Parameters.AddWithValue("@price", price);
                     command.Parameters.AddWithValue("@post_date", postDate);
+
+                    // ADDING THE INTS INTO DROPDOWN BOX    
                     command.Parameters.AddWithValue("@rating", Convert.ToInt32(comboBox1.SelectedItem));
+
                     command.Parameters.AddWithValue("@rating_description", textBox1.Text);
                     reader.Close();
                     command.ExecuteNonQuery();
@@ -113,6 +116,13 @@ namespace SQL_Injection_Phase1_440.Windowss
             }
             
                 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ProductPage l = new ProductPage();
+            l.Show();
+            this.Close();
         }
     }
 }

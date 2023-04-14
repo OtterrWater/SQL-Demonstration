@@ -87,26 +87,6 @@ namespace SQL_Injection.Windowss
             }
         }
 
-        private void Products(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void ProductsPage_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Rated_Items_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void product_db_SelectionChanged(object sender, EventArgs e)
         {
             ///this is where we will check if they are trying to rate their own thing

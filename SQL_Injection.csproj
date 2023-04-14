@@ -115,12 +115,6 @@
     <Compile Include="Windowss\IntaliizeDB.Designer.cs">
       <DependentUpon>IntaliizeDB.cs</DependentUpon>
     </Compile>
-    <Compile Include="Windowss\Database.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Windowss\Database.Designer.cs">
-      <DependentUpon>Database.cs</DependentUpon>
-    </Compile>
     <Compile Include="Windowss\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,9 +140,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Windowss\IntaliizeDB.resx">
       <DependentUpon>IntaliizeDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Windowss\Database.resx">
-      <DependentUpon>Database.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windowss\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
