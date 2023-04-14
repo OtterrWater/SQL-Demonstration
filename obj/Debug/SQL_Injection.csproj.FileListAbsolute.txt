@@ -42,7 +42,6 @@ H:\Spring2023\Comp 440(database design)\SQL-Injection\obj\Debug\SQL_Injection.cs
 H:\Spring2023\Comp 440(database design)\SQL-Injection\obj\Debug\SQL_Injection.Windowss.Search_Item.resources
 H:\Spring2023\Comp 440(database design)\SQL-Injection\obj\Debug\SQL_Injection.Windowss.Insert_Item.resources
 H:\Spring2023\Comp 440(database design)\SQL-Injection\obj\Debug\SQL_Injection.IntaliizeDB.resources
-H:\Spring2023\Comp 440(database design)\SQL-Injection\obj\Debug\SQL_Injection.UserDatabase.resources
 H:\Spring2023\Comp 440(database design)\SQL-Injection\obj\Debug\SQL_Injection.Login.resources
 H:\Spring2023\Comp 440(database design)\SQL-Injection\obj\Debug\SQL_Injection.Windowss.ProductPage.resources
 H:\Spring2023\Comp 440(database design)\SQL-Injection\obj\Debug\SQL_Injection.SignUp.resources
@@ -118,3 +117,4 @@ C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\obj\Debug\SQL_Injection_Phase1_440
 C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\obj\Debug\SQL_Injection_Phase1_440.pdb
 C:\Users\Wakab\Desktop\Code\SQL\SQL-Injection\obj\Debug\SQL_Injection_Phase1_440.Windowss.Rate_Page.resources
 E:\Spring2023\Comp 440(database design)\SQL-Injection\obj\Debug\SQL_Injection_Phase1_440.Windowss.Rate_Page.resources
+H:\Spring2023\Comp 440(database design)\SQL-Injection\obj\Debug\SQL_Injection_Phase1_440.Windowss.Rate_Page.resources
