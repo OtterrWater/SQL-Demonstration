@@ -100,7 +100,8 @@ namespace SQL_Injection.Windowss
                     int selectedItemID = (int)selectedRow.Cells["id"].Value;
 
                     // Show the rating window form
-                    Rate_Page ratePage = new Rate_Page(selectedItemName, selectedItemID);
+                    Rate_Page ratePage = new Rate_Page();
+                    ratePage.SetSelectedItem(selectedItemName, selectedItemID);
                     ratePage.ShowDialog();
                     this.Close();
                 }
