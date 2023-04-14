@@ -16,8 +16,10 @@ namespace SQL_Injection.Windowss
         //calling variables that will be used
         static string connectionString = "Server=127.0.0.1;Database=project_phase_1_db;Uid=root;Pwd=123;";
         MySqlConnection connection = new MySqlConnection(connectionString);
+      
         public Insert_Item()
         {
+            
             InitializeComponent();
         }
 
@@ -127,8 +129,19 @@ namespace SQL_Injection.Windowss
                 //if the input boxes are not empty then we come here
             }
             else{
+                //geting the UID to insert to the table
+                string getUID = "SELECT UID FROM uidstorage LIMIT 1;";
+                MySqlCommand getuid = new MySqlCommand(getUID, connection);
+                connection.Open();
+                int uid = 0;
+                object result = getuid.ExecuteScalar();
+                if (result != null && result != DBNull.Value)
+                {
+                    uid = Convert.ToInt32(result);
+                }
+
                 //query that will call the mysql code/query to be ran
-                string que = "INSERT INTO items (title, description, category, price, post_date) VALUES (@title, @description, @category, @price, CURDATE())";
+                string que = "INSERT INTO items (title, description, category, price, post_date, UID) VALUES (@title, @description, @category, @price, CURDATE(), @UID)";
                 //we call variables that will be used like cmd
                 MySqlCommand cmd = new MySqlCommand(que, connection);
                 //these will be used to help combat against sql injection attacks
@@ -136,8 +149,10 @@ namespace SQL_Injection.Windowss
                 cmd.Parameters.AddWithValue("@description", description);
                 cmd.Parameters.AddWithValue("@category", category);
                 cmd.Parameters.AddWithValue("@price", price);
+                cmd.Parameters.AddWithValue("@UID", uid);
+                
                 //used to establish connection with the mysql schema
-                connection.Open();
+                
                 //used to execute the query
                 cmd.ExecuteNonQuery();
                 //closes connection
@@ -161,6 +176,11 @@ namespace SQL_Injection.Windowss
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Insert_Item_Load(object sender, EventArgs e)
+        {
+          
         }
     }
 }

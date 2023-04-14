@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using SQL_Injection_Phase1_440.Windowss;
 
 namespace SQL_Injection.Windowss
 {
@@ -67,6 +68,76 @@ namespace SQL_Injection.Windowss
                 Console.WriteLine("error with loading the data", ex.Message);
             }
             
+        }
+
+        private void dataGridViewResults_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        // Declare a variable to remember the previously selected item ID
+        int prevSelectedItemID = -1;
+        private void dataGridViewResults_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridViewResults.SelectedRows.Count > 0)
+                {
+                    DataGridViewRow selectedRow = dataGridViewResults.SelectedRows[0];
+                    string selectedItemName = selectedRow.Cells["title"].Value.ToString();
+                    int selectedItemID = (int)selectedRow.Cells["id"].Value;
+                    //getting the UID from the item
+                    int createUID = (int)selectedRow.Cells["UID"].Value;
+
+                    //getting the UID
+                    int uid = 0;
+                    //we call some variables that we will use
+                    string connectionString = "Server=127.0.0.1;Database=project_phase_1_db;Uid=root;Pwd=123;";
+                    string getUID = "SELECT UID FROM uidstorage LIMIT 1;";
+                    MySqlConnection connection = new MySqlConnection(connectionString);
+                    MySqlCommand getuid = new MySqlCommand(getUID, connection);
+                    connection.Open();
+                    object result = getuid.ExecuteScalar();
+                    if (result != null && result != DBNull.Value)
+                    {
+                        uid = Convert.ToInt32(result);
+                    }
+                    connection.Close();
+
+                    // Check if the user is trying to rate their own item
+                    if (uid == createUID)
+                    {
+                        MessageBox.Show("You cannot rate your own item.");
+                        // if this is the same item as before, show the message box again
+                        if (selectedItemID == prevSelectedItemID)
+                        {
+                            dataGridViewResults.ClearSelection();
+                            prevSelectedItemID = -1;
+                        }
+                        return; // stop executing the method
+                    }
+
+
+                    // Show the rating window form
+                    Rate_Page ratePage = new Rate_Page();
+                    ratePage.SetSelectedItem(selectedItemName, selectedItemID);
+                    ratePage.ShowDialog();
+                    //resets the product page to updates the databases
+                    this.Close();
+
+                    // Remember the selected item ID
+                    prevSelectedItemID = selectedItemID;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private void Search_Item_Load(object sender, EventArgs e)
+        {
+            //prevents an empty row from being generated
+            dataGridViewResults.AllowUserToAddRows = false;
         }
     }
 }
