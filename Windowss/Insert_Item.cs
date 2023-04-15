@@ -67,7 +67,7 @@ namespace SQL_Injection.Windowss
                 }
             }
 
-            connection.Close(); // Close the connection after reading the data
+            connection.Close();
 
             /*
             int countItems = 0;

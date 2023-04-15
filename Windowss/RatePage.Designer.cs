@@ -37,6 +37,7 @@
             this.itemNameLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.R_max = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -132,11 +133,23 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // R_max
+            // 
+            this.R_max.AutoSize = true;
+            this.R_max.BackColor = System.Drawing.Color.BurlyWood;
+            this.R_max.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.R_max.Location = new System.Drawing.Point(136, 72);
+            this.R_max.Name = "R_max";
+            this.R_max.Size = new System.Drawing.Size(10, 13);
+            this.R_max.TabIndex = 15;
+            this.R_max.Text = "f";
+            // 
             // Rate_Page
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(396, 470);
+            this.Controls.Add(this.R_max);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.itemNameLabel);
             this.Controls.Add(this.Enter);
@@ -166,5 +179,6 @@
         public System.Windows.Forms.Label itemNameLabel;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label R_max;
     }
 }
