@@ -34,37 +34,22 @@ namespace SQL_Injection.Windowss
         {
             //we first try to open and load the data for the specific category that were looking for
             try
-            {   
-                //this query will hold the mysql code
-                string query = "SELECT * FROM items WHERE category=@category;";
-                MySqlCommand commnad = new MySqlCommand(query, connection);
-                //this will be used to help combat against sql injections
-                commnad.Parameters.AddWithValue("@category", InputText.Text);
-                //the adapter will be used to the load the data in the data grid
-                MySqlDataAdapter adapter = new MySqlDataAdapter(commnad);
-                //used to open the connection 
-                connection.Open();
-                DataSet table = new DataSet();
-                //we use the adapter to fill our page with our data
-                adapter.Fill(table, "items");
-                dataGridViewResults.DataSource = table.Tables["items"];
-                //if we succed then we come here and let the user know
-                Console.WriteLine("Database succesfully loaded");
-                connection.Close();
-                /*
+            {
+                // Split the category string by comma into an array of strings
                 string[] categories = InputText.Text.Split(',');
-                string query = "SELECT * FROM items WHERE category IN (" + string.Join(",", categories.Select(c => "'" + c.Trim() + "'")) + ");";
+                // Create the SQL query with the LIKE operator to retrieve items that contain the word "love" in their category
+                string query = "SELECT * FROM items WHERE category LIKE '%" + InputText.Text + "%';";
                 MySqlCommand command = new MySqlCommand(query, connection);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                 DataSet table = new DataSet();
                 adapter.Fill(table, "items");
                 dataGridViewResults.DataSource = table.Tables["items"];
+                // Let the user know that the database was successfully loaded
                 Console.WriteLine("Database successfully loaded");
                 connection.Close();
-                */
             }
             //if there was an error with loading the data then we come here
-            catch(Exception ex){
+            catch (Exception ex){
                 Console.WriteLine("error with loading the data", ex.Message);
             }
             
@@ -138,6 +123,11 @@ namespace SQL_Injection.Windowss
         {
             //prevents an empty row from being generated
             dataGridViewResults.AllowUserToAddRows = false;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
