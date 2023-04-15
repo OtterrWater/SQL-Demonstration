@@ -67,8 +67,8 @@ namespace SQL_Injection_Phase1_440.Windowss
                     int UID = Convert.ToInt32(reader["UID"]);
 
                     //Insert the rating along with the fetched item details into the rated_items table
-                    query = "INSERT INTO rated_items (id, title, description, category, price, post_date, rate, rate_description, UID) " +
-                            "VALUES (@itemID, @title, @description, @category, @price, @post_date, @rating, @rating_description, @UID)";
+                    query = "INSERT INTO rated_items (id, title, description, category, price, post_date, rate, rate_description, UID, rater_UID) " +
+                            "VALUES (@itemID, @title, @description, @category, @price, @post_date, @rating, @rating_description, @UID, @rater_UID)";
                     command = new MySqlCommand(query, connection);
                     command.Parameters.AddWithValue("@itemID", itemID);
                     command.Parameters.AddWithValue("@title", selectedItemName);
@@ -77,6 +77,7 @@ namespace SQL_Injection_Phase1_440.Windowss
                     command.Parameters.AddWithValue("@price", price);
                     command.Parameters.AddWithValue("@post_date", postDate);
                     command.Parameters.AddWithValue("@UID", UID);
+                    command.Parameters.AddWithValue("@rater_UID", UID);
 
                     // ADDING THE INTS INTO DROPDOWN BOX    
                     command.Parameters.AddWithValue("@rating", comboBox1.SelectedItem);
