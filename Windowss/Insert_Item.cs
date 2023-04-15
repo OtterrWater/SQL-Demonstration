@@ -49,7 +49,7 @@ namespace SQL_Injection.Windowss
             connection.Close();
 
             //GET items UID
-            string items_UID = "SELECT UID FROM items";
+            string items_UID = "SELECT UID FROM items UNION ALL SELECT UID FROM rated_items";
             MySqlCommand items_UID_command = new MySqlCommand(items_UID, connection);
 
             List<int> uid_items = new List<int>();
@@ -60,8 +60,8 @@ namespace SQL_Injection.Windowss
             {
                 while (reader.Read())
                 {
-                    int uid_i = reader.GetInt32("UID");
-                    uid_items.Add(uid_i);
+                    int count = reader.GetInt32(0); // retrieve the count from the first (and only) column
+                    uid_items.Add(count);
                 }
             }
 
