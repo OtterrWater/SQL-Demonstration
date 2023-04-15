@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace SQL_Injection.Windowss
 {
@@ -35,6 +36,7 @@ namespace SQL_Injection.Windowss
             //we first check if the input boxes are empty if they are then we jump here and let the user know
 
             //OVER HERE---------------------------------------------------------HERE
+            //DATE
             //getting the storage UID
             int uid_storage = 0;
             string getUID_storage = "SELECT UID FROM uidstorage LIMIT 1;";
@@ -67,8 +69,24 @@ namespace SQL_Injection.Windowss
 
             connection.Close(); // Close the connection after reading the data
 
+            int countItems = 0;
+            DateTime today = DateTime.Today;
+
             // Count the number of entries that the user has added
-            int countItems = uid_items.Count(uid => uid == uid_storage);
+            int AllItems = uid_items.Count(uid => uid == uid_storage);
+
+            if (AllItems == AllItems + 1)
+            {
+                countItems += 1;
+            }
+            else if (today.Date != DateTime.Today.Date)
+            {
+                countItems = 0;
+                today = DateTime.Today;
+            }
+
+            // Update AllItems after checking countItems
+            AllItems = uid_items.Count(uid => uid == uid_storage);
 
             // Check if the user is trying to rate their own item
             if (countItems >= 3)
