@@ -35,8 +35,6 @@ namespace SQL_Injection.Windowss
             string price = textPrice.Text;
             //we first check if the input boxes are empty if they are then we jump here and let the user know
 
-            //OVER HERE---------------------------------------------------------HERE
-            //DATE
             //getting the storage UID
             int uid_storage = 0;
             string getUID_storage = "SELECT UID FROM uidstorage LIMIT 1;";
@@ -50,49 +48,16 @@ namespace SQL_Injection.Windowss
             }
             connection.Close();
 
-            //GET items UID
-            string items_UID = "SELECT UID FROM items UNION ALL SELECT UID FROM rated_items";
-            MySqlCommand items_UID_command = new MySqlCommand(items_UID, connection);
-
-            List<int> uid_items = new List<int>();
+            string count_query = "SELECT COUNT(*) FROM (SELECT UID, post_date FROM items WHERE UID = @uid AND post_date = CURDATE() UNION ALL SELECT UID, post_date FROM rated_items WHERE UID = @uid AND post_date = CURDATE()) AS all_items";
+            MySqlCommand count_command = new MySqlCommand(count_query, connection);
+            count_command.Parameters.AddWithValue("@uid", uid_storage);
 
             connection.Open();
-
-            using (MySqlDataReader reader = items_UID_command.ExecuteReader())
-            {
-                while (reader.Read())
-                {
-                    int count = reader.GetInt32(0); // retrieve the count from the first (and only) column
-                    uid_items.Add(count);
-                }
-            }
-
+            int Total_Items_byday = Convert.ToInt32(count_command.ExecuteScalar());
             connection.Close();
 
-            /*
-            int countItems = 0;
-            DateTime today = DateTime.Today;
-
-            // Count the number of entries that the user has added
-            int AllItems = uid_items.Count(uid => uid == uid_storage);
-
-            if (AllItems == AllItems + 1)
-            {
-                countItems += 1;
-            }
-            else if (today.Date != DateTime.Today.Date)
-            {
-                countItems = 0;
-                today = DateTime.Today;
-            }
-            */
-
-            // Update AllItems after checking countItems
-            int AllItems = uid_items.Count(uid => uid == uid_storage);
-            int countItems = AllItems;
-
             // Check if the user is trying to rate their own item
-            if (countItems >= 3)
+            if (Total_Items_byday >= 3)
             {
                 t_R.Visible = true;
                 t_R.ForeColor = Color.Red;
@@ -113,7 +78,6 @@ namespace SQL_Injection.Windowss
                 t_R.Visible = false;
                 t_error.Visible = false;
             }
-            //END HERE--------------------------------------------------------HERE
 
             //descript
             if (string.IsNullOrEmpty(textDescription.Text))
