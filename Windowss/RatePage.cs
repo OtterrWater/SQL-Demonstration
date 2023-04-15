@@ -15,10 +15,12 @@ namespace SQL_Injection_Phase1_440.Windowss
 {
     public partial class Rate_Page : Form
     {
-       
         private string _selectedItemName;
         private int _selectedItemId;
         private int _uid;
+        //calling variables that will be used
+        static string connectionString = "Server=127.0.0.1;Database=project_phase_1_db;Uid=root;Pwd=123;";
+        MySqlConnection connection = new MySqlConnection(connectionString);
 
         public void SetSelectedItem(string selectedItemName, int selectedItemId)
         {
@@ -39,46 +41,72 @@ namespace SQL_Injection_Phase1_440.Windowss
 
         private void button2_Click(object sender, EventArgs e)
         {
-            try
-            {   
-                //get the item id that was selected
-                int itemID = _selectedItemId;
-                string titleName = _selectedItemName;
-                //fetch the data of the item that weve selected
-                string connectionString = "Server=127.0.0.1;Database=project_phase_1_db;Uid=root;Pwd=123;";
-                MySqlConnection connection = new MySqlConnection(connectionString);
+            string inputType = "";
+            //get the item id that was selected
+            int itemID = _selectedItemId;
+            string titleName = _selectedItemName;
 
-                // Retrieve the rater UID from the uidstorage table
-                //---------------------------------------------------------
-                //THIS SHIT AINT GOIN THROUGH FIX ME
+            // Retrieve the rater UID from the uidstorage table
+            //---------------------------------------------------------
 
+            int raterUID = 0;
+            string getUID_storage = "SELECT UID FROM uidstorage LIMIT 1;";
+            MySqlCommand getuid_storage = new MySqlCommand(getUID_storage, connection);
 
-                int raterUID = 0;
-                string getUID_storage = "SELECT UID FROM uidstorage LIMIT 1;";
-                MySqlCommand getuid_storage = new MySqlCommand(getUID_storage, connection);
+            connection.Open();
+            object result = getuid_storage.ExecuteScalar();
+            if (result != null && result != DBNull.Value)
+            {
+                raterUID = Convert.ToInt32(result);
+            }
+            connection.Close();
 
-                connection.Open();
-                object result = getuid_storage.ExecuteScalar();
-                if (result != null && result != DBNull.Value)
-                {
-                    raterUID = Convert.ToInt32(result);
-                }
+            // Check if there are already three UID values in rated_items table
+            string countItems = "SELECT COUNT(*) FROM rated_items;";
+            MySqlCommand countItemsCommand = new MySqlCommand(countItems, connection);
+            connection.Open();
+            int countRates = Convert.ToInt32(countItemsCommand.ExecuteScalar());
+            connection.Close();
+
+            if (countRates >= 3)
+            {
+                R_max.Visible = true;
+                R_max.ForeColor = Color.Red;
+                R_max.Text = "You have reached the maximum of three ratings";
+                inputType = "textTitle";
+            }
+            else
+            {
+                R_max.Visible = false;
+            }
+
+            //HERE-----------------------------------------------------
+            if (inputType != "")
+            {
+                MessageBox.Show("Please make sure to fill in all fields");
                 connection.Close();
-
-
-
-                //HERE-----------------------------------------------------
-                //this is where we will increment the rating 
-
+                return;
+                //if the input boxes are not empty then we come here
+            }
+            else
+            {
                 string query = "SELECT * FROM items WHERE id = @itemId AND title = @title";
                 MySqlCommand command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@itemId", itemID);
                 command.Parameters.AddWithValue("@title", titleName);
+                //this is where we will increment the rating 
+
                 connection.Open();
                 MySqlDataReader reader = command.ExecuteReader();
                 string selectedItemName = "";
-
-                if (reader.Read())
+                if (inputType != "")
+                {
+                    MessageBox.Show("Please make sure to fill in all fields");
+                    connection.Close();
+                    return;
+                    //if the input boxes are not empty then we come here
+                }
+                else if (reader.Read())
                 {
                     // Get the item details from the fetched data
                     selectedItemName = reader["title"].ToString();
@@ -120,10 +148,6 @@ namespace SQL_Injection_Phase1_440.Windowss
                 ProductPage p = new ProductPage();
                 p.Show();
                 this.Close();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("failed to insert: " + ex.Message);
             }
         }
 
