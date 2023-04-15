@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -33,36 +34,51 @@ namespace SQL_Injection.Windowss
             string price = textPrice.Text;
             //we first check if the input boxes are empty if they are then we jump here and let the user know
 
-            //Item amount
-            string countQuery_items = "SELECT COUNT(*) FROM items";
-            MySqlCommand countCmd_items = new MySqlCommand(countQuery_items, connection);
+            //OVER HERE---------------------------------------------------------HERE
+            //getting the storage UID
+            int uid_storage = 0;
+            string getUID_storage = "SELECT UID FROM uidstorage LIMIT 1;";
+            MySqlCommand getuid_storage = new MySqlCommand(getUID_storage, connection);
 
             connection.Open();
-            int countItems = Convert.ToInt32(countCmd_items.ExecuteScalar());
-            connection.Close();
-
-            //rated item amount
-            string countQuery_rates = "SELECT COUNT(*) FROM rated_items";
-            MySqlCommand countCmd_rates = new MySqlCommand(countQuery_rates, connection);
-
-            connection.Open();
-            int countRateItems = Convert.ToInt32(countCmd_rates.ExecuteScalar());
-            connection.Close();
-
-            //title
-            if (string.IsNullOrEmpty(textTitle.Text))
+            object result = getuid_storage.ExecuteScalar();
+            if (result != null && result != DBNull.Value)
             {
-                t_R.Visible = true;
-                t_R.ForeColor = Color.Red;
-                t_R.Text = "*";
-                inputType = "textTitle";
-            }else if ((countItems + countRateItems) >= 3){
+                uid_storage = Convert.ToInt32(result);
+            }
+            connection.Close();
+
+            //GET items UID
+            string items_UID = "SELECT UID FROM items";
+            MySqlCommand items_UID_command = new MySqlCommand(items_UID, connection);
+
+            List<int> uid_items = new List<int>();
+
+            connection.Open(); // Open the connection before executing the command
+
+            using (MySqlDataReader reader = items_UID_command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    int uid_i = reader.GetInt32("UID");
+                    uid_items.Add(uid_i);
+                }
+            }
+
+            connection.Close(); // Close the connection after reading the data
+
+            // Count the number of entries that the user has added
+            int countItems = uid_items.Count(uid => uid == uid_storage);
+
+            // Check if the user is trying to rate their own item
+            if (countItems >= 3)
+            {
                 t_R.Visible = true;
                 t_R.ForeColor = Color.Red;
                 t_R.Text = "*";
                 t_error.Visible = true;
                 t_error.ForeColor = Color.Red;
-                t_error.Text = "Username has reached the maximum three inputs";
+                t_error.Text = "You have reached the maximum of three entries";
                 inputType = "textTitle";
             }
             else
@@ -70,7 +86,8 @@ namespace SQL_Injection.Windowss
                 t_R.Visible = false;
                 t_error.Visible = false;
             }
-            
+            //END HERE--------------------------------------------------------HERE
+
             //descript
             if (string.IsNullOrEmpty(textDescription.Text))
             {
@@ -134,7 +151,7 @@ namespace SQL_Injection.Windowss
                 MySqlCommand getuid = new MySqlCommand(getUID, connection);
                 connection.Open();
                 int uid = 0;
-                object result = getuid.ExecuteScalar();
+                //object result = getuid.ExecuteScalar();
                 if (result != null && result != DBNull.Value)
                 {
                     uid = Convert.ToInt32(result);
