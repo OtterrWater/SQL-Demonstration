@@ -69,6 +69,7 @@ namespace SQL_Injection.Windowss
 
             connection.Close(); // Close the connection after reading the data
 
+            /*
             int countItems = 0;
             DateTime today = DateTime.Today;
 
@@ -84,9 +85,11 @@ namespace SQL_Injection.Windowss
                 countItems = 0;
                 today = DateTime.Today;
             }
+            */
 
             // Update AllItems after checking countItems
-            AllItems = uid_items.Count(uid => uid == uid_storage);
+            int AllItems = uid_items.Count(uid => uid == uid_storage);
+            int countItems = AllItems;
 
             // Check if the user is trying to rate their own item
             if (countItems >= 3)
