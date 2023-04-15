@@ -54,7 +54,7 @@ namespace SQL_Injection.Windowss
 
             List<int> uid_items = new List<int>();
 
-            connection.Open(); // Open the connection before executing the command
+            connection.Open();
 
             using (MySqlDataReader reader = items_UID_command.ExecuteReader())
             {
@@ -79,6 +79,13 @@ namespace SQL_Injection.Windowss
                 t_error.Visible = true;
                 t_error.ForeColor = Color.Red;
                 t_error.Text = "You have reached the maximum of three entries";
+                inputType = "textTitle";
+            }
+            else if(string.IsNullOrEmpty(textTitle.Text))
+            {
+                t_R.Visible = true;
+                t_R.ForeColor = Color.Red;
+                t_R.Text = "*";
                 inputType = "textTitle";
             }
             else
