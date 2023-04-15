@@ -53,11 +53,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(126, 13);
+            this.label1.Location = new System.Drawing.Point(6, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 36);
+            this.label1.Size = new System.Drawing.Size(148, 36);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Rate Item";
+            this.label1.Text = "Rate Item:";
             // 
             // comboBox1
             // 
@@ -104,11 +104,11 @@
             // itemNameLabel
             // 
             this.itemNameLabel.AutoSize = true;
-            this.itemNameLabel.BackColor = System.Drawing.Color.BurlyWood;
-            this.itemNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.itemNameLabel.Location = new System.Drawing.Point(130, 72);
+            this.itemNameLabel.BackColor = System.Drawing.Color.Transparent;
+            this.itemNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 23.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.itemNameLabel.Location = new System.Drawing.Point(149, 14);
             this.itemNameLabel.Name = "itemNameLabel";
-            this.itemNameLabel.Size = new System.Drawing.Size(106, 17);
+            this.itemNameLabel.Size = new System.Drawing.Size(229, 35);
             this.itemNameLabel.TabIndex = 7;
             this.itemNameLabel.Text = "itemNameLabel";
             // 

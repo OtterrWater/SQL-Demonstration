@@ -42,9 +42,9 @@
             // 
             this.InitalizeDB.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.InitalizeDB.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InitalizeDB.Location = new System.Drawing.Point(120, 332);
+            this.InitalizeDB.Location = new System.Drawing.Point(40, 332);
             this.InitalizeDB.Name = "InitalizeDB";
-            this.InitalizeDB.Size = new System.Drawing.Size(160, 49);
+            this.InitalizeDB.Size = new System.Drawing.Size(312, 58);
             this.InitalizeDB.TabIndex = 0;
             this.InitalizeDB.Text = "Initalize Database";
             this.InitalizeDB.UseVisualStyleBackColor = true;

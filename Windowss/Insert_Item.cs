@@ -81,8 +81,7 @@ namespace SQL_Injection.Windowss
                 t_error.Text = "You have reached the maximum of three entries";
                 inputType = "textTitle";
             }
-            else if(string.IsNullOrEmpty(textTitle.Text))
-            {
+            else if(string.IsNullOrEmpty(textDescription.Text)){
                 t_R.Visible = true;
                 t_R.ForeColor = Color.Red;
                 t_R.Text = "*";
