@@ -40,15 +40,36 @@ namespace SQL_Injection_Phase1_440.Windowss
         private void button2_Click(object sender, EventArgs e)
         {
             try
-            {
-             //this is where we will increment the rating    
-
+            {   
                 //get the item id that was selected
                 int itemID = _selectedItemId;
                 string titleName = _selectedItemName;
                 //fetch the data of the item that weve selected
                 string connectionString = "Server=127.0.0.1;Database=project_phase_1_db;Uid=root;Pwd=123;";
                 MySqlConnection connection = new MySqlConnection(connectionString);
+
+                // Retrieve the rater UID from the uidstorage table
+                //---------------------------------------------------------
+                //THIS SHIT AINT GOIN THROUGH FIX ME
+
+
+                int raterUID = 0;
+                string getUID_storage = "SELECT UID FROM uidstorage LIMIT 1;";
+                MySqlCommand getuid_storage = new MySqlCommand(getUID_storage, connection);
+
+                connection.Open();
+                object result = getuid_storage.ExecuteScalar();
+                if (result != null && result != DBNull.Value)
+                {
+                    raterUID = Convert.ToInt32(result);
+                }
+                connection.Close();
+
+
+
+                //HERE-----------------------------------------------------
+                //this is where we will increment the rating 
+
                 string query = "SELECT * FROM items WHERE id = @itemId AND title = @title";
                 MySqlCommand command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@itemId", itemID);
@@ -56,6 +77,7 @@ namespace SQL_Injection_Phase1_440.Windowss
                 connection.Open();
                 MySqlDataReader reader = command.ExecuteReader();
                 string selectedItemName = "";
+
                 if (reader.Read())
                 {
                     // Get the item details from the fetched data
@@ -77,7 +99,7 @@ namespace SQL_Injection_Phase1_440.Windowss
                     command.Parameters.AddWithValue("@price", price);
                     command.Parameters.AddWithValue("@post_date", postDate);
                     command.Parameters.AddWithValue("@UID", UID);
-                    command.Parameters.AddWithValue("@rater_UID", UID);
+                    command.Parameters.AddWithValue("@rater_UID", raterUID);
 
                     // ADDING THE INTS INTO DROPDOWN BOX    
                     command.Parameters.AddWithValue("@rating", comboBox1.SelectedItem);
