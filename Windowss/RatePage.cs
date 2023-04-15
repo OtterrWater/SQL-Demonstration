@@ -56,6 +56,7 @@ namespace SQL_Injection_Phase1_440.Windowss
                 connection.Open();
                 MySqlDataReader reader = command.ExecuteReader();
                 string selectedItemName = "";
+
                 if (reader.Read())
                 {
                     // Get the item details from the fetched data
@@ -65,6 +66,28 @@ namespace SQL_Injection_Phase1_440.Windowss
                     decimal price = Convert.ToDecimal(reader["price"]);
                     DateTime postDate = Convert.ToDateTime(reader["post_DATE"]);
                     int UID = Convert.ToInt32(reader["UID"]);
+
+                    // Retrieve the rater UID from the uidstorage table
+                    //---------------------------------------------------------
+                    //THIS SHIT AINT GOIN THROUGH FIX ME
+
+
+                    int raterUID = 0;
+                    string getUID_storage = "SELECT UID FROM uidstorage LIMIT 1;";
+                    MySqlCommand getuid_storage = new MySqlCommand(getUID_storage, connection);
+
+                    connection.Open();
+                    object result = getuid_storage.ExecuteScalar();
+                    if (result != null && result != DBNull.Value)
+                    {
+                        raterUID = Convert.ToInt32(result);
+                    }
+                    connection.Close();
+
+
+
+                    //HERE-----------------------------------------------------
+
 
                     //Insert the rating along with the fetched item details into the rated_items table
                     query = "INSERT INTO rated_items (id, title, description, category, price, post_date, rate, rate_description, UID, rater_UID) " +
@@ -77,7 +100,7 @@ namespace SQL_Injection_Phase1_440.Windowss
                     command.Parameters.AddWithValue("@price", price);
                     command.Parameters.AddWithValue("@post_date", postDate);
                     command.Parameters.AddWithValue("@UID", UID);
-                    command.Parameters.AddWithValue("@rater_UID", UID);
+                    command.Parameters.AddWithValue("@rater_UID", raterUID);
 
                     // ADDING THE INTS INTO DROPDOWN BOX    
                     command.Parameters.AddWithValue("@rating", comboBox1.SelectedItem);
