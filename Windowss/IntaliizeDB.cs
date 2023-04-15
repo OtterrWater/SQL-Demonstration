@@ -69,7 +69,8 @@ namespace SQL_Injection
                 $"post_date DATE," +
                 $"rate VARCHAR(255)," +
                 $"rate_description TEXT," +
-                $"UID INT);";
+                $"UID INT," +
+                $"rater_UID INT);";
             string dropTableQuery6 = $"DROP TABLE IF EXISTS {tableName6};";
             string createTableQuery6 = $"CREATE TABLE IF NOT EXISTS {tableName6}" +
                 $"(UID INT PRIMARY KEY," +
