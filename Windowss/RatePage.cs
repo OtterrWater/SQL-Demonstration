@@ -117,8 +117,8 @@ namespace SQL_Injection_Phase1_440.Windowss
                     int UID = Convert.ToInt32(reader["UID"]);
 
                     //Insert the rating along with the fetched item details into the rated_items table
-                    query = "INSERT INTO rated_items (id, title, description, category, price, post_date, rate, rate_description, UID, rater_UID) " +
-                            "VALUES (@itemID, @title, @description, @category, @price, @post_date, @rating, @rating_description, @UID, @rater_UID)";
+                    query = "INSERT INTO rated_items (id, title, description, category, price, post_date, rate, rate_description, UID, rate_date, rater_UID) " +
+                            "VALUES (@itemID, @title, @description, @category, @price, @post_date, @rating, @rating_description, @UID, CURDATE(), @rater_UID)";
                     command = new MySqlCommand(query, connection);
                     command.Parameters.AddWithValue("@itemID", itemID);
                     command.Parameters.AddWithValue("@title", selectedItemName);
