@@ -62,7 +62,7 @@ namespace SQL_Injection_Phase1_440.Windowss
             }
             connection.Close();
 
-            string count_query = "SELECT COUNT(*) FROM (SELECT UID, rate_date FROM rated_items WHERE UID = @uid AND rate_date = CURDATE()) AS all_items";
+            string count_query = "SELECT COUNT(*) FROM rated_items WHERE rater_UID = @uid AND rate_date = CURDATE()";
             MySqlCommand count_command = new MySqlCommand(count_query, connection);
             count_command.Parameters.AddWithValue("@uid", uid_storage);
 
