@@ -70,6 +70,7 @@ namespace SQL_Injection
                 $"rate VARCHAR(255)," +
                 $"rate_description TEXT," +
                 $"UID INT," +
+                $"rate_date DATE," +
                 $"rater_UID INT);";
             string dropTableQuery6 = $"DROP TABLE IF EXISTS {tableName6};";
             string createTableQuery6 = $"CREATE TABLE IF NOT EXISTS {tableName6}" +
