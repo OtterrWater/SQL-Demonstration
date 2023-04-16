@@ -49,7 +49,8 @@ namespace SQL_Injection_Phase1_440.Windowss
             // Retrieve the rater UID from the uidstorage table
             //---------------------------------------------------------
 
-            int raterUID = 0;
+            //getting the storage UID
+            int uid_storage = 0;
             string getUID_storage = "SELECT UID FROM uidstorage LIMIT 1;";
             MySqlCommand getuid_storage = new MySqlCommand(getUID_storage, connection);
 
@@ -57,18 +58,19 @@ namespace SQL_Injection_Phase1_440.Windowss
             object result = getuid_storage.ExecuteScalar();
             if (result != null && result != DBNull.Value)
             {
-                raterUID = Convert.ToInt32(result);
+                uid_storage = Convert.ToInt32(result);
             }
             connection.Close();
 
-            // Check if there are already three UID values in rated_items table
-            string countItems = "SELECT COUNT(*) FROM rated_items;";
-            MySqlCommand countItemsCommand = new MySqlCommand(countItems, connection);
+            string count_query = "SELECT COUNT(*) FROM (SELECT UID, rate_date FROM rated_items WHERE UID = @uid AND rate_date = CURDATE()) AS all_items";
+            MySqlCommand count_command = new MySqlCommand(count_query, connection);
+            count_command.Parameters.AddWithValue("@uid", uid_storage);
+
             connection.Open();
-            int countRates = Convert.ToInt32(countItemsCommand.ExecuteScalar());
+            int Total_Rates_byday = Convert.ToInt32(count_command.ExecuteScalar());
             connection.Close();
 
-            if (countRates >= 3)
+            if (Total_Rates_byday >= 3)
             {
                 R_max.Visible = true;
                 R_max.ForeColor = Color.Red;
@@ -127,7 +129,7 @@ namespace SQL_Injection_Phase1_440.Windowss
                     command.Parameters.AddWithValue("@price", price);
                     command.Parameters.AddWithValue("@post_date", postDate);
                     command.Parameters.AddWithValue("@UID", UID);
-                    command.Parameters.AddWithValue("@rater_UID", raterUID);
+                    command.Parameters.AddWithValue("@rater_UID", uid_storage);
 
                     // ADDING THE INTS INTO DROPDOWN BOX    
                     command.Parameters.AddWithValue("@rating", comboBox1.SelectedItem);
