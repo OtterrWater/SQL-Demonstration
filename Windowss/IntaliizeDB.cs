@@ -25,10 +25,8 @@ namespace SQL_Injection
             string connectionString = "Server=127.0.0.1;Database=project_phase_1_db;Uid=root;Pwd=123;";
             string tableName = "user";
             string tableName2 = "items";
-            string tableName3 = "user_posts";
             string tableName4 = "rates";
             string tableName5 = "rated_items";
-            string tableName6 = "ratingChecker";
             string tableName7 = "UIDstorage";
             //these strings will hold our queries
             string dropTableQuery = $"DROP TABLE IF EXISTS {tableName};";
@@ -49,12 +47,6 @@ namespace SQL_Injection
                 $"price DECIMAL(10,2)," +
                 $"post_date DATE," +
                 $"UID INT);";
-            string dropTableQuery3 = $"DROP TABLE IF EXISTS {tableName3};";
-            string createTableQuery3 = $"CREATE TABLE IF NOT EXISTS {tableName3}" +
-                $"(user_name INT NOT NULL," +
-                $"post_date DATE NOT NULL," +
-                $"num_posts INT NOT NULL DEFAULT 0," +
-                $"PRIMARY KEY (user_name, post_date));";
             string dropTableQuery4 = $"DROP TABLE IF EXISTS {tableName4};";
             string createTableQuery4 = $"CREATE TABLE IF NOT EXISTS {tableName4}" +
                 $"(rate VARCHAR(255) NOT NULL)";
@@ -72,11 +64,6 @@ namespace SQL_Injection
                 $"UID INT," +
                 $"rate_date DATE," +
                 $"rater_UID INT);";
-            string dropTableQuery6 = $"DROP TABLE IF EXISTS {tableName6};";
-            string createTableQuery6 = $"CREATE TABLE IF NOT EXISTS {tableName6}" +
-                $"(UID INT PRIMARY KEY," +
-                $"post_date DATE," +
-                $"rates INT);";
             string dropTableQuery7 = $"DROP TABLE IF EXISTS {tableName7};";
             string createTableQuery7 = $"CREATE TABLE IF NOT EXISTS {tableName7}" +
                 $"(UID INT);";
@@ -86,14 +73,10 @@ namespace SQL_Injection
             MySqlCommand createTableCommand = new MySqlCommand(createTableQuery, connection);
             MySqlCommand dropTableCommand2 = new MySqlCommand(dropTableQuery2, connection);
             MySqlCommand createTableCommand2 = new MySqlCommand(createTableQuery2, connection);
-            MySqlCommand dropTableCommand3 = new MySqlCommand(dropTableQuery3, connection);
-            MySqlCommand createTableCommand3 = new MySqlCommand(createTableQuery3, connection);
             MySqlCommand dropTableCommand4 = new MySqlCommand(dropTableQuery4, connection);
             MySqlCommand createTableCommand4 = new MySqlCommand(createTableQuery4, connection);
             MySqlCommand dropTableCommand5 = new MySqlCommand(dropTableQuery5, connection);
             MySqlCommand createTableCommand5 = new MySqlCommand(createTableQuery5, connection);
-            MySqlCommand dropTableCommand6 = new MySqlCommand(dropTableQuery6, connection);
-            MySqlCommand createTableCommand6 = new MySqlCommand(createTableQuery6, connection);
             MySqlCommand dropTableCommand7 = new MySqlCommand(dropTableQuery7, connection);
             MySqlCommand createTableCommand7 = new MySqlCommand(createTableQuery7, connection);
 
@@ -129,15 +112,10 @@ namespace SQL_Injection
                 dropTableCommand2.ExecuteNonQuery();
                 Console.WriteLine($"Table {tableName2} dropped successfully!");
                 //we call the drop table command 
-                dropTableCommand3.ExecuteNonQuery();
-                Console.WriteLine($"Table {tableName3} dropped successfully!");
-                //we call the drop table command 
                 dropTableCommand4.ExecuteNonQuery();
                 Console.WriteLine($"Table {tableName4} dropped successfully!");
                 dropTableCommand5.ExecuteNonQuery();
                 Console.WriteLine($"Table {tableName5} dropped succesfully!");
-                dropTableCommand6.ExecuteNonQuery();
-                Console.WriteLine($"Table {tableName6} dropped succesfully!");
                 dropTableCommand7.ExecuteNonQuery();
                 Console.WriteLine($"Table {tableName7} dropped succesfully!");
 
@@ -145,7 +123,7 @@ namespace SQL_Injection
             //if the table was not able to succesfully be dropped then we come here
             catch (Exception ex)
             {
-                Console.WriteLine($"Error dropping table {tableName} and {tableName2} and {tableName3} and {tableName4} and {tableName5} and {tableName6} and {tableName7}: {ex.Message}");
+                Console.WriteLine($"Error dropping table {tableName} and {tableName2} and {tableName4} and {tableName5} and {tableName7}: {ex.Message}");
                 connection.Close(); 
             }
             //recreate the table
@@ -156,22 +134,18 @@ namespace SQL_Injection
                 //we call the create table command
                 createTableCommand2.ExecuteNonQuery();
                 //we call the create table command
-                createTableCommand3.ExecuteNonQuery();
-                //we call the create table command
                 createTableCommand4.ExecuteNonQuery();
                 insertRates.ExecuteNonQuery();
                 //we call the create table command
                 createTableCommand5.ExecuteNonQuery();
                 //we call the create table command
-                createTableCommand6.ExecuteNonQuery();
-                //we call the create table command
                 createTableCommand7.ExecuteNonQuery();
-                Console.WriteLine($"Table {tableName} and {tableName2} and {tableName3} and {tableName4} and {tableName5} and {tableName6}  and {tableName7} recreated successfully!");
+                Console.WriteLine($"Table {tableName} and {tableName2} and {tableName4} and {tableName5}  and {tableName7} recreated successfully!");
             }
             //if the table was not succesfully recreated then we come here
             catch (Exception ex)
             {
-                Console.WriteLine($"Error recreating table {tableName} and {tableName2} and {tableName3} and {tableName4} and {tableName5} and {tableName6} and {tableName7}: {ex.Message}");
+                Console.WriteLine($"Error recreating table {tableName} and {tableName2} and {tableName4} and {tableName5} and {tableName7}: {ex.Message}");
                 connection.Close();
             }
             //we come here once were done with the rest 
