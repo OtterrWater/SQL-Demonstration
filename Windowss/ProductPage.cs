@@ -165,5 +165,55 @@ namespace SQL_Injection.Windowss
         {
 
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Connect to database
+                string connectionString = "Server=127.0.0.1;Database=project_phase_1_db;Uid=root;Pwd=123;";
+                MySqlConnection connection = new MySqlConnection(connectionString);
+                connection.Open();
+
+                // Execute query
+                string getMaxPrice = "SELECT category, MAX(price) AS max_price FROM items GROUP BY category;";
+                MySqlCommand getMax = new MySqlCommand(getMaxPrice, connection);
+                MySqlDataReader reader = getMax.ExecuteReader();
+
+                // Create a DataTable to store the data
+                DataTable dataTable = new DataTable();
+
+                // Add columns to the DataTable
+                dataTable.Columns.Add("Category");
+                dataTable.Columns.Add("Max Price");
+
+                // Read the data from the MySqlDataReader and store it in the DataTable
+                while (reader.Read())
+                {
+                    // Create a new row for the DataTable
+                    DataRow dataRow = dataTable.NewRow();
+
+                    // Set the values for the columns
+                    dataRow["Category"] = reader.GetString("category");
+                    dataRow["Max Price"] = reader.GetDecimal("max_price");
+
+                    // Add the row to the DataTable
+                    dataTable.Rows.Add(dataRow);
+                }
+
+                // Bind the DataTable to the DataGridView
+                product_db.DataSource = dataTable;
+
+                // Close connection
+                connection.Close();
+                Console.WriteLine("Successfully retrieved max price for each category.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Failed to load data: {0}", ex.Message);
+            }
+
+        }
+
     }
 }
