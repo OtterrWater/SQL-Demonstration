@@ -37,6 +37,7 @@
             this.Rated_Items = new System.Windows.Forms.DataGridView();
             this.InsertedProducts = new System.Windows.Forms.Label();
             this.RatedProducts = new System.Windows.Forms.Label();
+            this.Sort = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.product_db)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Rated_Items)).BeginInit();
@@ -137,11 +138,24 @@
             this.RatedProducts.TabIndex = 9;
             this.RatedProducts.Text = "Rated Products";
             // 
+            // Sort
+            // 
+            this.Sort.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Sort.Location = new System.Drawing.Point(379, 50);
+            this.Sort.Margin = new System.Windows.Forms.Padding(2);
+            this.Sort.Name = "Sort";
+            this.Sort.Size = new System.Drawing.Size(114, 29);
+            this.Sort.TabIndex = 10;
+            this.Sort.Text = "Sort";
+            this.Sort.UseVisualStyleBackColor = true;
+            this.Sort.Click += new System.EventHandler(this.button4_Click);
+            // 
             // ProductPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1189, 597);
+            this.Controls.Add(this.Sort);
             this.Controls.Add(this.RatedProducts);
             this.Controls.Add(this.InsertedProducts);
             this.Controls.Add(this.Rated_Items);
@@ -175,5 +189,6 @@
         private System.Windows.Forms.DataGridView Rated_Items;
         private System.Windows.Forms.Label InsertedProducts;
         private System.Windows.Forms.Label RatedProducts;
+        private System.Windows.Forms.Button Sort;
     }
 }
