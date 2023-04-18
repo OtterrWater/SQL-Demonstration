@@ -167,7 +167,7 @@ namespace SQL_Injection.Windowss
         {
 
         }
-
+        //this button will sort the datagridview to only show the categories and the items with the highes price for each category
         private void button4_Click(object sender, EventArgs e)
         {
 
