@@ -45,6 +45,7 @@ namespace SQL_Injection_Phase1_440.Windowss
             //get the item id that was selected
             int itemID = _selectedItemId;
             string titleName = _selectedItemName;
+            Console.WriteLine(itemID+ " " + titleName);
 
             // Retrieve the rater UID from the uidstorage table
             //---------------------------------------------------------
@@ -119,7 +120,7 @@ namespace SQL_Injection_Phase1_440.Windowss
                     int UID = Convert.ToInt32(reader["UID"]);
 
                     //Insert the rating along with the fetched item details into the rated_items table
-                    query = "INSERT INTO rated_items (id, title, description, category, price, post_date, rate, rate_description, UID, rate_date, rater_UID) " +
+                    query = "INSERT INTO rated_items (item_id, title, description, category, price, post_date, rate, rate_description, UID, rate_date, rater_UID) " +
                             "VALUES (@itemID, @title, @description, @category, @price, @post_date, @rating, @rating_description, @UID, CURDATE(), @rater_UID)";
                     command = new MySqlCommand(query, connection);
                     command.Parameters.AddWithValue("@itemID", itemID);
@@ -138,11 +139,16 @@ namespace SQL_Injection_Phase1_440.Windowss
                     reader.Close();
                     command.ExecuteNonQuery();
 
+
+
+
+                    /*
                     // Delete the row from the items table
                     query = "DELETE FROM items WHERE id = @itemId";
                     command = new MySqlCommand(query, connection);
                     command.Parameters.AddWithValue("@itemId", itemID);
                     command.ExecuteNonQuery();
+                    */
                 }
                 connection.Close();
 
@@ -157,8 +163,10 @@ namespace SQL_Injection_Phase1_440.Windowss
         {
             try
             {
+                
                 string newLabelText = _selectedItemName;
                 itemNameLabel.Text = newLabelText;
+                
 
                 //stops the user from inputting anything in the combo box
                 comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -186,6 +194,11 @@ namespace SQL_Injection_Phase1_440.Windowss
             ProductPage l = new ProductPage();
             l.Show();
             this.Close();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

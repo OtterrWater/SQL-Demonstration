@@ -121,6 +121,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(366, 358);
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // button1
             // 
