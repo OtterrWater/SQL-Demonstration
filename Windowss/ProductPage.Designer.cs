@@ -38,6 +38,7 @@
             this.InsertedProducts = new System.Windows.Forms.Label();
             this.RatedProducts = new System.Windows.Forms.Label();
             this.Sort = new System.Windows.Forms.Button();
+            this.ListUserItems = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.product_db)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Rated_Items)).BeginInit();
@@ -150,11 +151,24 @@
             this.Sort.UseVisualStyleBackColor = true;
             this.Sort.Click += new System.EventHandler(this.button4_Click);
             // 
+            // ListUserItems
+            // 
+            this.ListUserItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ListUserItems.Location = new System.Drawing.Point(519, 50);
+            this.ListUserItems.Margin = new System.Windows.Forms.Padding(2);
+            this.ListUserItems.Name = "ListUserItems";
+            this.ListUserItems.Size = new System.Drawing.Size(164, 29);
+            this.ListUserItems.TabIndex = 11;
+            this.ListUserItems.Text = "List User Items";
+            this.ListUserItems.UseVisualStyleBackColor = true;
+            this.ListUserItems.Click += new System.EventHandler(this.ListUserItems_Click);
+            // 
             // ProductPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1189, 597);
+            this.Controls.Add(this.ListUserItems);
             this.Controls.Add(this.Sort);
             this.Controls.Add(this.RatedProducts);
             this.Controls.Add(this.InsertedProducts);
@@ -190,5 +204,6 @@
         private System.Windows.Forms.Label InsertedProducts;
         private System.Windows.Forms.Label RatedProducts;
         private System.Windows.Forms.Button Sort;
+        private System.Windows.Forms.Button ListUserItems;
     }
 }
