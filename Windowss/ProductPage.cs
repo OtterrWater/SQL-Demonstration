@@ -251,5 +251,58 @@ namespace SQL_Injection.Windowss
 
         }
 
+        private void ListUserItems_Click(object sender, EventArgs e)
+        {
+            //calling variables that will be used
+            string connectionString = "Server=127.0.0.1;Database=project_phase_1_db;Uid=root;Pwd=123;";
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            //getting the saved UID from the storage storage UID
+            int uid_storage = 0;
+            string getUID_storage = "SELECT UID FROM uidstorage LIMIT 1;";
+            MySqlCommand getuid_storage = new MySqlCommand(getUID_storage, connection);
+
+            connection.Open();
+            object result = getuid_storage.ExecuteScalar();
+            if (result != null && result != DBNull.Value)
+            {
+                uid_storage = Convert.ToInt32(result);
+            }
+            connection.Close();
+            //checking if we got the userID correctly
+            Console.WriteLine("user id is: " + uid_storage);
+
+            //---------------------------------------------getting all the items that were posted by the user that got a rating of "excellent or good"-----------------//
+            try
+            {
+                connection.Open();
+                // Execute query
+                // havent test this out yet but ik that the query works so check it out when you work on this 
+                string query = "SELECT title, rate FROM rated_items WHERE UID = @uid_storage AND rate IN ('excellent', 'good');";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@uid_storage", uid_storage);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+
+                // Create a DataTable to store the data
+                DataTable dataTable = new DataTable();
+
+                // Fill the DataTable with the data from the MySqlDataAdapter
+                adapter.Fill(dataTable);
+
+                // Bind the DataTable to the DataGridView
+                product_db.DataSource = dataTable;
+
+                // Close connection
+                connection.Close();
+                //send message to console
+                Console.WriteLine("Successfully retrieved the list of items for current user who got their item rated as excellent or good.");
+            }
+            catch (Exception ex)
+            {
+                //if were unable to laod the data then we come here
+                Console.WriteLine("Failed to load data: {0}", ex.Message);
+            }
+
+
+        }
     }
 }
