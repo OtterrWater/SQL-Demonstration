@@ -39,6 +39,7 @@
             this.RatedProducts = new System.Windows.Forms.Label();
             this.Sort = new System.Windows.Forms.Button();
             this.ListUserItems = new System.Windows.Forms.Button();
+            this.ListReviews = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.product_db)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Rated_Items)).BeginInit();
@@ -163,11 +164,24 @@
             this.ListUserItems.UseVisualStyleBackColor = true;
             this.ListUserItems.Click += new System.EventHandler(this.ListUserItems_Click);
             // 
+            // ListReviews
+            // 
+            this.ListReviews.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ListReviews.Location = new System.Drawing.Point(750, 50);
+            this.ListReviews.Margin = new System.Windows.Forms.Padding(2);
+            this.ListReviews.Name = "ListReviews";
+            this.ListReviews.Size = new System.Drawing.Size(164, 29);
+            this.ListReviews.TabIndex = 12;
+            this.ListReviews.Text = "List Reviews";
+            this.ListReviews.UseVisualStyleBackColor = true;
+            this.ListReviews.Click += new System.EventHandler(this.ListReviews_Click);
+            // 
             // ProductPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1189, 597);
+            this.Controls.Add(this.ListReviews);
             this.Controls.Add(this.ListUserItems);
             this.Controls.Add(this.Sort);
             this.Controls.Add(this.RatedProducts);
@@ -205,5 +219,6 @@
         private System.Windows.Forms.Label RatedProducts;
         private System.Windows.Forms.Button Sort;
         private System.Windows.Forms.Button ListUserItems;
+        private System.Windows.Forms.Button ListReviews;
     }
 }

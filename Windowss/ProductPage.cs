@@ -304,5 +304,72 @@ namespace SQL_Injection.Windowss
 
 
         }
+        //this will keep track of feature 7, display all users who have neve posted a poor review
+        private void ListReviews_Click(object sender, EventArgs e)
+        {
+            //calling variables that will be used
+            string connectionString = "Server=127.0.0.1;Database=project_phase_1_db;Uid=root;Pwd=123;";
+            MySqlConnection connection = new MySqlConnection(connectionString);
+
+            //---------------------------------------------getting all the items that were posted by the user that got a rating of "excellent or good"-----------------//
+            try
+            {
+                connection.Open();
+                // Execute query
+                string query = "";
+
+
+                //this query shows all the users who have never posted a poor review, also it makes sure that it dosent include the user
+                //who have not given a rating before
+
+                /*
+                 * SELECT DISTINCT u.uid, u.username
+                    FROM user u
+                    LEFT JOIN rated_items ri ON u.uid = ri.rater_UID
+                    WHERE ri.rater_UID IS NOT NULL
+                    AND (
+                        NOT EXISTS (
+                            SELECT 1
+                            FROM rated_items r
+                            WHERE r.rater_UID = u.uid AND r.rate = 'poor'
+                        )
+                    );
+
+                 */
+
+
+                //this query show all user who have never or have never posted a poor review
+                /*  SELECT DISTINCT u.uid, u.username
+                    FROM user u
+                    LEFT JOIN rated_items ri ON u.uid = ri.rater_UID
+                    WHERE NOT EXISTS (
+                    SELECT 1
+                    FROM rated_items r
+                    WHERE r.rater_UID = u.uid AND r.rate = 'poor'
+                    );
+                 */
+                MySqlCommand command = new MySqlCommand(query, connection);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+
+                // Create a DataTable to store the data
+                DataTable dataTable = new DataTable();
+
+                // Fill the DataTable with the data from the MySqlDataAdapter
+                adapter.Fill(dataTable);
+
+                // Bind the DataTable to the DataGridView
+                product_db.DataSource = dataTable;
+
+                // Close connection
+                connection.Close();
+                //send message to console
+                Console.WriteLine("Successfully retrieved the list of users who have never posted a poor review");
+            }
+            catch (Exception ex)
+            {
+                //if were unable to laod the data then we come here
+                Console.WriteLine("Failed to load data: {0}", ex.Message);
+            }
+        }
     }
 }
