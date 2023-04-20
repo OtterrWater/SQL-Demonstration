@@ -316,7 +316,7 @@ namespace SQL_Injection.Windowss
             {
                 connection.Open();
                 // Execute query
-                string query = "";
+                string query = "SELECT DISTINCT u.uid, u.username\r\n FROM user u\r\n LEFT JOIN rated_items ri ON u.uid = ri.rater_UID\r\n WHERE NOT EXISTS (\r\n SELECT 1\r\n FROM rated_items r\r\n WHERE r.rater_UID = u.uid AND r.rate = 'poor');";
 
 
                 //this query shows all the users who have never posted a poor review, also it makes sure that it dosent include the user
