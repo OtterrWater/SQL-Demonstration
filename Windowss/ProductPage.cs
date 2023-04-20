@@ -277,8 +277,9 @@ namespace SQL_Injection.Windowss
                 connection.Open();
                 // Execute query
                 // havent test this out yet but ik that the query works so check it out when you work on this 
-                string query = "SELECT title, rate FROM rated_items WHERE UID = 1 AND rate IN ('excellent', 'good');";
+                string query = "SELECT title, rate FROM rated_items WHERE UID = @uid_storage AND rate IN ('excellent', 'good');";
                 MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@uid_storage", uid_storage);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
 
                 // Create a DataTable to store the data
@@ -293,7 +294,7 @@ namespace SQL_Injection.Windowss
                 // Close connection
                 connection.Close();
                 //send message to console
-                Console.WriteLine("Successfully retrieved max price for each category.");
+                Console.WriteLine("Successfully retrieved the list of items for current user who got their item rated as excellent or good.");
             }
             catch (Exception ex)
             {
