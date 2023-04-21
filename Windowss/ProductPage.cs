@@ -371,5 +371,51 @@ namespace SQL_Injection.Windowss
                 Console.WriteLine("Failed to load data: {0}", ex.Message);
             }
         }
+        //Feature 9, this item will list the users who have posted items however those items either have never receieved a poor review or those items have never been reviewed before
+        private void ListUsers_Click(object sender, EventArgs e)
+        {
+            //calling variables that will be used
+            string connectionString = "Server=127.0.0.1;Database=project_phase_1_db;Uid=root;Pwd=123;";
+            MySqlConnection connection = new MySqlConnection(connectionString);
+
+            //---------------------------------------------getting all all the users who have posted and item, and the items has either not gotten a review yet or they have never gotten a poor review-----------------//
+            try
+            {
+                connection.Open();
+                // Execute query
+                string query = "";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+
+                /*
+                 * SELECT user.uid, user.username
+FROM user
+JOIN items ON user.uid = items.UID
+LEFT JOIN reviews ON items.id = rated_items.item_id
+GROUP BY user.uid
+HAVING COUNT(rated_items.review_id) = 0 OR SUM(IF(review = 'poor', 1, 0)) = 0;
+
+                 */
+
+                // Create a DataTable to store the data
+                DataTable dataTable = new DataTable();
+
+                // Fill the DataTable with the data from the MySqlDataAdapter
+                adapter.Fill(dataTable);
+
+                // Bind the DataTable to the DataGridView
+                product_db.DataSource = dataTable;
+
+                // Close connection
+                connection.Close();
+                //send message to console
+                Console.WriteLine("Successfully retrieved the list of users who have posted items, and their items either have never gotten a rewview or they have never gotten a poor review before");
+            }
+            catch (Exception ex)
+            {
+                //if were unable to laod the data then we come here
+                Console.WriteLine("Failed to load data: {0}", ex.Message);
+            }
+        }
     }
 }

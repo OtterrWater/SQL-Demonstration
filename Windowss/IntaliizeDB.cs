@@ -53,8 +53,7 @@ namespace SQL_Injection
             string ratesQuery = $"INSERT INTO rates (rate) VALUES ('excellent'), ('good'), ('fair'), ('poor');";
             string dropTableQuery5 = $"DROP TABLE IF EXISTS {tableName5};";
             string createTableQuery5 = $"CREATE TABLE IF NOT EXISTS {tableName5}" +
-                 $"(RID INT AUTO_INCREMENT," +
-                 $"item_id INT NOT NULL," +
+                 $"(item_id INT NOT NULL," +
                  $"title VARCHAR(255) NOT NULL," +
                  $"description TEXT," +
                  $"category VARCHAR(255)," +
@@ -65,8 +64,8 @@ namespace SQL_Injection
                  $"UID INT," +
                  $"rate_date DATE," +
                  $"rater_UID INT," +
-                 $"CONSTRAINT pk_rated_items PRIMARY KEY (item_id, rate_date, rater_UID)," +
-                 $"CONSTRAINT pk_rated_items_id UNIQUE (RID));";
+                 $"PRIMARY KEY (item_id, rate_date, rater_UID));";
+
 
             string dropTableQuery7 = $"DROP TABLE IF EXISTS {tableName7};";
             string createTableQuery7 = $"CREATE TABLE IF NOT EXISTS {tableName7}" +
