@@ -40,6 +40,9 @@
             this.Sort = new System.Windows.Forms.Button();
             this.ListUserItems = new System.Windows.Forms.Button();
             this.ListReviews = new System.Windows.Forms.Button();
+            this.Feature6 = new System.Windows.Forms.Button();
+            this.Feature9 = new System.Windows.Forms.Button();
+            this.Feature4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.product_db)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Rated_Items)).BeginInit();
@@ -110,7 +113,7 @@
             this.ProductsPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProductsPage.Location = new System.Drawing.Point(389, 14);
             this.ProductsPage.Name = "ProductsPage";
-            this.ProductsPage.Size = new System.Drawing.Size(134, 32);
+            this.ProductsPage.Size = new System.Drawing.Size(135, 32);
             this.ProductsPage.TabIndex = 6;
             this.ProductsPage.Text = "Products";
             // 
@@ -176,11 +179,50 @@
             this.ListReviews.UseVisualStyleBackColor = true;
             this.ListReviews.Click += new System.EventHandler(this.ListReviews_Click);
             // 
+            // Feature6
+            // 
+            this.Feature6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Feature6.Location = new System.Drawing.Point(1164, 49);
+            this.Feature6.Margin = new System.Windows.Forms.Padding(2);
+            this.Feature6.Name = "Feature6";
+            this.Feature6.Size = new System.Drawing.Size(164, 29);
+            this.Feature6.TabIndex = 13;
+            this.Feature6.Text = "No Excellent Reviews";
+            this.Feature6.UseVisualStyleBackColor = true;
+            this.Feature6.Click += new System.EventHandler(this.Feature6_Click);
+            // 
+            // Feature9
+            // 
+            this.Feature9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Feature9.Location = new System.Drawing.Point(1164, 83);
+            this.Feature9.Margin = new System.Windows.Forms.Padding(2);
+            this.Feature9.Name = "Feature9";
+            this.Feature9.Size = new System.Drawing.Size(164, 29);
+            this.Feature9.TabIndex = 15;
+            this.Feature9.Text = "No Poor Reviews";
+            this.Feature9.UseVisualStyleBackColor = true;
+            this.Feature9.Click += new System.EventHandler(this.Feature9_Click);
+            // 
+            // Feature4
+            // 
+            this.Feature4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Feature4.Location = new System.Drawing.Point(1164, 116);
+            this.Feature4.Margin = new System.Windows.Forms.Padding(2);
+            this.Feature4.Name = "Feature4";
+            this.Feature4.Size = new System.Drawing.Size(164, 29);
+            this.Feature4.TabIndex = 16;
+            this.Feature4.Text = "Most Items";
+            this.Feature4.UseVisualStyleBackColor = true;
+            this.Feature4.Click += new System.EventHandler(this.Feature4_Click);
+            // 
             // ProductPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1189, 597);
+            this.ClientSize = new System.Drawing.Size(1413, 678);
+            this.Controls.Add(this.Feature4);
+            this.Controls.Add(this.Feature9);
+            this.Controls.Add(this.Feature6);
             this.Controls.Add(this.ListReviews);
             this.Controls.Add(this.ListUserItems);
             this.Controls.Add(this.Sort);
@@ -220,5 +262,8 @@
         private System.Windows.Forms.Button Sort;
         private System.Windows.Forms.Button ListUserItems;
         private System.Windows.Forms.Button ListReviews;
+        private System.Windows.Forms.Button Feature6;
+        private System.Windows.Forms.Button Feature9;
+        private System.Windows.Forms.Button Feature4;
     }
 }
