@@ -101,6 +101,18 @@ namespace SQL_Injection.Windowss
                         return; // stop executing the method
                     }
 
+                    //check if the user has already rated the item
+                    if (HasUserRatedItem(selectedItemID, uid))
+                    {
+                        MessageBox.Show("You have already rated this item.");
+                        // if this is the same item as before, show the message box again
+                        if (selectedItemID == prevSelectedItemID)
+                        {
+                            dataGridViewResults.ClearSelection();
+                            prevSelectedItemID = -1;
+                        }
+                        return; // stop executing the method
+                    }
 
                     // Show the rating window form
                     Rate_Page ratePage = new Rate_Page();
@@ -116,6 +128,44 @@ namespace SQL_Injection.Windowss
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+            }
+        }
+
+        private bool HasUserRatedItem(int itemID, int userID)
+        {
+            // query the database to see if the user has already rated the item
+            string connectionString = "Server=127.0.0.1;Database=project_phase_1_db;Uid=root;Pwd=123;";
+            string query = "SELECT COUNT(*) FROM rated_items WHERE item_id = @itemID AND rater_UID = @userID";
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+            command.Parameters.AddWithValue("@itemID", itemID);
+            command.Parameters.AddWithValue("@userID", userID);
+
+            int count = 0;
+
+            try
+            {
+                connection.Open();
+                count = Convert.ToInt32(command.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            if (count > 0)
+            {
+                // the user has already rated the item
+                return true;
+            }
+            else
+            {
+                // the user has not yet rated the item
+                return false;
             }
         }
 
