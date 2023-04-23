@@ -384,7 +384,7 @@ namespace SQL_Injection.Windowss
                 connection.Open();
                 // Execute query
                 //string query = "SELECT u.uid, u.username FROM user u WHERE u.uid NOT IN (SELECT i.id FROM Items i JOIN rated_items r ON i.id = r.item_id GROUP BY i.id HAVING COUNT(*) >= 3 AND MAX(r.rate) = 'Excellent');";
-                string query = "SELECT u.uid, u.username FROM user u WHERE u.uid NOT IN (SELECT ri.uid FROM rated_items ri INNER JOIN (SELECT item_id, COUNT(*) AS excellent_count FROM rated_items WHERE rate = 'excellent' GROUP BY item_id HAVING COUNT(*) >= 3) AS e ON e.item_id = ri.item_id WHERE ri.rate = 'excellent' GROUP BY ri.uid) AND u.uid IN (SELECT DISTINCT uid FROM rated_items WHERE item_id IN (SELECT id FROM Items));";
+                string query = "SELECT u.uid, u.username FROM user u WHERE u.uid NOT IN (SELECT ri.uid FROM rated_items ri INNER JOIN (SELECT item_id, COUNT() AS excellent_count FROM rated_items WHERE rate = 'excellent' GROUP BY item_id HAVING COUNT() >= 3) AS e ON e.item_id = ri.item_id WHERE ri.rate = 'excellent' GROUP BY ri.uid) AND EXISTS (SELECT 1 FROM items i WHERE i.uid = u.uid);";
                 //this query shows all the users who never post an item that has 3 or more 'excellent' rating
                 //who have not given a rating before
 
