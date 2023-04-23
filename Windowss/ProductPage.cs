@@ -377,7 +377,6 @@ namespace SQL_Injection.Windowss
             string connectionString = "Server=127.0.0.1;Database=project_phase_1_db;Uid=root;Pwd=123;";
             MySqlConnection connection = new MySqlConnection(connectionString);
 
-            //---------------------------------------------getting all the items that were posted by the user that got a rating of "excellent or good"-----------------//
             try
             {
                 connection.Open();
