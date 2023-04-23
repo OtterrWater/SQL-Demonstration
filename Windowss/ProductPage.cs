@@ -371,10 +371,9 @@ namespace SQL_Injection.Windowss
                 Console.WriteLine("Failed to load data: {0}", ex.Message);
             }
         }
-
+        //feature 6
         private void Feature6_Click(object sender, EventArgs e)
         {
-            //calling variables that will be used
             string connectionString = "Server=127.0.0.1;Database=project_phase_1_db;Uid=root;Pwd=123;";
             MySqlConnection connection = new MySqlConnection(connectionString);
 
@@ -384,7 +383,7 @@ namespace SQL_Injection.Windowss
                 connection.Open();
                 // Execute query
                 //string query = "SELECT u.uid, u.username FROM user u WHERE u.uid NOT IN (SELECT i.id FROM Items i JOIN rated_items r ON i.id = r.item_id GROUP BY i.id HAVING COUNT(*) >= 3 AND MAX(r.rate) = 'Excellent');";
-                string query = "SELECT u.uid, u.username FROM user u WHERE u.uid NOT IN (SELECT ri.uid FROM rated_items ri INNER JOIN (SELECT item_id, COUNT(*) AS excellent_count FROM rated_items WHERE rate = 'excellent' GROUP BY item_id HAVING COUNT(*) >= 3) AS e ON e.item_id = ri.item_id WHERE ri.rate = 'excellent' GROUP BY ri.uid) AND u.uid IN (SELECT DISTINCT uid FROM rated_items WHERE item_id IN (SELECT id FROM Items));";
+                string query = "SELECT u.uid, u.username FROM user u WHERE u.uid NOT IN (SELECT ri.uid FROM rated_items ri INNER JOIN (SELECT item_id, COUNT() AS excellent_count FROM rated_items WHERE rate = 'excellent' GROUP BY item_id HAVING COUNT() >= 3) AS e ON e.item_id = ri.item_id WHERE ri.rate = 'excellent' GROUP BY ri.uid) AND EXISTS (SELECT 1 FROM items i WHERE i.uid = u.uid);";
                 //this query shows all the users who never post an item that has 3 or more 'excellent' rating
                 //who have not given a rating before
 
@@ -521,7 +520,7 @@ namespace SQL_Injection.Windowss
                 Console.WriteLine("Failed to load data: {0}", ex.Message);
             }
         }
-
+        //feature 4
         private void Feature4_Click(object sender, EventArgs e)
         {
             //calling variables that will be used
@@ -533,7 +532,7 @@ namespace SQL_Injection.Windowss
             {
                 connection.Open();
                 // Execute query
-                string query = "SELECT u.uid, u.username FROM user u JOIN items i ON u.uid = i.uid WHERE i.post_date >= '2020-05-01';";
+                string query = "SELECT u.uid, u.username, COUNT(i.uid) AS num_items FROM user u JOIN items i ON u.uid = i.uid WHERE i.post_date >= '2020-05-01' GROUP BY u.uid, u.username HAVING COUNT(i.uid) = (SELECT COUNT(uid) FROM items WHERE post_date >= '2020-05-01' GROUP BY uid ORDER BY COUNT(uid) DESC LIMIT 1) ORDER BY num_items DESC;";
                 //string query = "SELECT u.uid, u.username FROM user u JOIN items i ON u.uid = i.uid;";
                 //this query shows all the users who never post an item that has 3 or more 'excellent' rating
                 //who have not given a rating before
@@ -594,10 +593,11 @@ namespace SQL_Injection.Windowss
             {
                 //if were unable to laod the data then we come here
                 Console.WriteLine("Failed to load data: {0}", ex.Message);
+
             }
         }
-        //feature 8
-        private void EachReviewPoor_Click(object sender, EventArgs e)
+            //feature 8
+            private void EachReviewPoor_Click(object sender, EventArgs e)
         {
             //calling variables that will be used
             string connectionString = "Server=127.0.0.1;Database=project_phase_1_db;Uid=root;Pwd=123;";
