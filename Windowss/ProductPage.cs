@@ -533,7 +533,7 @@ namespace SQL_Injection.Windowss
             {
                 connection.Open();
                 // Execute query
-                string query = "SELECT u.uid, u.username FROM user u JOIN items i ON u.uid = i.uid WHERE i.post_date >= '2020-05-01';";
+                string query = "SELECT u.uid, u.username, COUNT(i.uid) AS num_items FROM user u JOIN items i ON u.uid = i.uid WHERE i.post_date >= '2020-05-01' GROUP BY u.uid, u.username HAVING COUNT(i.uid) = (SELECT COUNT(uid) FROM items WHERE post_date >= '2020-05-01' GROUP BY uid ORDER BY COUNT(uid) DESC LIMIT 1) ORDER BY num_items DESC;";
                 //string query = "SELECT u.uid, u.username FROM user u JOIN items i ON u.uid = i.uid;";
                 //this query shows all the users who never post an item that has 3 or more 'excellent' rating
                 //who have not given a rating before
