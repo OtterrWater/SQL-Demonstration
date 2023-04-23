@@ -596,5 +596,42 @@ namespace SQL_Injection.Windowss
                 Console.WriteLine("Failed to load data: {0}", ex.Message);
             }
         }
+        //feature 8
+        private void EachReviewPoor_Click(object sender, EventArgs e)
+        {
+            //calling variables that will be used
+            string connectionString = "Server=127.0.0.1;Database=project_phase_1_db;Uid=root;Pwd=123;";
+            MySqlConnection connection = new MySqlConnection(connectionString);
+
+            //---------------------------------------------getting all the items that were posted by the user that got a rating of "excellent or good"-----------------//
+            try
+            {
+                connection.Open();
+                // Execute query
+                string query = "SELECT u.username, ri.rater_UID AS uid\r\nFROM rated_items ri\r\nINNER JOIN user u ON u.uid = ri.rater_UID\r\nGROUP BY u.username, uid\r\nHAVING COUNT(CASE WHEN rate = 'poor' THEN 1 END) = COUNT(*)\r\n  AND COUNT(*) > 0;\r\n";
+               
+                MySqlCommand command = new MySqlCommand(query, connection);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+
+                // Create a DataTable to store the data
+                DataTable dataTable = new DataTable();
+
+                // Fill the DataTable with the data from the MySqlDataAdapter
+                adapter.Fill(dataTable);
+
+                // Bind the DataTable to the DataGridView
+                product_db.DataSource = dataTable;
+
+                // Close connection
+                connection.Close();
+                //send message to console
+                Console.WriteLine("Successfully retrieved the list of users who have never posted a poor review");
+            }
+            catch (Exception ex)
+            {
+                //if were unable to laod the data then we come here
+                Console.WriteLine("Failed to load data: {0}", ex.Message);
+            }
+        }
     }
 }
