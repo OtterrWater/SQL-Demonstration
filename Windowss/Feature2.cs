@@ -40,12 +40,11 @@ namespace SQL_Injection_Phase1_440.Windowss
                 //we first check the input is null if it is then we send the user a message letting them know that they didnt put anything
                 if (string.IsNullOrEmpty(cat1) || string.IsNullOrEmpty(cat2))
                 {
-                    MessageBox.Show("Please input Username and Password");
+                    MessageBox.Show("Please input both categories");
                 }
-
                 string connectionString = "Server=127.0.0.1;Database=project_phase_1_db;Uid=root;Pwd=123;";
                 MySqlConnection connection = new MySqlConnection(connectionString);
-                string query = "";
+                string query = "SELECT DISTINCT u.uid, u.username FROM user u INNER JOIN(SELECT i1.uid, i1.post_date, i1.category FROM items i1 INNER JOIN items i2 ON i1.uid = i2.uid AND i1.post_date = i2.post_date WHERE i1.category = @cat1 AND i2.category = @cat2) AS c ON u.uid = c.uid";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 connection.Open();
 
