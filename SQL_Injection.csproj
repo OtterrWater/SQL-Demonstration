@@ -85,6 +85,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Windowss\Feature2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windowss\Feature2.Designer.cs">
+      <DependentUpon>Feature2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windowss\RatePage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Windowss\Feature2.resx">
+      <DependentUpon>Feature2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Windowss\RatePage.resx">
       <DependentUpon>RatePage.cs</DependentUpon>
     </EmbeddedResource>

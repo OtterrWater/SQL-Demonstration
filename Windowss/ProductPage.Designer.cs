@@ -54,6 +54,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.Feature2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.product_db)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Rated_Items)).BeginInit();
@@ -336,11 +337,24 @@
             this.label10.TabIndex = 28;
             this.label10.Text = "Feature 10";
             // 
+            // Feature2
+            // 
+            this.Feature2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Feature2.Location = new System.Drawing.Point(1217, 137);
+            this.Feature2.Margin = new System.Windows.Forms.Padding(2);
+            this.Feature2.Name = "Feature2";
+            this.Feature2.Size = new System.Drawing.Size(114, 29);
+            this.Feature2.TabIndex = 29;
+            this.Feature2.Text = "Feature2";
+            this.Feature2.UseVisualStyleBackColor = true;
+            this.Feature2.Click += new System.EventHandler(this.Feature2_Click);
+            // 
             // ProductPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1387, 820);
+            this.Controls.Add(this.Feature2);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -408,5 +422,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button Feature2;
     }
 }

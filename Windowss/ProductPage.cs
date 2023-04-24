@@ -674,5 +674,14 @@ namespace SQL_Injection.Windowss
                 Console.WriteLine("Failed to load data: {0}", ex.Message);
             }
         }
+
+        private void Feature2_Click(object sender, EventArgs e)
+        {
+            // Show the rating window form'
+            Feature2 f2 = new Feature2();
+            f2.Show();
+            //resets the product page to updates the databases
+            this.Close();
+        }
     }
 }
