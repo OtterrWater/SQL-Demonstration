@@ -55,10 +55,6 @@ namespace SQL_Injection.Windowss
             
         }
 
-        private void dataGridViewResults_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
         // Declare a variable to remember the previously selected item ID
         int prevSelectedItemID = -1;
         private void dataGridViewResults_SelectionChanged(object sender, EventArgs e)
@@ -173,11 +169,6 @@ namespace SQL_Injection.Windowss
         {
             //prevents an empty row from being generated
             dataGridViewResults.AllowUserToAddRows = false;
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

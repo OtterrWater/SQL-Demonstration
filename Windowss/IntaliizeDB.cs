@@ -14,11 +14,6 @@ namespace SQL_Injection
             conSuccess.Visible = false;
             conError.Visible = false;
         }
-
-        private void IntaliizeDB_Load(object sender, EventArgs e)
-        {
-
-        }
         private void Button1_Click(object sender, EventArgs e)
         {
             //this will keep our connection info
@@ -158,21 +153,6 @@ namespace SQL_Injection
                 Login l = new Login();
                 l.Show();
             }
-        }
-
-        private void Label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ConSuccess_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -26,10 +26,7 @@ namespace SQL_Injection
         {
             InitializeComponent();
         }
-        private void Login_Load(object sender, EventArgs e)
-        {
 
-        }
         //this is the enter button for the login page
         private void Button1_Click(object sender, EventArgs e)
         {
@@ -114,16 +111,6 @@ namespace SQL_Injection
                     connection.Close();
                 }
             }
-
-        }
-
-        private void TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TxtPassword_TextChanged(object sender, EventArgs e)
-        {
 
         }
 

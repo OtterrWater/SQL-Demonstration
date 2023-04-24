@@ -54,7 +54,6 @@
             this.dataGridViewResults.RowHeadersWidth = 102;
             this.dataGridViewResults.Size = new System.Drawing.Size(625, 253);
             this.dataGridViewResults.TabIndex = 2;
-            this.dataGridViewResults.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewResults_CellContentClick);
             this.dataGridViewResults.SelectionChanged += new System.EventHandler(this.dataGridViewResults_SelectionChanged);
             // 
             // Done
@@ -87,7 +86,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(693, 370);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label1
             // 

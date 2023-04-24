@@ -69,7 +69,6 @@
             this.product_db.RowTemplate.Height = 33;
             this.product_db.Size = new System.Drawing.Size(680, 229);
             this.product_db.TabIndex = 1;
-            this.product_db.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.product_db_CellContentClick);
             this.product_db.SelectionChanged += new System.EventHandler(this.product_db_SelectionChanged);
             // 
             // button1
@@ -116,7 +115,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(1165, 651);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // ProductsPage
             // 

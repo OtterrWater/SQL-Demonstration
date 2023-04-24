@@ -208,15 +208,6 @@ namespace SQL_Injection.Windowss
             }
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void product_db_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
         //this button will sort the datagridview to only show the categories and the items with the highes price for each category
         private void button4_Click(object sender, EventArgs e)
         {
