@@ -62,7 +62,6 @@
             this.conError.Size = new System.Drawing.Size(171, 25);
             this.conError.TabIndex = 1;
             this.conError.Text = "Error to connect!";
-            this.conError.Click += new System.EventHandler(this.Label1_Click);
             // 
             // conSuccess
             // 
@@ -76,7 +75,6 @@
             this.conSuccess.Size = new System.Drawing.Size(100, 25);
             this.conSuccess.TabIndex = 2;
             this.conSuccess.Text = "Success!";
-            this.conSuccess.Click += new System.EventHandler(this.ConSuccess_Click);
             // 
             // pictureBox1
             // 
@@ -87,7 +85,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(360, 248);
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBox2
             // 
@@ -124,7 +121,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "IntaliizeDB";
             this.Text = "Connection to MySQL";
-            this.Load += new System.EventHandler(this.IntaliizeDB_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);

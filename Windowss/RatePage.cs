@@ -195,10 +195,5 @@ namespace SQL_Injection_Phase1_440.Windowss
             l.Show();
             this.Close();
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

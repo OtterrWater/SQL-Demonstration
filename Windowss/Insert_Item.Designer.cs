@@ -145,7 +145,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(358, 341);
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Product
             // 
@@ -255,7 +254,6 @@
             this.Name = "Insert_Item";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Insert Item";
-            this.Load += new System.EventHandler(this.Insert_Item_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

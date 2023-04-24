@@ -180,15 +180,5 @@ namespace SQL_Injection.Windowss
             l.Show();
             this.Close();
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Insert_Item_Load(object sender, EventArgs e)
-        {
-          
-        }
     }
 }

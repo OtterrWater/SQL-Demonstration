@@ -79,7 +79,6 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(328, 29);
             this.txtUsername.TabIndex = 1;
-            this.txtUsername.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // txtPassword
             // 
@@ -89,7 +88,6 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(328, 29);
             this.txtPassword.TabIndex = 2;
-            this.txtPassword.TextChanged += new System.EventHandler(this.TxtPassword_TextChanged);
             // 
             // EnterBT
             // 
@@ -151,7 +149,6 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Log in";
-            this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
