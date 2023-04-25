@@ -82,11 +82,6 @@ namespace SQL_Injection_Phase1_440.Windowss
 
         }
 
-        private void c1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void Back_Click(object sender, EventArgs e)
         {
             ProductPage pd = new ProductPage();

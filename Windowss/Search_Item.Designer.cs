@@ -41,7 +41,7 @@
             // InputText
             // 
             this.InputText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InputText.Location = new System.Drawing.Point(288, 72);
+            this.InputText.Location = new System.Drawing.Point(243, 73);
             this.InputText.Name = "InputText";
             this.InputText.Size = new System.Drawing.Size(163, 29);
             this.InputText.TabIndex = 0;
@@ -49,7 +49,7 @@
             // dataGridViewResults
             // 
             this.dataGridViewResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewResults.Location = new System.Drawing.Point(92, 112);
+            this.dataGridViewResults.Location = new System.Drawing.Point(47, 113);
             this.dataGridViewResults.Name = "dataGridViewResults";
             this.dataGridViewResults.RowHeadersWidth = 102;
             this.dataGridViewResults.Size = new System.Drawing.Size(625, 253);
@@ -59,7 +59,7 @@
             // Done
             // 
             this.Done.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Done.Location = new System.Drawing.Point(600, 377);
+            this.Done.Location = new System.Drawing.Point(555, 378);
             this.Done.Name = "Done";
             this.Done.Size = new System.Drawing.Size(116, 28);
             this.Done.TabIndex = 2;
@@ -70,7 +70,7 @@
             // SearchButton
             // 
             this.SearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchButton.Location = new System.Drawing.Point(453, 71);
+            this.SearchButton.Location = new System.Drawing.Point(408, 72);
             this.SearchButton.Name = "SearchButton";
             this.SearchButton.Size = new System.Drawing.Size(99, 28);
             this.SearchButton.TabIndex = 1;
@@ -81,7 +81,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.BurlyWood;
-            this.pictureBox1.Location = new System.Drawing.Point(57, 57);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 58);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(693, 370);
             this.pictureBox1.TabIndex = 5;
@@ -91,7 +91,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(297, 9);
+            this.label1.Location = new System.Drawing.Point(252, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(178, 32);
             this.label1.TabIndex = 6;
@@ -101,7 +101,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(814, 440);
+            this.ClientSize = new System.Drawing.Size(716, 440);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.Done);
