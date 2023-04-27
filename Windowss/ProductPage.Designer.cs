@@ -45,8 +45,8 @@
             this.Feature4 = new System.Windows.Forms.Button();
             this.EachReviewPoor = new System.Windows.Forms.Button();
             this.Feature2 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.feature5 = new System.Windows.Forms.Button();
+            this.feature10 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.product_db)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Rated_Items)).BeginInit();
@@ -113,7 +113,7 @@
             // 
             this.ProductsPage.AutoSize = true;
             this.ProductsPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProductsPage.Location = new System.Drawing.Point(370, 9);
+            this.ProductsPage.Location = new System.Drawing.Point(369, 6);
             this.ProductsPage.Name = "ProductsPage";
             this.ProductsPage.Size = new System.Drawing.Size(134, 32);
             this.ProductsPage.TabIndex = 6;
@@ -143,7 +143,7 @@
             this.RatedProducts.AutoSize = true;
             this.RatedProducts.BackColor = System.Drawing.Color.BurlyWood;
             this.RatedProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RatedProducts.Location = new System.Drawing.Point(21, 413);
+            this.RatedProducts.Location = new System.Drawing.Point(21, 414);
             this.RatedProducts.Name = "RatedProducts";
             this.RatedProducts.Size = new System.Drawing.Size(120, 20);
             this.RatedProducts.TabIndex = 9;
@@ -152,10 +152,10 @@
             // Sort
             // 
             this.Sort.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Sort.Location = new System.Drawing.Point(55, 58);
+            this.Sort.Location = new System.Drawing.Point(25, 40);
             this.Sort.Margin = new System.Windows.Forms.Padding(2);
             this.Sort.Name = "Sort";
-            this.Sort.Size = new System.Drawing.Size(147, 41);
+            this.Sort.Size = new System.Drawing.Size(160, 50);
             this.Sort.TabIndex = 10;
             this.Sort.Text = "Sort";
             this.Sort.UseVisualStyleBackColor = true;
@@ -164,10 +164,10 @@
             // ListUserItems
             // 
             this.ListUserItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ListUserItems.Location = new System.Drawing.Point(357, 58);
+            this.ListUserItems.Location = new System.Drawing.Point(357, 40);
             this.ListUserItems.Margin = new System.Windows.Forms.Padding(2);
             this.ListUserItems.Name = "ListUserItems";
-            this.ListUserItems.Size = new System.Drawing.Size(147, 41);
+            this.ListUserItems.Size = new System.Drawing.Size(160, 50);
             this.ListUserItems.TabIndex = 11;
             this.ListUserItems.Text = "List User Items";
             this.ListUserItems.UseVisualStyleBackColor = true;
@@ -176,10 +176,10 @@
             // ListReviews
             // 
             this.ListReviews.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ListReviews.Location = new System.Drawing.Point(205, 104);
+            this.ListReviews.Location = new System.Drawing.Point(191, 94);
             this.ListReviews.Margin = new System.Windows.Forms.Padding(2);
             this.ListReviews.Name = "ListReviews";
-            this.ListReviews.Size = new System.Drawing.Size(147, 41);
+            this.ListReviews.Size = new System.Drawing.Size(160, 50);
             this.ListReviews.TabIndex = 12;
             this.ListReviews.Text = "List Reviews";
             this.ListReviews.UseVisualStyleBackColor = true;
@@ -188,10 +188,10 @@
             // Feature6
             // 
             this.Feature6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Feature6.Location = new System.Drawing.Point(54, 104);
+            this.Feature6.Location = new System.Drawing.Point(25, 94);
             this.Feature6.Margin = new System.Windows.Forms.Padding(2);
             this.Feature6.Name = "Feature6";
-            this.Feature6.Size = new System.Drawing.Size(147, 41);
+            this.Feature6.Size = new System.Drawing.Size(160, 50);
             this.Feature6.TabIndex = 13;
             this.Feature6.Text = "No Excellent Reviews";
             this.Feature6.UseVisualStyleBackColor = true;
@@ -200,10 +200,10 @@
             // Feature9
             // 
             this.Feature9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Feature9.Location = new System.Drawing.Point(509, 104);
+            this.Feature9.Location = new System.Drawing.Point(519, 94);
             this.Feature9.Margin = new System.Windows.Forms.Padding(2);
             this.Feature9.Name = "Feature9";
-            this.Feature9.Size = new System.Drawing.Size(147, 41);
+            this.Feature9.Size = new System.Drawing.Size(160, 50);
             this.Feature9.TabIndex = 15;
             this.Feature9.Text = "No Poor Reviews";
             this.Feature9.UseVisualStyleBackColor = true;
@@ -212,10 +212,10 @@
             // Feature4
             // 
             this.Feature4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Feature4.Location = new System.Drawing.Point(509, 58);
+            this.Feature4.Location = new System.Drawing.Point(519, 40);
             this.Feature4.Margin = new System.Windows.Forms.Padding(2);
             this.Feature4.Name = "Feature4";
-            this.Feature4.Size = new System.Drawing.Size(147, 41);
+            this.Feature4.Size = new System.Drawing.Size(160, 50);
             this.Feature4.TabIndex = 16;
             this.Feature4.Text = "Most Items";
             this.Feature4.UseVisualStyleBackColor = true;
@@ -224,10 +224,10 @@
             // EachReviewPoor
             // 
             this.EachReviewPoor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EachReviewPoor.Location = new System.Drawing.Point(357, 103);
+            this.EachReviewPoor.Location = new System.Drawing.Point(355, 94);
             this.EachReviewPoor.Margin = new System.Windows.Forms.Padding(2);
             this.EachReviewPoor.Name = "EachReviewPoor";
-            this.EachReviewPoor.Size = new System.Drawing.Size(147, 41);
+            this.EachReviewPoor.Size = new System.Drawing.Size(160, 50);
             this.EachReviewPoor.TabIndex = 17;
             this.EachReviewPoor.Text = "Each Review Poor";
             this.EachReviewPoor.UseVisualStyleBackColor = true;
@@ -236,44 +236,46 @@
             // Feature2
             // 
             this.Feature2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Feature2.Location = new System.Drawing.Point(206, 58);
+            this.Feature2.Location = new System.Drawing.Point(193, 40);
             this.Feature2.Margin = new System.Windows.Forms.Padding(2);
             this.Feature2.Name = "Feature2";
-            this.Feature2.Size = new System.Drawing.Size(147, 41);
+            this.Feature2.Size = new System.Drawing.Size(160, 50);
             this.Feature2.TabIndex = 29;
             this.Feature2.Text = "Feature2";
             this.Feature2.UseVisualStyleBackColor = true;
             this.Feature2.Click += new System.EventHandler(this.Feature2_Click);
             // 
-            // button4
+            // feature5
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(660, 58);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(147, 41);
-            this.button4.TabIndex = 30;
-            this.button4.Text = "Feature 5";
-            this.button4.UseVisualStyleBackColor = true;
+            this.feature5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.feature5.Location = new System.Drawing.Point(683, 40);
+            this.feature5.Margin = new System.Windows.Forms.Padding(2);
+            this.feature5.Name = "feature5";
+            this.feature5.Size = new System.Drawing.Size(160, 50);
+            this.feature5.TabIndex = 30;
+            this.feature5.Text = "Feature 5";
+            this.feature5.UseVisualStyleBackColor = true;
+            this.feature5.Click += new System.EventHandler(this.feature5_Click);
             // 
-            // button5
+            // feature10
             // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(660, 103);
-            this.button5.Margin = new System.Windows.Forms.Padding(2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(147, 41);
-            this.button5.TabIndex = 31;
-            this.button5.Text = "Feature 10";
-            this.button5.UseVisualStyleBackColor = true;
+            this.feature10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.feature10.Location = new System.Drawing.Point(683, 94);
+            this.feature10.Margin = new System.Windows.Forms.Padding(2);
+            this.feature10.Name = "feature10";
+            this.feature10.Size = new System.Drawing.Size(160, 50);
+            this.feature10.TabIndex = 31;
+            this.feature10.Text = "User Pair Excellent Reviews";
+            this.feature10.UseVisualStyleBackColor = true;
+            this.feature10.Click += new System.EventHandler(this.feature10_Click);
             // 
             // ProductPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(868, 760);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.feature10);
+            this.Controls.Add(this.feature5);
             this.Controls.Add(this.Feature2);
             this.Controls.Add(this.EachReviewPoor);
             this.Controls.Add(this.Feature4);
@@ -323,7 +325,7 @@
         private System.Windows.Forms.Button Feature4;
         private System.Windows.Forms.Button EachReviewPoor;
         private System.Windows.Forms.Button Feature2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button feature5;
+        private System.Windows.Forms.Button feature10;
     }
 }
