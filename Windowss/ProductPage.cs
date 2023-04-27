@@ -683,5 +683,74 @@ namespace SQL_Injection.Windowss
             //resets the product page to updates the databases
             this.Close();
         }
+
+        private void feature5_Click(object sender, EventArgs e)
+        {
+            string connectionString = "Server=127.0.0.1;Database=project_phase_1_db;Uid=root;Pwd=123;";
+            MySqlConnection connection = new MySqlConnection(connectionString);
+
+            try
+            {
+                connection.Open();
+
+                //NOT COMPLETED YET
+                string query = "SELECT * FROM items WHERE review='excellent';";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+
+                // Create a DataTable to store the data
+                DataTable dataTable = new DataTable();
+
+                // Fill the DataTable with the data from the MySqlDataAdapter
+                adapter.Fill(dataTable);
+
+                // Bind the DataTable to the DataGridView
+                product_db.DataSource = dataTable;
+
+                // Close connection
+                connection.Close();
+                //send message to console
+                Console.WriteLine("Successfully retrieved the list of users who have never posted a poor review");
+            }
+            catch (Exception ex)
+            {
+                //if were unable to laod the data then we come here
+                Console.WriteLine("Failed to load data: {0}", ex.Message);
+            }
+        }
+
+        private void feature10_Click(object sender, EventArgs e)
+        {
+            string connectionString = "Server=127.0.0.1;Database=project_phase_1_db;Uid=root;Pwd=123;";
+            MySqlConnection connection = new MySqlConnection(connectionString);
+
+            try
+            {
+                connection.Open();
+                
+                string query = "SELECT A.UID, B.UID\r\nFROM rated_items AS A\r\nINNER JOIN rated_items AS B\r\nON A.item_id = B.item_id AND A.UID <> B.UID\r\nWHERE A.rate = 'excellent' AND B.rate = 'excellent'\r\nGROUP BY A.UID, B.UID;";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+
+                // Create a DataTable to store the data
+                DataTable dataTable = new DataTable();
+
+                // Fill the DataTable with the data from the MySqlDataAdapter
+                adapter.Fill(dataTable);
+
+                // Bind the DataTable to the DataGridView
+                product_db.DataSource = dataTable;
+
+                // Close connection
+                connection.Close();
+                //send message to console
+                Console.WriteLine("Successfully retrieved the list of users who have never posted a poor review");
+            }
+            catch (Exception ex)
+            {
+                //if were unable to laod the data then we come here
+                Console.WriteLine("Failed to load data: {0}", ex.Message);
+            }
+        }
     }
 }
