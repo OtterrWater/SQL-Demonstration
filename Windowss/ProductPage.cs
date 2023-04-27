@@ -728,7 +728,7 @@ namespace SQL_Injection.Windowss
             {
                 connection.Open();
                 
-                string query = "SELECT A.UID, B.UID\r\nFROM rated_items AS A\r\nINNER JOIN rated_items AS B\r\nON A.item_id = B.item_id AND A.UID <> B.UID\r\nWHERE A.rate = 'excellent' AND B.rate = 'excellent'\r\nGROUP BY A.UID, B.UID;";
+                string query = "SELECT A.UID, B.UID\r\nFROM rated_items AS A\r\nINNER JOIN rated_items AS B\r\nWHERE A.rate = 'excellent' AND B.rate = 'excellent'\r\nGROUP BY A.UID, B.UID\r\nLIMIT 1;";
                 MySqlCommand command = new MySqlCommand(query, connection);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
 
