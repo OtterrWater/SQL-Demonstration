@@ -23,6 +23,7 @@ namespace SQL_Injection
             string tableName4 = "rates";
             string tableName5 = "rated_items";
             string tableName7 = "UIDstorage";
+            string tableName8 = "Favored_Users";
             //these strings will hold our queries
             string dropTableQuery = $"DROP TABLE IF EXISTS {tableName};";
             string createTableQuery = $"CREATE TABLE IF NOT EXISTS {tableName}" +
@@ -66,6 +67,11 @@ namespace SQL_Injection
             string dropTableQuery7 = $"DROP TABLE IF EXISTS {tableName7};";
             string createTableQuery7 = $"CREATE TABLE IF NOT EXISTS {tableName7}" +
                 $"(UID INT);";
+
+            string dropTableQuery8 = $"DROP TABLE IF EXISTS {tableName8};";
+            string createTableQuery8 = $"CREATE TABLE IF NOT EXISTS {tableName8}" +
+                $"(UID INT," +
+                $"favored_UID INT)";
             //so for the code above i dont think we need post_date tbh.. ill see tho
             MySqlConnection connection = new MySqlConnection(connectionString);
             MySqlCommand dropTableCommand = new MySqlCommand(dropTableQuery, connection);
@@ -78,6 +84,8 @@ namespace SQL_Injection
             MySqlCommand createTableCommand5 = new MySqlCommand(createTableQuery5, connection);
             MySqlCommand dropTableCommand7 = new MySqlCommand(dropTableQuery7, connection);
             MySqlCommand createTableCommand7 = new MySqlCommand(createTableQuery7, connection);
+            MySqlCommand dropTableCommand8 = new MySqlCommand(dropTableQuery8, connection);
+            MySqlCommand createTableCommand8 = new MySqlCommand(createTableQuery8, connection);
 
 
             MySqlCommand insertRates = new MySqlCommand(ratesQuery, connection);
@@ -117,12 +125,13 @@ namespace SQL_Injection
                 Console.WriteLine($"Table {tableName5} dropped succesfully!");
                 dropTableCommand7.ExecuteNonQuery();
                 Console.WriteLine($"Table {tableName7} dropped succesfully!");
-
+                dropTableCommand8.ExecuteNonQuery();
+                Console.WriteLine($"Table {tableName8} dropped succesfully!");
             }
             //if the table was not able to succesfully be dropped then we come here
             catch (Exception ex)
             {
-                Console.WriteLine($"Error dropping table {tableName} and {tableName2} and {tableName4} and {tableName5} and {tableName7}: {ex.Message}");
+                Console.WriteLine($"Error dropping table {tableName} and {tableName2} and {tableName4} and {tableName5} and {tableName7} and {tableName8}: {ex.Message}");
                 connection.Close(); 
             }
             //recreate the table
@@ -139,12 +148,14 @@ namespace SQL_Injection
                 createTableCommand5.ExecuteNonQuery();
                 //we call the create table command
                 createTableCommand7.ExecuteNonQuery();
-                Console.WriteLine($"Table {tableName} and {tableName2} and {tableName4} and {tableName5}  and {tableName7} recreated successfully!");
+                //we call the create table command
+                createTableCommand8.ExecuteNonQuery();
+                Console.WriteLine($"Table {tableName} and {tableName2} and {tableName4} and {tableName5}  and {tableName7} and {tableName8} recreated successfully!");
             }
             //if the table was not succesfully recreated then we come here
             catch (Exception ex)
             {
-                Console.WriteLine($"Error recreating table {tableName} and {tableName2} and {tableName4} and {tableName5} and {tableName7}: {ex.Message}");
+                Console.WriteLine($"Error recreating table {tableName} and {tableName2} and {tableName4} and {tableName5} and {tableName7} and {tableName8}: {ex.Message}");
                 connection.Close();
             }
             //we come here once were done with the rest 

@@ -253,7 +253,7 @@
             this.feature5.Name = "feature5";
             this.feature5.Size = new System.Drawing.Size(160, 50);
             this.feature5.TabIndex = 30;
-            this.feature5.Text = "Feature 5";
+            this.feature5.Text = "Favored Users";
             this.feature5.UseVisualStyleBackColor = true;
             this.feature5.Click += new System.EventHandler(this.feature5_Click);
             // 

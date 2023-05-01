@@ -686,6 +686,14 @@ namespace SQL_Injection.Windowss
 
         private void feature5_Click(object sender, EventArgs e)
         {
+            //CREATES DUMMY TABLE
+            /*
+             * GO INTO DUMMY TABLE favored_user IN WORKBENCH: INPUT
+
+            INSERT INTO favored_users VALUES (1,2)
+            -> (UID, favored_UID)
+            -> execute current statement
+             */
             string connectionString = "Server=127.0.0.1;Database=project_phase_1_db;Uid=root;Pwd=123;";
             MySqlConnection connection = new MySqlConnection(connectionString);
 
@@ -693,8 +701,7 @@ namespace SQL_Injection.Windowss
             {
                 connection.Open();
 
-                //NOT COMPLETED YET
-                string query = "SELECT * FROM items WHERE review='excellent';";
+                string query = "SELECT * FROM favored_users";
                 MySqlCommand command = new MySqlCommand(query, connection);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
 
