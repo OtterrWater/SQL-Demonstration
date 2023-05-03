@@ -209,6 +209,7 @@ namespace SQL_Injection.Windowss
         }
 
         //this button will sort the datagridview to only show the categories and the items with the highes price for each category
+        //feature 1
         private void button4_Click(object sender, EventArgs e)
         {
             try
@@ -241,58 +242,8 @@ namespace SQL_Injection.Windowss
                 Console.WriteLine("Failed to load data: {0}", ex.Message);
             }
 
-
-
-
-            /*
-            try
-            {
-                // Connect to database
-                string connectionString = "Server=127.0.0.1;Database=project_phase_1_db;Uid=root;Pwd=123;";
-                MySqlConnection connection = new MySqlConnection(connectionString);
-                connection.Open();
-
-                // Execute query
-                string getMaxPrice = "SELECT category, MAX(price) AS max_price FROM items GROUP BY category;";
-                MySqlCommand getMax = new MySqlCommand(getMaxPrice, connection);
-                MySqlDataReader reader = getMax.ExecuteReader();
-
-                // Create a DataTable to store the data
-                DataTable dataTable = new DataTable();
-
-                // Add columns to the DataTable
-                dataTable.Columns.Add("Category");
-                dataTable.Columns.Add("Max Price");
-
-                // Read the data from the MySqlDataReader and store it in the DataTable
-                while (reader.Read())
-                {
-                    // Create a new row for the DataTable
-                    DataRow dataRow = dataTable.NewRow();
-
-                    // Set the values for the columns
-                    dataRow["Category"] = reader.GetString("category");
-                    dataRow["Max Price"] = reader.GetDecimal("max_price");
-
-                    // Add the row to the DataTable
-                    dataTable.Rows.Add(dataRow);
-                }
-
-                // Bind the DataTable to the DataGridView
-                product_db.DataSource = dataTable;
-
-                // Close connection
-                connection.Close();
-                Console.WriteLine("Successfully retrieved max price for each category.");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Failed to load data: {0}", ex.Message);
-            }
-            */
-
         }
-
+        //feature 3
         private void ListUserItems_Click(object sender, EventArgs e)
         {
             //calling variables that will be used
@@ -425,44 +376,7 @@ namespace SQL_Injection.Windowss
                 // Execute query
                 //string query = "SELECT u.uid, u.username FROM user u WHERE u.uid NOT IN (SELECT i.id FROM Items i JOIN rated_items r ON i.id = r.item_id GROUP BY i.id HAVING COUNT(*) >= 3 AND MAX(r.rate) = 'Excellent');";
                 string query = "SELECT u.uid, u.username FROM user u WHERE u.uid NOT IN (SELECT ri.uid FROM rated_items ri INNER JOIN (SELECT item_id, COUNT() AS excellent_count FROM rated_items WHERE rate = 'excellent' GROUP BY item_id HAVING COUNT() >= 3) AS e ON e.item_id = ri.item_id WHERE ri.rate = 'excellent' GROUP BY ri.uid) AND EXISTS (SELECT 1 FROM items i WHERE i.uid = u.uid);";
-                //this query shows all the users who never post an item that has 3 or more 'excellent' rating
-                //who have not given a rating before
-
-                /*
-                 * SELECT DISTINCT u.uid, u.username
-                    FROM user u
-                    LEFT JOIN rated_items ri ON u.uid = ri.rater_UID
-                    WHERE ri.rater_UID IS NOT NULL
-                    AND (
-                        NOT EXISTS (
-                            SELECT 1
-                            SELECT 1
-                            SELECT 1
-                            SELECT 1
-                            SELECT 1
-                            SELECT 1
-                            SELECT 1
-                            SELECT 1
-                            SELECT 1
-                            SELECT 1
-                            FROM rated_items r
-                            WHERE r.rater_UID = u.uid AND r.rate = 'poor'
-                        )
-                    );
-
-                 */
-
-
-                //this query show all user who have never or have never posted a poor review
-                /*  SELECT DISTINCT u.uid, u.username
-                    FROM user u
-                    LEFT JOIN rated_items ri ON u.uid = ri.rater_UID
-                    WHERE NOT EXISTS (
-                    SELECT 1
-                    FROM rated_items r
-                    WHERE r.rater_UID = u.uid AND r.rate = 'poor'
-                    );
-                 */
+         
                 MySqlCommand command = new MySqlCommand(query, connection);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
 
@@ -486,7 +400,7 @@ namespace SQL_Injection.Windowss
                 Console.WriteLine("Failed to load data: {0}", ex.Message);
             }
         }
-
+        //feature 9
         private void Feature9_Click(object sender, EventArgs e)
         {
             //calling variables that will be used
@@ -500,44 +414,7 @@ namespace SQL_Injection.Windowss
                 // Execute query
                 //string query = "SELECT u.uid, u.username FROM user u WHERE u.uid NOT IN (SELECT i.id FROM Items i JOIN rated_items r ON i.id = r.item_id GROUP BY i.id HAVING COUNT(*) >= 3 AND MAX(r.rate) = 'Excellent');";
                 string query = "SELECT DISTINCT u.uid, u.username FROM user u JOIN Items i ON u.uid = i.uid LEFT JOIN rated_items ri ON i.id = ri.item_id AND ri.rate IN ('poor', NULL) WHERE ri.item_id IS NULL;";
-                //this query shows all the users who never post an item that has 3 or more 'excellent' rating
-                //who have not given a rating before
-
-                /*
-                 * SELECT DISTINCT u.uid, u.username
-                    FROM user u
-                    LEFT JOIN rated_items ri ON u.uid = ri.rater_UID
-                    WHERE ri.rater_UID IS NOT NULL
-                    AND (
-                        NOT EXISTS (
-                            SELECT 1
-                            SELECT 1
-                            SELECT 1
-                            SELECT 1
-                            SELECT 1
-                            SELECT 1
-                            SELECT 1
-                            SELECT 1
-                            SELECT 1
-                            SELECT 1
-                            FROM rated_items r
-                            WHERE r.rater_UID = u.uid AND r.rate = 'poor'
-                        )
-                    );
-
-                 */
-
-
-                //this query show all user who have never or have never posted a poor review
-                /*  SELECT DISTINCT u.uid, u.username
-                    FROM user u
-                    LEFT JOIN rated_items ri ON u.uid = ri.rater_UID
-                    WHERE NOT EXISTS (
-                    SELECT 1
-                    FROM rated_items r
-                    WHERE r.rater_UID = u.uid AND r.rate = 'poor'
-                    );
-                 */
+              
                 MySqlCommand command = new MySqlCommand(query, connection);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
 
@@ -574,45 +451,7 @@ namespace SQL_Injection.Windowss
                 connection.Open();
                 // Execute query
                 string query = "SELECT u.uid, u.username, COUNT(i.uid) AS num_items FROM user u JOIN items i ON u.uid = i.uid WHERE i.post_date >= '2020-05-01' GROUP BY u.uid, u.username HAVING COUNT(i.uid) = (SELECT COUNT(uid) FROM items WHERE post_date >= '2020-05-01' GROUP BY uid ORDER BY COUNT(uid) DESC LIMIT 1) ORDER BY num_items DESC;";
-                //string query = "SELECT u.uid, u.username FROM user u JOIN items i ON u.uid = i.uid;";
-                //this query shows all the users who never post an item that has 3 or more 'excellent' rating
-                //who have not given a rating before
-
-                /*
-                 * SELECT DISTINCT u.uid, u.username
-                    FROM user u
-                    LEFT JOIN rated_items ri ON u.uid = ri.rater_UID
-                    WHERE ri.rater_UID IS NOT NULL
-                    AND (
-                        NOT EXISTS (
-                            SELECT 1
-                            SELECT 1
-                            SELECT 1
-                            SELECT 1
-                            SELECT 1
-                            SELECT 1
-                            SELECT 1
-                            SELECT 1
-                            SELECT 1
-                            SELECT 1
-                            FROM rated_items r
-                            WHERE r.rater_UID = u.uid AND r.rate = 'poor'
-                        )
-                    );
-
-                 */
-
-
-                //this query show all user who have never or have never posted a poor review
-                /*  SELECT DISTINCT u.uid, u.username
-                    FROM user u
-                    LEFT JOIN rated_items ri ON u.uid = ri.rater_UID
-                    WHERE NOT EXISTS (
-                    SELECT 1
-                    FROM rated_items r
-                    WHERE r.rater_UID = u.uid AND r.rate = 'poor'
-                    );
-                 */
+               
                 MySqlCommand command = new MySqlCommand(query, connection);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
 
@@ -674,7 +513,7 @@ namespace SQL_Injection.Windowss
                 Console.WriteLine("Failed to load data: {0}", ex.Message);
             }
         }
-
+        //feature 2
         private void Feature2_Click(object sender, EventArgs e)
         {
             // Show the rating window form'
@@ -683,7 +522,7 @@ namespace SQL_Injection.Windowss
             //resets the product page to updates the databases
             this.Close();
         }
-
+        //feature 5
         private void feature5_Click(object sender, EventArgs e)
         {
             //CREATES DUMMY TABLE
@@ -725,7 +564,7 @@ namespace SQL_Injection.Windowss
                 Console.WriteLine("Failed to load data: {0}", ex.Message);
             }
         }
-
+        //feature 10
         private void feature10_Click(object sender, EventArgs e)
         {
             string connectionString = "Server=127.0.0.1;Database=project_phase_1_db;Uid=root;Pwd=123;";
