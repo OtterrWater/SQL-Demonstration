@@ -375,8 +375,10 @@ namespace SQL_Injection.Windowss
                 connection.Open();
                 // Execute query
                 //string query = "SELECT u.uid, u.username FROM user u WHERE u.uid NOT IN (SELECT i.id FROM Items i JOIN rated_items r ON i.id = r.item_id GROUP BY i.id HAVING COUNT(*) >= 3 AND MAX(r.rate) = 'Excellent');";
-                string query = "SELECT u.uid, u.username FROM user u WHERE u.uid NOT IN (SELECT ri.uid FROM rated_items ri INNER JOIN (SELECT item_id, COUNT() AS excellent_count FROM rated_items WHERE rate = 'excellent' GROUP BY item_id HAVING COUNT() >= 3) AS e ON e.item_id = ri.item_id WHERE ri.rate = 'excellent' GROUP BY ri.uid) AND EXISTS (SELECT 1 FROM items i WHERE i.uid = u.uid);";
-         
+                //string query = "SELECT u.uid, u.username FROM user u WHERE u.uid NOT IN (SELECT ri.uid FROM rated_items ri INNER JOIN (SELECT item_id, COUNT() AS excellent_count FROM rated_items WHERE rate = 'excellent' GROUP BY item_id HAVING COUNT() >= 3) AS e ON e.item_id = ri.item_id WHERE ri.rate = 'excellent' GROUP BY ri.uid) AND EXISTS (SELECT 1 FROM items i WHERE i.uid = u.uid);";
+                //string query = "SELECT u.uid, u.username FROM user u WHERE u.uid NOT IN (SELECT ri.uid FROM rated_items ri INNER JOIN (SELECT item_id, COUNT() AS excellent_count FROM rated_items WHERE rate = 'excellent' GROUP BY item_id HAVING COUNT() >= 3) AS e ON e.item_id = ri.item_id WHERE ri.rate = 'excellent' GROUP BY ri.uid) AND EXISTS (SELECT 1 FROM items i WHERE i.uid = u.uid);";
+                string query = "SELECT u.uid, u.username\r\nFROM user u\r\nWHERE u.uid NOT IN (\r\n    SELECT ri.uid\r\n    FROM rated_items ri\r\n    INNER JOIN (\r\n        SELECT item_id, COUNT(*) AS excellent_count\r\n        FROM rated_items\r\n        WHERE rate = 'excellent'\r\n        GROUP BY item_id\r\n        HAVING COUNT(*) >= 3\r\n    ) AS e ON e.item_id = ri.item_id\r\n    WHERE ri.rate = 'excellent'\r\n    GROUP BY ri.uid\r\n)\r\nAND EXISTS (\r\n    SELECT 1\r\n    FROM items i\r\n    WHERE i.uid = u.uid\r\n)\r\n";
+
                 MySqlCommand command = new MySqlCommand(query, connection);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
 
