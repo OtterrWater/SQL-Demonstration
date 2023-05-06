@@ -415,8 +415,8 @@ namespace SQL_Injection.Windowss
                 connection.Open();
                 // Execute query
                 //string query = "SELECT u.uid, u.username FROM user u WHERE u.uid NOT IN (SELECT i.id FROM Items i JOIN rated_items r ON i.id = r.item_id GROUP BY i.id HAVING COUNT(*) >= 3 AND MAX(r.rate) = 'Excellent');";
+//                string query = "SELECT DISTINCT u.uid, u.username FROM user u JOIN Items i ON u.uid = i.uid LEFT JOIN rated_items ri ON i.id = ri.item_id AND ri.rate IN ('poor', NULL) WHERE ri.item_id IS NULL;";
                 string query = "SELECT DISTINCT u.uid, u.username FROM user u JOIN Items i ON u.uid = i.uid LEFT JOIN rated_items ri ON i.id = ri.item_id AND ri.rate IN ('poor', NULL) WHERE ri.item_id IS NULL;";
-              
                 MySqlCommand command = new MySqlCommand(query, connection);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
 
