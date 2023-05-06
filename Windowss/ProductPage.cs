@@ -527,44 +527,9 @@ namespace SQL_Injection.Windowss
         //feature 5
         private void feature5_Click(object sender, EventArgs e)
         {
-            //CREATES DUMMY TABLE
-            /*
-             * GO INTO DUMMY TABLE favored_user IN WORKBENCH: INPUT
-
-            INSERT INTO favored_users VALUES (1,2)
-            -> (UID, favored_UID)
-            -> execute current statement
-             */
-            string connectionString = "Server=127.0.0.1;Database=project_phase_1_db;Uid=root;Pwd=123;";
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            try
-            {
-                connection.Open();
-
-                string query = "SELECT * FROM favored_users";
-                MySqlCommand command = new MySqlCommand(query, connection);
-                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-
-                // Create a DataTable to store the data
-                DataTable dataTable = new DataTable();
-
-                // Fill the DataTable with the data from the MySqlDataAdapter
-                adapter.Fill(dataTable);
-
-                // Bind the DataTable to the DataGridView
-                product_db.DataSource = dataTable;
-
-                // Close connection
-                connection.Close();
-                //send message to console
-                Console.WriteLine("Successfully retrieved the list of users who have never posted a poor review");
-            }
-            catch (Exception ex)
-            {
-                //if were unable to laod the data then we come here
-                Console.WriteLine("Failed to load data: {0}", ex.Message);
-            }
+            f5_userfav f = new f5_userfav();
+            f.Show();
+            this.Close();
         }
         //feature 10
         private void feature10_Click(object sender, EventArgs e)

@@ -202,3 +202,4 @@ C:\Users\Wakab\Documents\code\SQL-Injection\obj\Debug\SQL_Injection.csproj.CoreC
 C:\Users\Wakab\Documents\code\SQL-Injection\obj\Debug\SQL_Injection.csproj.CopyComplete
 C:\Users\Wakab\Documents\code\SQL-Injection\obj\Debug\SQL_Injection_Phase1_440.exe
 C:\Users\Wakab\Documents\code\SQL-Injection\obj\Debug\SQL_Injection_Phase1_440.pdb
+H:\Spring2023\Comp 440(database design)\SQL-Injection\obj\Debug\SQL_Injection_Phase1_440.Windowss.f5_userfav.resources

@@ -66,7 +66,7 @@ namespace SQL_Injection_Phase1_440.Windowss
                 adapter.Fill(dataTable);
 
                 // Bind the DataTable to the DataGridView
-                dataGridView1.DataSource = dataTable;
+                product_db.DataSource = dataTable;
 
 
 

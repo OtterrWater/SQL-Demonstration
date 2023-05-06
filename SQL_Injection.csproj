@@ -85,6 +85,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Windowss\f5_userfav.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windowss\f5_userfav.Designer.cs">
+      <DependentUpon>f5_userfav.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windowss\Feature2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +141,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Windowss\f5_userfav.resx">
+      <DependentUpon>f5_userfav.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Windowss\Feature2.resx">
       <DependentUpon>Feature2.cs</DependentUpon>
     </EmbeddedResource>

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.product_db = new System.Windows.Forms.DataGridView();
             this.c1 = new System.Windows.Forms.TextBox();
             this.c2 = new System.Windows.Forms.TextBox();
             this.Category1 = new System.Windows.Forms.Label();
@@ -37,17 +37,17 @@
             this.Back = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.product_db)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // product_db
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(42, 53);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(299, 293);
-            this.dataGridView1.TabIndex = 0;
+            this.product_db.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.product_db.Location = new System.Drawing.Point(42, 53);
+            this.product_db.Name = "product_db";
+            this.product_db.Size = new System.Drawing.Size(299, 293);
+            this.product_db.TabIndex = 0;
             // 
             // c1
             // 
@@ -138,12 +138,12 @@
             this.Controls.Add(this.Category1);
             this.Controls.Add(this.c2);
             this.Controls.Add(this.c1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.product_db);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Feature2";
             this.Text = "Feature 2";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.product_db)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -152,7 +152,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView product_db;
         private System.Windows.Forms.TextBox c1;
         private System.Windows.Forms.TextBox c2;
         private System.Windows.Forms.Label Category1;
